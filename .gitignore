@@ -1,0 +1,10 @@
+#modules
+*/node_modules/
+#
+.env
+#
+.prettierrc.json
+#
+.http
+#
+/server/dist

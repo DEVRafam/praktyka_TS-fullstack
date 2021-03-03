@@ -1,0 +1,9 @@
+const path = require("path");
+const { database } = require(path.join(__dirname, "src", "config", "config"));
+//
+module.exports = {
+    url: database.url,
+    "models-path": path.join(__dirname, "src", "sequelize", "models"),
+    "seeders-path": path.join(__dirname, "src", "sequelize", "seeders"),
+    "migrations-path": path.join(__dirname, "src", "sequelize", "migrations"),
+};
