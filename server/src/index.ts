@@ -17,11 +17,6 @@ app.use(helmet());
 import router from "./router/router_index";
 app.use("/api", router);
 //
-// GraphQL
-//
-import graphQLConfig from "./graphql/apollo";
-graphQLConfig(app);
-//
 app.listen(3000, () => {
     console.log(`⚡ App is running at port ${3000} `);
 });

@@ -1,3 +1,3 @@
-### Typescript and GraphQL fullstack application
+### Typescript && Express && Vue3 fullstack application
 
 to the moon 🚀🚀
