@@ -54,8 +54,14 @@ describe("User's register and further authorization tests", () => {
         //
         done();
     });
+    it("2. Refresh token should be added to the DB after successfully login", async (done) => {
+        const user = await User.findOne({ where: { id: userData.id } });
+        expect(JSON.parse(user.tokens)).toContain(userData.refreshToken);
+        //
+        done();
+    });
     //
-    it("2. Logged user should be able to access pages that require authorization", async (done) => {
+    it("3. Logged user should be able to access pages that require authorization", async (done) => {
         const headers = {
             Authorization: `Bearer ${userData.accessToken}`,
             Accept: "application/json",
@@ -66,26 +72,9 @@ describe("User's register and further authorization tests", () => {
         done();
     });
     //
-    it("3. Unlogged user shouldn't be allowed to entry restricted access pages", async (done) => {
+    it("4. Unlogged user shouldn't be allowed to entry restricted access pages", async (done) => {
         const { status } = await (global as any).request.get("/api/auth/authorization-test");
         expect(status).toEqual(401);
-        //
-        done();
-    });
-    //
-    it("4. Logged user should be able to logout", async (done) => {
-        const { refreshToken, id, accessToken } = userData;
-        const headers = {
-            Authorization: `Bearer ${accessToken}`,
-            Accept: "application/json",
-        };
-        const { status } = await (global as any).request.post("/api/auth/logout").set(headers).send({
-            refreshToken: refreshToken,
-        });
-        expect(status).toEqual(200);
-        //
-        const user = await User.findOne({ where: { id: id } });
-        expect(JSON.parse(user.tokens)).not.toContain(refreshToken);
         //
         done();
     });
@@ -103,7 +92,24 @@ describe("User's register and further authorization tests", () => {
         done();
     });
     //
-    it("5. Trying to refresh token via passing invalid ones should return code 400", async (done) => {
+    it("6. Logged user should be able to logout", async (done) => {
+        const { refreshToken, id, accessToken } = userData;
+        const headers = {
+            Authorization: `Bearer ${accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.post("/api/auth/logout").set(headers).send({
+            refreshToken: refreshToken,
+        });
+        expect(status).toEqual(200);
+        //
+        const user = await User.findOne({ where: { id: id } });
+        expect(JSON.parse(user.tokens)).not.toContain(refreshToken);
+        //
+        done();
+    });
+    //
+    it("7. Trying to refresh token via passing invalid ones should return code 400", async (done) => {
         const { status, body }: { body: RefreshResponse; status: any } = await (global as any).request.post("/api/auth/refresh-token").send({
             refreshToken: userData.refreshToken,
             accessToken:
@@ -112,6 +118,20 @@ describe("User's register and further authorization tests", () => {
         //
         expect(status).toEqual(400);
         expect(body.accessToken).toBeUndefined();
+        //
+        done();
+    });
+    //
+    it("8. Trying to refresh token via passing valid ones, but refresh token does not exist in the database should return code 400", async (done) => {
+        const { refreshToken, accessToken } = userData;
+        const headers = {
+            Authorization: `Bearer ${accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.post("/api/auth/logout").set(headers).send({
+            refreshToken: refreshToken,
+        });
+        expect(status).toEqual(400);
         //
         done();
     });

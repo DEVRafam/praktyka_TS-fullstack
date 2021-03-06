@@ -1,2 +1,6 @@
 import path from "path";
-export const User = require(path.join(__dirname, "..", "sequelize", "models", "User"));
+//
+const { User: u, Offer: o } = require(path.join(__dirname, "..", "sequelize", "models", "index"));
+//
+export const User = u;
+export const Offer = o;

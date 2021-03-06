@@ -12,6 +12,10 @@ const schema = {
     password: {
         type: DataTypes.STRING,
     },
+    role: {
+        type: DataTypes.ENUM(["USER", "ADMIN"]),
+        defaultValue: "USER",
+    },
     tokens: {
         type: DataTypes.TEXT,
         defaultValue: "[]",

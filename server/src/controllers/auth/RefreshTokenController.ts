@@ -51,7 +51,7 @@ class RefreshTokenController {
         // refresh token and user in database has different create date
         if (Number(new Date(createdAt)) !== Number(new Date(user.createdAt))) return true;
         // user from DB doens't cointains refresh token in his token field
-        if (JSON.parse(user.tokens).indexOf(refreshToken) >= 0) return false;
+        if (JSON.parse(user.tokens).indexOf(refreshToken) === -1) return true;
         //
         return false;
     }
@@ -78,29 +78,33 @@ class RefreshTokenController {
     // main function
     //
     async refresh(req: RefreshTokenBody, res: Response) {
-        // compare tokens
-        this.decoded = {
-            refreshToken: jwt.decode(req.body.refreshToken),
-            accessToken: jwt.decode(req.body.accessToken),
-        } as DecodedTokens;
-        //
-        if (this.tokensAreNotEqual() || (await this.tokensDontMatchUserInDB(req.body.refreshToken))) {
-            return res.sendStatus(400);
-        }
-        //
-        if (this.refreshTokenHasExpired(req.body.refreshToken)) {
-            await this.removeRefreshTokenFromDB(req.body.refreshToken);
-            return res.send({
-                status: "negative",
-                error: "refresh token has expired",
-            } as RefreshResponse);
-        }
-        //
-        else {
-            return res.send({
-                status: "positive",
-                accessToken: generateJWT(this.user, "ACCESS"),
-            } as RefreshResponse);
+        try {
+            // compare tokens
+            this.decoded = {
+                refreshToken: jwt.decode(req.body.refreshToken),
+                accessToken: jwt.decode(req.body.accessToken),
+            } as DecodedTokens;
+            //
+            if (this.tokensAreNotEqual() || (await this.tokensDontMatchUserInDB(req.body.refreshToken))) {
+                return res.sendStatus(400);
+            }
+            //
+            if (this.refreshTokenHasExpired(req.body.refreshToken)) {
+                await this.removeRefreshTokenFromDB(req.body.refreshToken);
+                return res.send({
+                    status: "negative",
+                    error: "refresh token has expired",
+                } as RefreshResponse);
+            }
+            //
+            else {
+                return res.send({
+                    status: "positive",
+                    accessToken: generateJWT(this.user, "ACCESS"),
+                } as RefreshResponse);
+            }
+        } catch (e: any) {
+            return res.sendStatus(500);
         }
     }
 }

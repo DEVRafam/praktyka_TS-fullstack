@@ -1,19 +1,9 @@
 const path = require("path");
-const bcrypt = require("bcrypt");
-module.exports = {
-    up: async () => {
-        const User = require(path.join(__dirname, "..", "models", "User"));
-        // hash password
-        const salt = await bcrypt.genSalt();
-        const password = await bcrypt.hash("qwertyjebacgorzen", salt);
-        //
-        await User.create({
-            name: "Kacper",
-            surname: "Ksiazek",
-            email: "jebac_gorzen@gmail.com",
-            password,
-        });
-    },
-
-    down: async () => {},
-};
+const fse = require("fs-extra");
+const generateSeeder = require(path.join(__dirname, "..", "helpers", "generateSeeder"));
+const { User } = require(path.join("..", "models", "index"));
+const data = fse.readJsonSync(path.join(__dirname, "data", "UsersData.json"));
+//
+//
+//
+module.exports = generateSeeder(User, data, { user: true });

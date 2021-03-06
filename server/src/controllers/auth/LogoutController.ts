@@ -11,7 +11,7 @@ class LogoutController {
             //
             const usersTokens = JSON.parse(userFromDB.tokens);
             const index = usersTokens.indexOf(refreshToken);
-            if (index === -1) return 400;
+            if (index === -1) return res.sendStatus(400);
             usersTokens.splice(index, 1);
             await userFromDB.update({ tokens: JSON.stringify(usersTokens) });
             //

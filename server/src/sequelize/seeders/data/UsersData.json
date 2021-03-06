@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Kacper",
+        "surname": "Ksiazek",
+        "email": "jebac_gorzen@gmail.com",
+        "password": "qwertyjebacgorzen",
+        "role": "ADMIN"
+    },
+    {
+        "name": "Tadeusz",
+        "surname": "Rydzyk",
+        "email": "tadziu_r@lp.pl",
+        "password": "zaq123"
+    },
+    {
+        "name": "Adam",
+        "surname": "Mickiewicz",
+        "email": "jslowackiego@lp.pl",
+        "password": "zaq123"
+    },
+    {
+        "name": "Juliusz",
+        "surname": "Słowacki",
+        "email": "jmickiewicza@lp.pl",
+        "password": "zaq123"
+    }
+]

@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Sprzedam książki profil technik informatyk",
+        "categories": ["Komedia"],
+        "description": "Jebac ten profil, oddam książki w dobre, naiwne rece za nie duże pieniądze.",
+        "price": 100,
+        "creator_id": 1,
+        "contact": {
+            "phone": "999 888 777"
+        },
+        "photos": [],
+        "localization": "Wadowice"
+    },
+    {
+        "title": "Sprzedam fiata seicento",
+        "categories": ["Motoryzacja"],
+        "description": "Sprzedam super auto w super cenie, prawie jak z salonu, rocznik 1999",
+        "price": 900,
+        "creator_id": 3,
+        "contact": {
+            "phone": "777 888 999"
+        },
+        "photos": [],
+        "localization": "Mucharz"
+    },
+    {
+        "title": "Usługi weterynarskie",
+        "categories": ["Usługi"],
+        "description": "Lekarz dentysta, lekarz stomatolog, pot. dentysta – osoba uprawniona do praktycznego stosowania wiedzy z zakresu stomatologii.",
+        "price": 2000,
+        "creator_id": 2,
+        "contact": {
+            "phone": "888 777 999"
+        },
+        "photos": [],
+        "localization": "Wadowice"
+    },
+    {
+        "title": "Czyszczenie kominów",
+        "categories": ["Usługi"],
+        "description": "Kominiarz − rzemieślnik zajmujący się czyszczeniem i sprawdzaniem stanu technicznego przewodów kominowych dymowych, spalinowych i wentylacyjnych.",
+        "price": 1000,
+        "creator_id": 2,
+        "contact": {
+            "phone": "888 777 999"
+        },
+        "photos": [],
+        "localization": "Kraków"
+    }
+]
