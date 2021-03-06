@@ -10,8 +10,14 @@ npm install
 npm run start
 ```
 
-### ⚡ Re-build database (migrations and seeders)
+### ⚡ Re-build database (drop&create, migrations and seeders)
 
 ```
 npm run db:rebuild
+```
+
+### ⚡ Run JEST tests
+
+```
+npm run test
 ```
