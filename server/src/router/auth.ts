@@ -1,8 +1,22 @@
 import { Router } from "express";
-import AuthController from "../controllers/AuthController";
+// controllers
+import LoginController from "../controllers/auth/LoginController";
+import RegisterController from "../controllers/auth/RegisterController";
+import LogoutController from "../controllers/auth/LogoutController";
+import RefreshTokenController from "../controllers/auth/RefreshTokenController";
+// validators
+import { LoginRequestValidate, RefreshTokenValidate } from "../middlewares/AuthValidators";
+import authorization from "../middlewares/authenticate";
 //
 const router = Router();
 //
-router.get("/login", (req, res) => AuthController.login(req, res));
+router.post("/login", [LoginRequestValidate], LoginController.login);
+router.post("/register", RegisterController.register);
+router.post("/logout", [authorization], LogoutController.logout);
+router.post("/refresh-token", [RefreshTokenValidate], (req: any, res: any) => RefreshTokenController.refresh(req, res));
+//
+router.get("/authorization-test", authorization, (req: any, res: any) => {
+    return res.send("Authenticated successfully");
+});
 //
 export default router;

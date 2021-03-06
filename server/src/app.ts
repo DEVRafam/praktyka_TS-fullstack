@@ -1,4 +1,3 @@
-console.clear();
 import express from "express";
 const app = express();
 //
@@ -17,6 +16,6 @@ app.use(helmet());
 import router from "./router/router_index";
 app.use("/api", router);
 //
-app.listen(3000, () => {
-    console.log(`⚡ App is running at port ${3000} `);
-});
+//
+//
+export default app;
