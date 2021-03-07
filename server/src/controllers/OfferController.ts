@@ -1,4 +1,4 @@
-import { Offer, User } from "../services/Models";
+import { Offer, User, Review } from "../services/Models";
 import { Response } from "express";
 // const { Op } = require("sequelize");
 // status: { [Op.not]: "DEFAULT" },
@@ -17,12 +17,50 @@ interface GetSingleRequest {
         skipStatus: "__SKIP" | undefined;
     };
 }
+// RESPONSE
+interface Offer {
+    id: any;
+    title: string;
+    slug: string;
+    categories: string[];
+    description: string;
+    price: number;
+    contact: string[];
+    photos: string[];
+    localization: string;
+    folder: string;
+    updatedAt: string;
+    creator: {
+        name: string;
+        surname: string;
+        email: string;
+        role: string;
+        avatar: string | null;
+        reviews_about_self: {
+            explanation: string;
+            scroe: number;
+            updatedAt: string;
+        }[];
+    };
+}
 //
 //
 //
 class OfferController {
     protected excludeFromCreator: readonly string[] = ["id", "createdAt", "updatedAt", "tokens", "password"];
     protected excludeFromOffer: readonly string[] = ["createdAt", "creator_id"];
+    protected excludeFromReviews: readonly string[] = ["createdAt", "id", "creator_id", "reviewer_id", "dealer_id"];
+    //
+    protected beforeSend(data: Offer[] | Offer) {
+        // basically reverse reviews table to impose DESC sorting via alternative way
+        if (data instanceof Array) {
+            data.forEach((row) => {
+                row.creator.reviews_about_self.reverse();
+            });
+        } else data.creator.reviews_about_self.reverse();
+        //
+        return data;
+    }
     //
     //
     //
@@ -31,13 +69,12 @@ class OfferController {
             const limit = req.query.limit || 10;
             const page = req.query.page || 1;
             //
-            console.log(limit, page);
             const response = await Offer.findAll({
                 where: {
                     status: "DEFAULT",
                 },
                 attributes: {
-                    exclude: this.excludeFromOffer,
+                    exclude: [...this.excludeFromOffer, "status"],
                 },
                 include: [
                     {
@@ -46,14 +83,24 @@ class OfferController {
                         attributes: {
                             exclude: this.excludeFromCreator,
                         },
+                        include: [
+                            {
+                                model: Review,
+                                as: "reviews_about_self",
+                                attributes: {
+                                    exclude: this.excludeFromReviews,
+                                },
+                            },
+                        ],
                     },
                 ],
+                order: [["id", "DESC"]],
                 // pagination
                 limit,
                 offset: (page - 1) * limit,
             });
             //
-            return res.send(response);
+            return res.send(this.beforeSend(response));
         } catch (e: any) {
             return res.sendStatus(500);
         }
@@ -82,11 +129,21 @@ class OfferController {
                         attributes: {
                             exclude: this.excludeFromCreator,
                         },
+                        include: [
+                            {
+                                model: Review,
+                                as: "reviews_about_self",
+                                attributes: {
+                                    exclude: this.excludeFromReviews,
+                                },
+                                order: [["id", "DESC"]],
+                            },
+                        ],
                     },
                 ],
             });
             //
-            return response ? res.send(response) : res.sendStatus(404);
+            return response ? res.send(this.beforeSend(response)) : res.sendStatus(404);
         } catch (e: any) {
             return res.sendStatus(500);
         }

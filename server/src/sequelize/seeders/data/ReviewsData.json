@@ -1,0 +1,26 @@
+[
+    {
+        "explanation": "Wszystko ok, polecam!",
+        "scroe": 4.9,
+        "dealer_id": 1,
+        "reviewer_id": 2
+    },
+    {
+        "explanation": "Zajebiste!",
+        "scroe": 5,
+        "dealer_id": 1,
+        "reviewer_id": 3
+    },
+    {
+        "explanation": "Super!",
+        "scroe": 5,
+        "dealer_id": 1,
+        "reviewer_id": 4
+    },
+    {
+        "explanation": "Scam, nie polecam.",
+        "scroe": 1,
+        "dealer_id": 2,
+        "reviewer_id": 1
+    }
+]
