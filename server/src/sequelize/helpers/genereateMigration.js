@@ -1,7 +1,10 @@
-module.exports = (tableName, schema) => {
+const fse = require("fs-extra");
+//
+module.exports = (tableName, schema, dirPath = false) => {
     return {
         up: async (queryInterface, Sequelize) => {
             // create directory for storage uploaded images
+            if (dirPath) fse.ensureDirSync(dirPath);
             //
             await queryInterface.createTable(tableName, {
                 id: {
@@ -25,6 +28,7 @@ module.exports = (tableName, schema) => {
         },
 
         down: async (queryInterface) => {
+            if (dirPath) fse.removeSync(dirPath);
             await queryInterface.dropTable(tableName);
         },
     };

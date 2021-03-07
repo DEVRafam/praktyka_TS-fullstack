@@ -3,6 +3,9 @@ const schema = {
     title: {
         type: DataTypes.STRING,
     },
+    slug: {
+        type: DataTypes.STRING,
+    },
     categories: {
         type: DataTypes.JSON,
     },
@@ -27,6 +30,9 @@ const schema = {
     status: {
         type: DataTypes.ENUM(["DEFAULT", "SOLD", "BANNED", "HIDDEN"]),
         defaultValue: "DEFAULT",
+    },
+    folder: {
+        type: DataTypes.STRING,
     },
 };
 // set allowNull property to false for all schema fields

@@ -1,6 +1,7 @@
 [
     {
         "title": "Sprzedam książki profil technik informatyk",
+        "slug": "sprzedam-ksiazki-informatyk",
         "categories": ["Komedia"],
         "description": "Jebac ten profil, oddam książki w dobre, naiwne rece za nie duże pieniądze.",
         "price": 100,
@@ -8,11 +9,13 @@
         "contact": {
             "phone": "999 888 777"
         },
-        "photos": [],
+        "photos": ["IT.jpg"],
+        "folder": "informatyk",
         "localization": "Wadowice"
     },
     {
         "title": "Sprzedam fiata seicento",
+        "slug": "sprzedam-seicento",
         "categories": ["Motoryzacja"],
         "description": "Sprzedam super auto w super cenie, prawie jak z salonu, rocznik 1999",
         "price": 900,
@@ -20,11 +23,13 @@
         "contact": {
             "phone": "777 888 999"
         },
-        "photos": [],
+        "folder": "seicento",
+        "photos": ["car_1", "car_2", "car_3", "car_4"],
         "localization": "Mucharz"
     },
     {
         "title": "Usługi weterynarskie",
+        "slug": "uslugi-weterynaryjne",
         "categories": ["Usługi"],
         "description": "Lekarz dentysta, lekarz stomatolog, pot. dentysta – osoba uprawniona do praktycznego stosowania wiedzy z zakresu stomatologii.",
         "price": 2000,
@@ -32,11 +37,14 @@
         "contact": {
             "phone": "888 777 999"
         },
-        "photos": [],
+        "folder": "vet",
+        "photos": ["vet.jpg"],
+        "status": "HIDDEN",
         "localization": "Wadowice"
     },
     {
         "title": "Czyszczenie kominów",
+        "slug": "czyszczenie-kominow",
         "categories": ["Usługi"],
         "description": "Kominiarz − rzemieślnik zajmujący się czyszczeniem i sprawdzaniem stanu technicznego przewodów kominowych dymowych, spalinowych i wentylacyjnych.",
         "price": 1000,
@@ -44,7 +52,8 @@
         "contact": {
             "phone": "888 777 999"
         },
-        "photos": [],
+        "folder": "chimney",
+        "photos": ["chimney.jpg"],
         "localization": "Kraków"
     }
 ]

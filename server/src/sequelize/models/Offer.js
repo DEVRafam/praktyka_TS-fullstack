@@ -6,12 +6,6 @@ const modelSchema = require(path.join(__dirname, "..", "schemas", "OfferModelSch
 module.exports = (sequelize) => {
     class Offer extends Model {}
     //
-    // Offer.belongsTo(User, {
-    //     as: "creator",
-    //     foreignKey: "user_id",
-    //     otherKey: "creator_id",
-    // });
-    //
     Offer.init(modelSchema, {
         sequelize,
         modelName: "Offer",

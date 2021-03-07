@@ -6,4 +6,7 @@ const data = fse.readJsonSync(path.join(__dirname, "data", "OffersData.json"));
 //
 //
 //
-module.exports = generateSeeder(Offer, data);
+module.exports = generateSeeder(Offer, data, {
+    imagesTemplate: path.join(__dirname, "data", "images", "offers"),
+    uploadDir: path.join(__dirname, "..", "..", "..", "upload", "offers"),
+});
