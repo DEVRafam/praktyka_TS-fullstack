@@ -8,3 +8,6 @@
 *.http
 #
 /server/dist
+/server/src/sequelize/test.js
+#
+client

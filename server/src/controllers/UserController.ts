@@ -1,42 +1,34 @@
+import { Response } from "express";
+import { promisify } from "util";
+import { AuthorizedRequest } from "../middlewares/authenticate";
 import { User } from "../services/Models";
-import bcrypt from "bcrypt";
-//
-type DataToCreateNewUser = {
-    user: {
-        name: string; //
-        surname: string;
-        email: string;
-        password: string;
-    };
-};
+import path from "path";
+import fse from "fs-extra";
 //
 class UserController {
-    // queries
-    async getAll() {
-        const user = JSON.parse(JSON.stringify(await User.findAll()));
-        return user;
-    }
-    async getCertin(_: never, args: { id: number }) {
-        const user = JSON.parse(JSON.stringify(await User.findOne({ where: { id: args.id } })));
-        return user;
-    }
-    // mutations
-    async addUser(_: never, args: DataToCreateNewUser) {
+    //
+    async changeAvatar(req: AuthorizedRequest, res: Response) {
         try {
-            const { password, name, email, surname } = args.user;
-            const salt = await bcrypt.genSalt();
-            const newPassword = await bcrypt.hash(password, salt);
+            const { avatar }: { avatar: any } = req.files as any;
+            const { id } = req.authorizedToken;
+            if (!avatar) return res.sendStatus(400);
             //
-            await User.create({
-                name,
-                email,
-                surname,
-                password: newPassword,
-            });
+            const ext = avatar.name.split(".")[1];
+            const fileName = `avatar_${Date.now()}.${ext}`;
+            const uploadImg = promisify(avatar.mv);
             //
-            return 200;
-        } catch (e) {
-            return 500;
+            const user = await User.findOne({ where: { id } });
+            if (!user) return res.sendStatus(404);
+            if (user.avatar) {
+                await fse.remove(path.join(__dirname, "..", "..", "upload", "avatars", user.avatar));
+            }
+            user.update({ avatar: fileName });
+            //
+            await uploadImg(path.join(__dirname, "..", "..", "upload", "avatars", fileName));
+            //
+            res.sendStatus(200);
+        } catch (e: any) {
+            return res.sendStatus(500);
         }
     }
 }

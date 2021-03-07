@@ -5,9 +5,11 @@ const router = Router();
 //
 import auth from "./auth";
 import offers from "./offers";
+import user from "./user";
 //
 router.use("/auth", auth);
 router.use("/offer", offers);
+router.use("/user", user);
 //
 // additional routes
 //
