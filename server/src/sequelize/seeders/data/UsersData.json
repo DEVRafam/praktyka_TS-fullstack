@@ -4,7 +4,8 @@
         "surname": "Ksiazek",
         "email": "jebac_gorzen@gmail.com",
         "password": "qwertyjebacgorzen",
-        "role": "ADMIN"
+        "role": "ADMIN",
+        "avatar": "kacper_admin_avatar.jpg"
     },
     {
         "name": "Tadeusz",

@@ -20,9 +20,19 @@ module.exports = (Model, data, options = {}) => {
             const { imagesTemplate, uploadDir } = options;
             if (imagesTemplate && uploadDir) {
                 data.forEach((el) => {
-                    const src = path.join(imagesTemplate, el.folder);
-                    const dest = path.join(uploadDir, el.folder);
-                    fse.copySync(src, dest);
+                    // common seeder
+                    if (options.user === undefined) {
+                        const src = path.join(imagesTemplate, el.folder);
+                        const dest = path.join(uploadDir, el.folder);
+                        fse.copySync(src, dest);
+                    }
+                    // special for user
+                    else {
+                        if (!el.avatar) return;
+                        const src = path.join(imagesTemplate, el.avatar);
+                        const dest = path.join(uploadDir, el.avatar);
+                        fse.copySync(src, dest);
+                    }
                 });
             }
             await Model.bulkCreate(data);

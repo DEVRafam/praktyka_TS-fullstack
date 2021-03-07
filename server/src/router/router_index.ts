@@ -11,8 +11,9 @@ router.use("/offer", offers);
 //
 // additional routes
 //
-import GetPhotoController from "../controllers/GetPhotoController";
-router.get("/photo/:section/:folder/:image", GetPhotoController.getImage);
+import GetImagesController from "../controllers/GetImagesController";
+router.get("/photo/:section/:folder/:image", GetImagesController.getImage);
+router.get("/photo/avatar/:image", GetImagesController.getAvatar);
 //
 //
 //

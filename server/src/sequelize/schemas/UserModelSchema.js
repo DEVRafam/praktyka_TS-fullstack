@@ -20,10 +20,14 @@ const schema = {
         type: DataTypes.TEXT,
         defaultValue: "[]",
     },
+    avatar: {
+        type: DataTypes.STRING,
+    },
 };
 // set allowNull property to false for all schema fields
 for (let key in schema) schema[key].allowNull = false;
 //
+schema.avatar.allowNull = true;
 //
 //
 module.exports = schema;
