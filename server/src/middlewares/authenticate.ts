@@ -8,11 +8,12 @@ const { access_secret } = require(path.join(__dirname, "..", "config", "config")
 //
 //
 //
-export interface AuthorizedRequest extends Request {
+export interface Authorized {
     authorizedToken: {
         id: any;
     };
 }
+export type AuthorizedRequest = Request & Authorized;
 //
 export default (req: Request, res: Response, next: NextFunction) => {
     if (req.headers.authorization === undefined) return res.sendStatus(401);

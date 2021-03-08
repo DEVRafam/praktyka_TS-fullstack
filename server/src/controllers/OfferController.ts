@@ -1,48 +1,12 @@
-import { Offer, User, Review } from "../services/Models";
 import { Response } from "express";
-// const { Op } = require("sequelize");
-// status: { [Op.not]: "DEFAULT" },
+import path from "path";
+import { promisify } from "util";
+import fse from "fs-extra";
 //
-interface GetAllRequest {
-    query: {
-        limit: number | undefined;
-        page: number | undefined;
-    };
-}
-interface GetSingleRequest {
-    params: {
-        slug: string | undefined;
-    };
-    query: {
-        skipStatus: "__SKIP" | undefined;
-    };
-}
-// RESPONSE
-interface Offer {
-    id: any;
-    title: string;
-    slug: string;
-    categories: string[];
-    description: string;
-    price: number;
-    contact: string[];
-    photos: string[];
-    localization: string;
-    folder: string;
-    updatedAt: string;
-    creator: {
-        name: string;
-        surname: string;
-        email: string;
-        role: string;
-        avatar: string | null;
-        reviews_about_self: {
-            explanation: string;
-            scroe: number;
-            updatedAt: string;
-        }[];
-    };
-}
+import { Request_GetAll, Request_GetSingle, Request_Create, OfferSchema } from "../@types/Offers";
+import { Offer, User, Review } from "../services/Models";
+import generateSlug from "../helpers/generateSlugName";
+import { UploadedFile } from "express-fileupload";
 //
 //
 //
@@ -50,8 +14,9 @@ class OfferController {
     protected excludeFromCreator: readonly string[] = ["id", "createdAt", "updatedAt", "tokens", "password"];
     protected excludeFromOffer: readonly string[] = ["createdAt", "creator_id"];
     protected excludeFromReviews: readonly string[] = ["createdAt", "id", "creator_id", "reviewer_id", "dealer_id"];
+    protected uploadPath: string = path.join(__dirname, "..", "..", "upload", "offers");
     //
-    protected beforeSend(data: Offer[] | Offer) {
+    protected beforeSend(data: OfferSchema[] | OfferSchema) {
         // basically reverse reviews table to impose DESC sorting via alternative way
         if (data instanceof Array) {
             data.forEach((row) => {
@@ -64,7 +29,7 @@ class OfferController {
     //
     //
     //
-    async getAll(req: GetAllRequest, res: Response) {
+    async getAll(req: Request_GetAll, res: Response) {
         try {
             const limit = req.query.limit || 10;
             const page = req.query.page || 1;
@@ -100,13 +65,15 @@ class OfferController {
                 offset: (page - 1) * limit,
             });
             //
-            return res.send(this.beforeSend(response));
+            return res.send(this.beforeSend(response) as OfferSchema[]);
         } catch (e: any) {
             return res.sendStatus(500);
         }
     }
     //
-    async getSingle(req: GetSingleRequest, res: Response) {
+    //
+    //
+    async getSingle(req: Request_GetSingle, res: Response) {
         try {
             const { slug } = req.params;
             if (slug === undefined) return res.sendStatus(400);
@@ -143,10 +110,49 @@ class OfferController {
                 ],
             });
             //
-            return response ? res.send(this.beforeSend(response)) : res.sendStatus(404);
+            return response ? res.send(this.beforeSend(response) as OfferSchema) : res.sendStatus(404);
         } catch (e: any) {
             return res.sendStatus(500);
         }
+    }
+    //
+    //
+    //
+    async create(req: Request_Create, res: Response) {
+        const slug = generateSlug(req.body.title);
+        // create foldet to further storing images
+        const folder: string = `${slug.slice(0, 10)}_${Date.now()}`;
+        fse.ensureDirSync(path.join(this.uploadPath, folder));
+        // upload all photo
+        const photos: string[] = [];
+        for (let imgKey in req.files) {
+            const file = req.files[imgKey] as UploadedFile;
+            const ext = file.name.split(".")[1];
+            const fileName = `photo_${Date.now()}.${ext}`;
+            const uploadImg = promisify(file.mv);
+            //
+            if (["jpg", "jpeg", "png"].includes(ext)) {
+                await uploadImg(path.join(this.uploadPath, folder, fileName));
+                photos.push(fileName);
+            }
+        }
+        // create new offer
+        const data = {
+            title: req.body.title,
+            slug,
+            folder,
+            categories: JSON.parse(req.body.categories),
+            description: req.body.description,
+            price: req.body.price,
+            contact: JSON.parse(req.body.contact),
+            photos,
+            localization: req.body.localization,
+            creator_id: req.authorizedToken.id,
+        };
+        //
+        await Offer.create(data);
+        //
+        return res.sendStatus(201);
     }
 }
 export default new OfferController();

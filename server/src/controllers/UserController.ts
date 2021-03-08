@@ -22,9 +22,9 @@ class UserController {
             if (user.avatar) {
                 await fse.remove(path.join(__dirname, "..", "..", "upload", "avatars", user.avatar));
             }
-            user.update({ avatar: fileName });
-            //
             await uploadImg(path.join(__dirname, "..", "..", "upload", "avatars", fileName));
+            //
+            await user.update({ avatar: fileName });
             //
             res.sendStatus(200);
         } catch (e: any) {

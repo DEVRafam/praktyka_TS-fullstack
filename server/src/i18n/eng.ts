@@ -43,3 +43,46 @@ export const RegisterErrorMessages = {
         "any.only": "Password and its repetition must be the same",
     },
 };
+//
+export const CreateOfferErrorMessages = {
+    title: {
+        "string.empty": "Offer title is required!",
+        "string.max": "Offer title can be maximum {#limit} characters long",
+        "string.min": "Offer title must be at least {#limit} characters long",
+        "any.required": "Offer title is required!",
+    },
+    categories: {
+        "string.empty": "Category is required!",
+        "string.max": "Single category can be maximum {#limit} characters long",
+        "string.min": "Single category must be at least {#limit} characters long",
+        "any.required": "Category is required!",
+    },
+    description: {
+        "string.empty": "Description is required!",
+        "string.max": "Description can be maximum {#limit} characters long",
+        "string.min": "Description must be at least {#limit} characters long",
+        "any.required": "Description is required!",
+    },
+    price: {
+        "string.empty": "Price is required!",
+        "any.required": "Price is required!",
+    },
+    localization: {
+        "string.empty": "Localization is required!",
+        "string.max": "Localization can be maximum {#limit} characters long",
+        "string.min": "Localization must be at least {#limit} characters long",
+        "any.required": "Localization is required!",
+    },
+    photos: {
+        "string.empty": "At least one photo is required!",
+        "array.min": "At least one photo is required!",
+        "any.required": "At least one photo is required!",
+    },
+    contact: {
+        "object.unknown": "Contact object contains unknown property- {#label}",
+        "object.min": "Contact must have at least one contact form ['phone','email','fb']",
+        "string.max": "{#label} can be maximum {#limit} characters long",
+        "string.min": "{#label} must be at least {#limit} characters long",
+        "fb.invalid": "Facebook link must start with 'https://www.facebook.com/profile'",
+    },
+};
