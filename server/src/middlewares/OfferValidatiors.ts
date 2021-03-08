@@ -34,12 +34,12 @@ export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next:
     const { error } = scheme.validate(
         {
             title: req.body.title,
-            categories: JSON.parse(req.body.categories),
+            categories: req.body.categories && JSON.parse(req.body.categories),
             description: req.body.description,
             price: req.body.price,
-            contact: JSON.parse(req.body.contact),
+            contact: req.body.contact && JSON.parse(req.body.contact),
             localization: req.body.localization,
-            photos: JSON.parse(req.body.photos),
+            photos: req.body.photos && JSON.parse(req.body.photos),
         },
         { abortEarly: false }
     );

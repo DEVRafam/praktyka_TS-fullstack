@@ -2,11 +2,13 @@ import { Response } from "express";
 import path from "path";
 import { promisify } from "util";
 import fse from "fs-extra";
+import jwt from "jsonwebtoken";
+import { UploadedFile } from "express-fileupload";
 //
 import { GetAllRequest, GetSingleRequest, CreateRequest, OfferSchema, DeleteRequest } from "../@types/Offers";
 import { Offer, User, Review } from "../services/Models";
 import generateSlug from "../helpers/generateSlugName";
-import { UploadedFile } from "express-fileupload";
+const { access_secret } = require(path.join(__dirname, "..", "config", "config")).tokens;
 //
 //
 //
@@ -82,7 +84,32 @@ class OfferController {
                 slug,
                 status: "DEFAULT",
             };
-            if (req.query.skipStatus === "__SKIP") delete where.status;
+            // AUTHORIZE USER
+            // the main reason of doing it, is to give admins and offers owners
+            // ability to get access offer independently from status
+            try {
+                const token = req.headers.authorization.split(" ")[1];
+                let userId = null;
+                //
+                jwt.verify(token, access_secret, (err: any, dataFromToken: any) => {
+                    const keys = Object.keys(dataFromToken);
+                    const propertiesToCheck = ["id", "password", "createdAt", "iat", "exp"];
+                    let tokenIsRight = true;
+                    propertiesToCheck.forEach((property) => {
+                        if (!keys.includes(property)) tokenIsRight = false;
+                    });
+                    //
+                    if (tokenIsRight) userId = dataFromToken.id;
+                });
+                //
+                const user = await User.findOne({
+                    where: { id: userId },
+                    include: [{ model: Offer, as: "offers", attributes: ["slug"] }],
+                });
+                if (user.role === "ADMIN" || user.offers.find((target: { slug: string }) => target.slug === req.params.slug)) {
+                    delete where.status;
+                }
+            } catch (e: any) {}
             //
             const response = await Offer.findOne({
                 where,
@@ -164,18 +191,22 @@ class OfferController {
     async delete(req: DeleteRequest, res: Response) {
         const offer = await Offer.findOne({ where: { id: req.params.id } });
         if (!offer) return res.sendStatus(404);
+        //
+        const handleDelete = async () => {
+            await fse.remove(path.join(this.uploadPath, offer.folder));
+            await offer.destroy();
+        };
+        //
         // check if authorized user owns this offer
         if (req.authorizedToken.id === offer.creator_id) {
-            console.log("IS OWNER");
-            await offer.destroy();
+            await handleDelete();
             return res.sendStatus(200);
         }
         // check if authorized user is admin
         else {
             const user = await User.findOne({ where: { id: req.authorizedToken.id } });
             if (user.role === "ADMIN") {
-                console.log("IS ADMIN");
-                await offer.destroy();
+                await handleDelete();
                 return res.sendStatus(200);
             }
         }

@@ -1,5 +1,5 @@
-import { User } from "../services/Models";
-import { LoginResponse, RefreshTokenResponse } from "../@types/auth";
+import { User } from "../../services/Models";
+import { LoginResponse, RefreshTokenResponse } from "../../@types/auth";
 //
 // data to use
 //

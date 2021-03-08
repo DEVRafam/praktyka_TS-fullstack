@@ -10,7 +10,7 @@ export type GetAllRequest = Request<{}, {}, {}, GetAll_QUERY>;
 //
 //
 //
-export type GetSingleRequest = Request<{ slug: string }, {}, {}, { skipStatus: "__SKIP" | undefined }>;
+export type GetSingleRequest = Request<{ slug: string }>;
 //
 //
 //
