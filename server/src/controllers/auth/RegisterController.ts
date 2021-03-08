@@ -1,19 +1,12 @@
-import { Response, Request } from "express";
-import { User } from "../../services/Models";
+import { Response } from "express";
 import bcrypt from "bcrypt";
-//
-type RegisterRequestBody = {
-    name: string;
-    surname: string;
-    email: string;
-    password: string;
-    repeat_password: string;
-};
+import { User } from "../../services/Models";
+import { RegisterRequest } from "../../@types/auth";
 //
 class RegisterController {
-    async register(req: Request, res: Response) {
+    async register(req: RegisterRequest, res: Response) {
         try {
-            const data = req.body as RegisterRequestBody;
+            const data = req.body;
             data.password = await bcrypt.hash(data.password, await bcrypt.genSalt());
             await User.create(data);
             //

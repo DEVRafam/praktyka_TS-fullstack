@@ -1,11 +1,12 @@
 import Joi from "joi";
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
 import BetterJoiError from "../helpers/betterJoiErorr";
 import { LoginErrorMessages, RegisterErrorMessages } from "../i18n/eng";
+import { RefreshTokenRequest, RegisterRequest, LoginRequest } from "../@types/auth";
 //
 // /register
 //
-export const RegisterRequestValidator = (req: Request, res: Response, next: NextFunction) => {
+export const RegisterRequestValidator = (req: RegisterRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
         name: Joi.string().min(3).max(20).required().messages(RegisterErrorMessages.name),
         surname: Joi.string().min(5).max(30).required().messages(RegisterErrorMessages.surname),
@@ -25,7 +26,7 @@ export const RegisterRequestValidator = (req: Request, res: Response, next: Next
 //
 // /login
 //
-export const LoginRequestValidate = (req: Request, res: Response, next: NextFunction) => {
+export const LoginRequestValidate = (req: LoginRequest, res: Response, next: NextFunction) => {
     const { password, email } = req.body;
     //
     const scheme = Joi.object({
@@ -44,13 +45,8 @@ export const LoginRequestValidate = (req: Request, res: Response, next: NextFunc
 //
 // /refresh-token
 //
-export interface RefreshTokenBody extends Request {
-    body: {
-        refreshToken: string;
-        accessToken: string;
-    };
-}
-export const RefreshTokenValidate = (req: RefreshTokenBody, res: Response, next: NextFunction) => {
+
+export const RefreshTokenValidate = (req: RefreshTokenRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
         refreshToken: Joi.string().required().max(400).min(200),
         accessToken: Joi.string().required().max(400).min(200),

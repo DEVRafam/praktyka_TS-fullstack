@@ -1,6 +1,11 @@
 // types
 import { Response } from "express";
-import { RefreshTokenBody } from "../../middlewares/AuthValidators";
+import { RefreshTokenRequest, RefreshTokenResponse } from "../../@types/auth";
+//
+type DecodedTokens = {
+    accessToken: JWTUser;
+    refreshToken: JWTUser;
+};
 // tools
 import jwt from "jsonwebtoken";
 import { VerifyErrors } from "jsonwebtoken";
@@ -11,17 +16,6 @@ import path from "path";
 const { refresh_secret } = require(path.join(__dirname, "..", "..", "config", "config")).tokens;
 //
 //
-//
-type DecodedTokens = {
-    accessToken: JWTUser;
-    refreshToken: JWTUser;
-};
-//
-export type RefreshResponse = {
-    status: "positive" | "negative";
-    error?: string;
-    accessToken: string;
-};
 //
 class RefreshTokenController {
     protected decoded = {} as DecodedTokens;
@@ -77,7 +71,7 @@ class RefreshTokenController {
     //
     // main function
     //
-    async refresh(req: RefreshTokenBody, res: Response) {
+    async refresh(req: RefreshTokenRequest, res: Response) {
         try {
             // compare tokens
             this.decoded = {
@@ -94,14 +88,14 @@ class RefreshTokenController {
                 return res.send({
                     status: "negative",
                     error: "refresh token has expired",
-                } as RefreshResponse);
+                } as RefreshTokenResponse);
             }
             //
             else {
                 return res.send({
                     status: "positive",
                     accessToken: generateJWT(this.user, "ACCESS"),
-                } as RefreshResponse);
+                } as RefreshTokenResponse);
             }
         } catch (e: any) {
             return res.sendStatus(500);

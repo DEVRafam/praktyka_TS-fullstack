@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { AuthorizedRequest } from "../../middlewares/authenticate";
+import { AuthorizedRequest } from "../../@types/authenticate";
 import { User } from "../../services/Models";
 //
 //

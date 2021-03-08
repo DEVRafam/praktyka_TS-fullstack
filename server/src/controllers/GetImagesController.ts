@@ -1,18 +1,6 @@
 import { Response } from "express";
 import path from "path";
-//
-interface GetPhotoRequest {
-    params: {
-        section: string | undefined;
-        folder: string | undefined;
-        image: string | undefined;
-    };
-}
-interface GetAvatarRequest {
-    params: {
-        image: string | undefined;
-    };
-}
+import { GetPhotoRequest, GetAvatarRequest } from "../@types/photos";
 //
 class GetPhotoController {
     getImage(req: GetPhotoRequest, res: Response) {

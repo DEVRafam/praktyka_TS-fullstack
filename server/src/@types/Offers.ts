@@ -1,16 +1,16 @@
 import { Request } from "express";
-import { Authorized } from "../middlewares/authenticate";
+import { Authorized } from "./authenticate";
 //
 //
 interface GetAll_QUERY {
     limit: number | undefined;
     page: number | undefined;
 }
-export type Request_GetAll = Request<{}, {}, {}, GetAll_QUERY>;
+export type GetAllRequest = Request<{}, {}, {}, GetAll_QUERY>;
 //
 //
 //
-export type Request_GetSingle = Request<{ slug: string }, {}, {}, { skipStatus: "__SKIP" | undefined }>;
+export type GetSingleRequest = Request<{ slug: string }, {}, {}, { skipStatus: "__SKIP" | undefined }>;
 //
 //
 //
@@ -23,7 +23,7 @@ interface Create_BODY {
     photos: string;
     localization: string;
 }
-export type Request_Create = Authorized & Request<{}, {}, Create_BODY>;
+export type CreateRequest = Authorized & Request<{}, {}, Create_BODY>;
 //
 //
 //

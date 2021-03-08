@@ -1,31 +1,14 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import { User } from "../../services/Models";
 import bcrypt from "bcrypt";
 import generateJWT from "../../helpers/generateJWT";
 //
-type LoginRequestBody = {
-    password: string;
-    email: string;
-};
-export type LoginResponse = {
-    status: "positive" | "negative";
-    errors?: "credentials_do_not_match";
-    tokens?: {
-        accessToken: string;
-        refreshToken: string;
-    };
-    userData?: {
-        id: any;
-        name: string;
-        surname: string;
-        email: string;
-    };
-};
+import { LoginRequest, LoginResponse } from "../../@types/auth";
 //
 class LoginController {
-    async login(req: Request, res: Response): Promise<Response<LoginResponse>> {
+    async login(req: LoginRequest, res: Response): Promise<Response<LoginResponse>> {
         try {
-            const { password, email } = req.body as LoginRequestBody;
+            const { password, email } = req.body;
             const user = await User.findOne({ where: { email } });
             //
             // compare credentials

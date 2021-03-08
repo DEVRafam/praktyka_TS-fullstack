@@ -1,9 +1,9 @@
+import path from "path";
 import { Response } from "express";
 import { promisify } from "util";
-import { AuthorizedRequest } from "../middlewares/authenticate";
-import { User } from "../services/Models";
-import path from "path";
 import fse from "fs-extra";
+import { AuthorizedRequest } from "../@types/authenticate";
+import { User } from "../services/Models";
 //
 class UserController {
     //

@@ -3,7 +3,7 @@ import path from "path";
 import { promisify } from "util";
 import fse from "fs-extra";
 //
-import { Request_GetAll, Request_GetSingle, Request_Create, OfferSchema } from "../@types/Offers";
+import { GetAllRequest, GetSingleRequest, CreateRequest, OfferSchema } from "../@types/Offers";
 import { Offer, User, Review } from "../services/Models";
 import generateSlug from "../helpers/generateSlugName";
 import { UploadedFile } from "express-fileupload";
@@ -29,7 +29,7 @@ class OfferController {
     //
     //
     //
-    async getAll(req: Request_GetAll, res: Response) {
+    async getAll(req: GetAllRequest, res: Response) {
         try {
             const limit = req.query.limit || 10;
             const page = req.query.page || 1;
@@ -73,7 +73,7 @@ class OfferController {
     //
     //
     //
-    async getSingle(req: Request_GetSingle, res: Response) {
+    async getSingle(req: GetSingleRequest, res: Response) {
         try {
             const { slug } = req.params;
             if (slug === undefined) return res.sendStatus(400);
@@ -118,7 +118,7 @@ class OfferController {
     //
     //
     //
-    async create(req: Request_Create, res: Response) {
+    async create(req: CreateRequest, res: Response) {
         const slug = generateSlug(req.body.title);
         // create foldet to further storing images
         const folder: string = `${slug.slice(0, 10)}_${Date.now()}`;

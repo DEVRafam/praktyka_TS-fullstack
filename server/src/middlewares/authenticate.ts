@@ -1,19 +1,11 @@
-// types
+import path from "path";
+import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { VerifyErrors } from "jsonwebtoken";
-// tools
-import jwt from "jsonwebtoken";
-import path from "path";
+import { AuthorizedRequest } from "../@types/authenticate";
 const { access_secret } = require(path.join(__dirname, "..", "config", "config")).tokens;
 //
 //
-//
-export interface Authorized {
-    authorizedToken: {
-        id: any;
-    };
-}
-export type AuthorizedRequest = Request & Authorized;
 //
 export default (req: Request, res: Response, next: NextFunction) => {
     if (req.headers.authorization === undefined) return res.sendStatus(401);

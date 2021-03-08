@@ -1,8 +1,5 @@
-// model
 import { User } from "../services/Models";
-// type
-import { LoginResponse } from "../controllers/auth/LoginController";
-import { RefreshResponse } from "../controllers/auth/RefreshTokenController";
+import { LoginResponse, RefreshTokenResponse } from "../@types/auth";
 //
 // data to use
 //
@@ -80,7 +77,7 @@ describe("User's register and further authorization tests", () => {
     });
     //
     it("5. Logged user should be able to refresh access token", async (done) => {
-        const { status, body }: { body: RefreshResponse; status: any } = await (global as any).request.post("/api/auth/refresh-token").send({
+        const { status, body }: { body: RefreshTokenResponse; status: any } = await (global as any).request.post("/api/auth/refresh-token").send({
             refreshToken: userData.refreshToken,
             accessToken: userData.accessToken,
         });
@@ -110,7 +107,7 @@ describe("User's register and further authorization tests", () => {
     });
     //
     it("7. Trying to refresh token via passing invalid ones should return code 400", async (done) => {
-        const { status, body }: { body: RefreshResponse; status: any } = await (global as any).request.post("/api/auth/refresh-token").send({
+        const { status, body }: { body: RefreshTokenResponse; status: any } = await (global as any).request.post("/api/auth/refresh-token").send({
             refreshToken: userData.refreshToken,
             accessToken:
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IiQyYiQxMCRMUm5yc2NFZXVYdmFURzUwTFppcFVlaHlqT2xsa2JXN0hySlMyWEkzSDR3YnFtbEExdWZ6aSIsImlkIjoxLCJjcmVhdGVkQXQiOiIyMDIxLTAzLTA2VDAyOjE0OjM5LjMyNFoiLCJpYXQiOjE2MTQ5OTY4ODgsImV4cCI6MTYxNDk5Nzc4OH0.7X-KXOLci2gDPPQg0ni068yKoEr4xIbrrUJz2j5hcIk",

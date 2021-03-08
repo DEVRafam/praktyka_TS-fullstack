@@ -1,10 +1,10 @@
 import Joi from "joi";
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
 import BetterJoiError from "../helpers/betterJoiErorr";
 import { CreateOfferErrorMessages } from "../i18n/eng";
-import { Request_Create } from "../@types/Offers";
+import { CreateRequest } from "../@types/Offers";
 //
-export const CreateNewOfferValidator = (req: Request_Create, res: Response, next: NextFunction) => {
+export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
         title: Joi.string().min(3).max(20).required().messages(CreateOfferErrorMessages.title),
         categories: Joi.array().items(Joi.string().min(3).max(50)).max(3).required().messages(CreateOfferErrorMessages.categories),
