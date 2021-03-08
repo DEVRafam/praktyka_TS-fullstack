@@ -27,6 +27,10 @@ export type CreateRequest = Authorized & Request<{}, {}, Create_BODY>;
 //
 //
 //
+export type DeleteRequest = Authorized & Request<{ id: number }>;
+//
+//
+//
 export interface OfferSchema {
     id: any;
     title: string;

@@ -3,7 +3,7 @@ import path from "path";
 import { promisify } from "util";
 import fse from "fs-extra";
 //
-import { GetAllRequest, GetSingleRequest, CreateRequest, OfferSchema } from "../@types/Offers";
+import { GetAllRequest, GetSingleRequest, CreateRequest, OfferSchema, DeleteRequest } from "../@types/Offers";
 import { Offer, User, Review } from "../services/Models";
 import generateSlug from "../helpers/generateSlugName";
 import { UploadedFile } from "express-fileupload";
@@ -119,40 +119,68 @@ class OfferController {
     //
     //
     async create(req: CreateRequest, res: Response) {
-        const slug = generateSlug(req.body.title);
-        // create foldet to further storing images
-        const folder: string = `${slug.slice(0, 10)}_${Date.now()}`;
-        fse.ensureDirSync(path.join(this.uploadPath, folder));
-        // upload all photo
-        const photos: string[] = [];
-        for (let imgKey in req.files) {
-            const file = req.files[imgKey] as UploadedFile;
-            const ext = file.name.split(".")[1];
-            const fileName = `photo_${Date.now()}.${ext}`;
-            const uploadImg = promisify(file.mv);
+        try {
+            const slug = generateSlug(req.body.title);
+            // create foldet to further storing images
+            const folder: string = `${slug.slice(0, 10)}_${Date.now()}`;
+            fse.ensureDirSync(path.join(this.uploadPath, folder));
+            // upload all photo
+            const photos: string[] = [];
+            for (let imgKey in req.files) {
+                const file = req.files[imgKey] as UploadedFile;
+                const ext = file.name.split(".")[1];
+                const fileName = `photo_${Date.now()}.${ext}`;
+                const uploadImg = promisify(file.mv);
+                //
+                if (["jpg", "jpeg", "png"].includes(ext)) {
+                    await uploadImg(path.join(this.uploadPath, folder, fileName));
+                    photos.push(fileName);
+                }
+            }
+            // create new offer
+            const data = {
+                title: req.body.title,
+                slug,
+                folder,
+                categories: JSON.parse(req.body.categories),
+                description: req.body.description,
+                price: req.body.price,
+                contact: JSON.parse(req.body.contact),
+                photos,
+                localization: req.body.localization,
+                creator_id: req.authorizedToken.id,
+            };
             //
-            if (["jpg", "jpeg", "png"].includes(ext)) {
-                await uploadImg(path.join(this.uploadPath, folder, fileName));
-                photos.push(fileName);
+            await Offer.create(data);
+            //
+            return res.sendStatus(201);
+        } catch (e: any) {
+            return res.sendStatus(500);
+        }
+    }
+    //
+    //
+    //
+    async delete(req: DeleteRequest, res: Response) {
+        const offer = await Offer.findOne({ where: { id: req.params.id } });
+        if (!offer) return res.sendStatus(404);
+        // check if authorized user owns this offer
+        if (req.authorizedToken.id === offer.creator_id) {
+            console.log("IS OWNER");
+            await offer.destroy();
+            return res.sendStatus(200);
+        }
+        // check if authorized user is admin
+        else {
+            const user = await User.findOne({ where: { id: req.authorizedToken.id } });
+            if (user.role === "ADMIN") {
+                console.log("IS ADMIN");
+                await offer.destroy();
+                return res.sendStatus(200);
             }
         }
-        // create new offer
-        const data = {
-            title: req.body.title,
-            slug,
-            folder,
-            categories: JSON.parse(req.body.categories),
-            description: req.body.description,
-            price: req.body.price,
-            contact: JSON.parse(req.body.contact),
-            photos,
-            localization: req.body.localization,
-            creator_id: req.authorizedToken.id,
-        };
         //
-        await Offer.create(data);
-        //
-        return res.sendStatus(201);
+        return res.sendStatus(401);
     }
 }
 export default new OfferController();
