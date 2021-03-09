@@ -1,0 +1,54 @@
+section#main-navigation
+    background-color: $mainColorDark
+    position: fixed
+    top: 0
+    left: 0
+    height: $navHeight
+    width: 100vw
+    z-index: $navZIndex
+    box-shadow: 0px 0px 1px 0px $mainColor
+    display: flex
+    justify-content: space-between
+    padding: 0 15%
+    align-items: center
+    box-sizing: border-box
+    a.main-logo
+        font-size: 2rem
+        color: $mainColor
+        font-weight: bold
+        text-decoration: none
+        user-select: none
+    div.wrap
+        display: flex
+        input
+            @include coloredFocus(false)
+            letter-spacing: 2px
+            padding: 5px 10px
+            border-radius: 5px 
+            border: 2px solid #fff
+            transition: all .3s
+            width: 200px
+            &:focus
+                background-color: $mainColorDark
+                color: #fff
+        a
+            @include flexCenter
+            margin-left: 20px
+            color: #fff
+            text-decoration: none
+            letter-spacing: 2px
+            font-size: 1.2rem
+            svg
+                margin-left: 10px
+        div.auth
+            margin-left: 50px
+            display: flex
+            align-items: center
+            a
+                @include buttonStyles(false)
+                border: 2px solid #fff !important
+                border-radius: 5px
+            a.in
+                @include smoothHoverReversed($mainColorDark)
+            a.up
+                @include smoothHover($mainColorDark)

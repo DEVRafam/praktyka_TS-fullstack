@@ -1,0 +1,82 @@
+@keyframes scaleHeight
+    0%
+        transform: scaleY(0)
+    100%
+        transform: scaleY(1)
+
+@keyframes scaleWidth
+    0%
+        width: 0%
+    100%
+        width: 100%        
+        
+@keyframes fade-center
+    0%
+        opacity: 0
+        transform: scale(0)
+    1%
+        transform: scale(1)
+    100%
+        opacity: 1
+        transform: scale(1)
+@keyframes fade-center-out
+    0%
+        opacity: 1
+        transform: scale(1)
+    99%
+        transform: scale(1)
+    100%
+        opacity: 0
+        transform: scale(0)
+//
+@keyframes fade-bottom
+    0%
+        opacity: 0
+        transform: translateY(50px)
+    30%
+        opacity: 1
+    100%
+        opacity: 1
+        transform: translateY(0)
+//
+@keyframes fade-top
+    0%
+        opacity: 0
+        transform: translateY(-50px)
+    30%
+        opacity: 1
+    100%
+        opacity: 1
+        transform: translateY(0)
+//
+@keyframes fade-left
+    0%
+        opacity: 0
+        transform: translateX(-50px)
+    30%
+        opacity: 1
+    100%
+        opacity: 1
+        transform: translateX(0)
+//
+@keyframes fade-right
+    0%
+        opacity: 0
+        transform: translateX(50px)
+    30%
+        opacity: 1
+    100%
+        opacity: 1
+        transform: translateX(0)
+//
+@keyframes fade-only-opacity
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+//
+@keyframes bg-img-going-vertically
+    from
+        background-position-y: 0%
+    to
+        background-position-y: 100%
