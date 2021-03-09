@@ -11,4 +11,4 @@
 /server/src/sequelize/test.js
 /server/upload/*
 #
-client
+/server/src/test/manual
