@@ -1,7 +1,3 @@
-import path from "path";
-//
-//
-//
 export const loggedUsers = {
     admin: {
         id: null as null | number,
@@ -48,5 +44,3 @@ export const offerData = {
     photos: JSON.stringify(["img-one", "img-two"]),
     localization: "Budapeszt",
 };
-//
-export const offerImages = [path.join(__dirname, "sample_1.jpg"), path.join(__dirname, "sample_2.jpg")];

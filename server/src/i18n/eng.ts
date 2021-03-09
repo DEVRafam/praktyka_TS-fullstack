@@ -86,3 +86,16 @@ export const CreateOfferErrorMessages = {
         "fb.invalid": "Facebook link must start with 'https://www.facebook.com/profile'",
     },
 };
+//
+export const SetReviewErrorMessages = {
+    score: {
+        "number.empty": "Score is required!",
+        "number.max": "Score can be maximum {#limit}",
+        "number.min": "Score must be at least {#limit}",
+        "any.required": "Score is required!",
+    },
+    explanation: {
+        "string.max": "Explanation can be maximum {#limit} characters long",
+        "string.min": "Explanation must be at least {#limit} characters long",
+    },
+};

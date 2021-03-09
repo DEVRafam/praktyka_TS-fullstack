@@ -3,7 +3,7 @@ const schema = {
     explanation: {
         type: DataTypes.STRING,
     },
-    scroe: {
+    score: {
         type: DataTypes.FLOAT,
     },
     dealer_id: {

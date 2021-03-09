@@ -1,8 +1,8 @@
 import path from "path";
 import fs from "fs";
 import fse from "fs-extra";
-import { User, Review, Offer } from "../../services/Models";
-import { offerData, offerImages, loggedUsers, usersData } from "../assets/offer/data";
+import { User, Offer } from "../../services/Models";
+import { offerData, loggedUsers, usersData } from "../assets/offer/data";
 import { LoginResponse } from "../../@types/auth";
 //
 const offerUploadPath = path.join(__dirname, "..", "..", "..", "upload", "offers");
