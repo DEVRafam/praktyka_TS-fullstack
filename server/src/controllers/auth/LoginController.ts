@@ -16,7 +16,7 @@ class LoginController {
             const passwordIsInvalid: boolean = user && !(await bcrypt.compare(password, user.password));
             if (user === null || passwordIsInvalid)
                 return res.send({
-                    status: "negative",
+                    result: "negative",
                     errors: "credentials_do_not_match",
                 } as LoginResponse);
             //
@@ -31,7 +31,7 @@ class LoginController {
             await user.save();
             //
             return res.send({
-                status: "positive",
+                result: "positive",
                 tokens: {
                     accessToken,
                     refreshToken,

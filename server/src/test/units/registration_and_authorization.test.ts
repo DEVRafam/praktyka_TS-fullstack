@@ -46,7 +46,7 @@ describe("User's register and further authorization tests", () => {
         userData.refreshToken = body.tokens.refreshToken;
         userData.id = body.userData.id;
         //
-        expect(body.status).toEqual("positive");
+        expect(body.result).toEqual("positive");
         expect(body.errors).toBeUndefined();
         //
         done();
@@ -83,7 +83,7 @@ describe("User's register and further authorization tests", () => {
         });
         //
         expect(status).toEqual(200);
-        expect(body.status).toEqual("positive");
+        expect(body.result).toEqual("positive");
         expect(body.accessToken).not.toBeUndefined();
         //
         done();

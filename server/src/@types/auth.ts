@@ -9,7 +9,7 @@ export interface RefreshTokenRequest extends Request {
     };
 }
 export interface RefreshTokenResponse {
-    status: "positive" | "negative";
+    result: "positive" | "negative";
     error?: string;
     accessToken: string;
 }
@@ -35,7 +35,7 @@ export interface LoginRequest extends Request {
     };
 }
 export interface LoginResponse {
-    status: "positive" | "negative";
+    result: "positive" | "negative";
     errors?: "credentials_do_not_match";
     tokens?: {
         accessToken: string;

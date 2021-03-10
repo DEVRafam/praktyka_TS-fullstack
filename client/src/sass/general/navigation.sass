@@ -44,8 +44,15 @@ section#main-navigation
             margin-left: 50px
             display: flex
             align-items: center
+            span.signed-info
+                @include textUS
+                color: #fff
+                letter-spacing: 1px
+                strong
+                    color: $mainColor
             a
                 @include buttonStyles(false)
+                user-select: none
                 border: 2px solid #fff !important
                 border-radius: 5px
             a.in

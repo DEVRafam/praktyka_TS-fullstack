@@ -12,7 +12,7 @@
 
 <script>
 import ScrollBtn from "@/components/general/Scrollbtn.vue";
-import Navigation from "@/components/general/Navigation.vue";
+import Navigation from "@/components/general/navigation/Navigation.vue";
 //
 export default {
     components: { Navigation, ScrollBtn },

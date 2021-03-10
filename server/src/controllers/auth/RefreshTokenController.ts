@@ -86,14 +86,14 @@ class RefreshTokenController {
             if (this.refreshTokenHasExpired(req.body.refreshToken)) {
                 await this.removeRefreshTokenFromDB(req.body.refreshToken);
                 return res.send({
-                    status: "negative",
+                    result: "negative",
                     error: "refresh token has expired",
                 } as RefreshTokenResponse);
             }
             //
             else {
                 return res.send({
-                    status: "positive",
+                    result: "positive",
                     accessToken: generateJWT(this.user, "ACCESS"),
                 } as RefreshTokenResponse);
             }

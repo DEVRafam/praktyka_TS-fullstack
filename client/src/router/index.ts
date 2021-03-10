@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
-import Login from "@/views/auth/Login.vue";
-import Register from "@/views/auth/Register.vue";
 import Page404 from "@/views/404.vue";
-
+import auth from "./auth";
+//
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/:catchAll(.*)",
@@ -15,16 +14,7 @@ const routes: Array<RouteRecordRaw> = [
         name: "Home",
         component: Home
     },
-    {
-        path: "/login",
-        name: "Login",
-        component: Login
-    },
-    {
-        path: "/register",
-        name: "Register",
-        component: Register
-    }
+    ...auth
 ];
 
 const router = createRouter({
