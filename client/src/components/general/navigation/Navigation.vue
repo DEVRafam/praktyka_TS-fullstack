@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import AccountManagement from "./AccountManagement.vue";
+import AccountManagement from "./acc_management/AccountManagement.vue";
 //
 export default defineComponent({
     components: { AccountManagement }
