@@ -4,4 +4,5 @@ export interface LocalStorageUser {
     name: string;
     surname: string;
     email: string;
+    avatar: string;
 }

@@ -3,10 +3,11 @@ import { Response, NextFunction } from "express";
 import BetterJoiError from "../helpers/betterJoiErorr";
 import { LoginErrorMessages, RegisterErrorMessages } from "../i18n/eng";
 import { RefreshTokenRequest, RegisterRequest, LoginRequest } from "../@types/auth";
+import { User } from "../services/Models";
 //
 // /register
 //
-export const RegisterRequestValidator = (req: RegisterRequest, res: Response, next: NextFunction) => {
+export const RegisterRequestValidator = async (req: RegisterRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
         name: Joi.string().min(3).max(20).required().messages(RegisterErrorMessages.name),
         surname: Joi.string().min(5).max(30).required().messages(RegisterErrorMessages.surname),
@@ -20,6 +21,17 @@ export const RegisterRequestValidator = (req: RegisterRequest, res: Response, ne
         return res.send({
             result: "negative",
             errors: BetterJoiError(error),
+        });
+    } else if (await User.findOne({ where: { email: req.body.email } })) {
+        return res.send({
+            result: "negative",
+            errors: [
+                {
+                    element: "email",
+                    type: "taken",
+                    message: RegisterErrorMessages.email.taken,
+                },
+            ],
         });
     } else next();
 };

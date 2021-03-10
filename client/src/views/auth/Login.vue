@@ -10,7 +10,7 @@
                     <!--  -->
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="text" id="email" v-model="email" />
+                        <input type="email" id="email" v-model="email" />
                     </div>
                     <!--  -->
                     <div class="form-group">
@@ -51,9 +51,8 @@ export default defineComponent({
         // form using tools
         const showPassword = ref<boolean>(false);
         const inputType = computed<string>(() => (showPassword.value ? "text" : "password"));
-        const inputIcon = computed<string>(() => (showPassword.value ? "eye-slash" : "eye"));
         //
-        return { password, email, handleLogin, errors, showPassword, inputType, inputIcon, passwordErrorMessage, credentialsErrorMessage, emailErrorMessage };
+        return { password, email, handleLogin, errors, showPassword, inputType, passwordErrorMessage, credentialsErrorMessage, emailErrorMessage };
     }
 });
 </script>

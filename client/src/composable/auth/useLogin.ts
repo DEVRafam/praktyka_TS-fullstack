@@ -1,6 +1,7 @@
 import axios from "axios";
-import { ref, computed, ComputedRef } from "vue";
+import { ref, computed } from "vue";
 import { API_ADDRESS } from "@/composable/env";
+import { authenticate } from "@/composable/auth/authenticate";
 import { JoiError } from "@/@types/joiError";
 import generateJoiMessage from "@/helpers/generateJoiMessage";
 //
@@ -15,11 +16,16 @@ interface LoginResponse {
         refreshToken: string;
     };
     userData?: {
-        id: any;
+        id: number | string;
         name: string;
         surname: string;
         email: string;
+        avatar: string;
     };
+}
+interface LoginBody {
+    email: string;
+    password: string;
 }
 //
 //
@@ -36,13 +42,13 @@ const credentialsErrorMessage = computed<string | boolean>(() => {
 const emailErrorMessage = generateJoiMessage(errors, "email");
 const passwordErrorMessage = generateJoiMessage(errors, "password");
 //
-const handleLogin = async () => {
-    const { data }: { data: LoginResponse } = await axios.post(`${API_ADDRESS}/api/auth/login`, {
-        email: email.value,
-        password: password.value
-    });
+export const _login = async (body: LoginBody) => {
+    if (authenticate()) return;
+    //
+    const { data }: { data: LoginResponse } = await axios.post(`${API_ADDRESS}/api/auth/login`, body);
     if (data.result === "negative") {
-        errors.value = data.errors as any;
+        // eslint-disable-next-line
+        return (errors.value = data.errors as any);
     } else {
         localStorage.setItem(
             "user",
@@ -50,6 +56,7 @@ const handleLogin = async () => {
                 name: data.userData?.name,
                 surname: data.userData?.surname,
                 email: data.userData?.email,
+                avatar: data.userData?.avatar,
                 accessToken: data.tokens?.accessToken,
                 refreshToken: data.tokens?.refreshToken
             })
@@ -58,6 +65,11 @@ const handleLogin = async () => {
     }
 };
 //
-
+const handleLogin = async () => {
+    await _login({
+        email: email.value,
+        password: password.value
+    });
+};
 //
-export default { password, email, handleLogin, errors, emailErrorMessage, passwordErrorMessage, credentialsErrorMessage };
+export default { password, email, handleLogin, errors, emailErrorMessage, passwordErrorMessage, credentialsErrorMessage, _login };

@@ -1,0 +1,37 @@
+section#login
+    div.box
+        $circleRotateTime: 10s
+        span.circle
+            @include absoluteCenter
+            width: 110%
+            height: 110%
+            border-radius: 50%
+            border: 50px solid $mainColor
+            animation: circle-size 2s both, circle-spin $circleRotateTime 2s linear infinite
+            @keyframes circle-spin
+                0%
+                    transform: translate(-50%,-50%) scale(1.5) rotate(0)
+                100%
+                    transform: translate(-50%,-50%) scale(1.5) rotate(360deg)
+                    
+            @keyframes circle-size
+                0%
+                    transform: translate(-50%,-50%) scale(.5)
+                100%
+                    transform: translate(-50%,-50%) scale(1.5)
+            span.space
+                position: absolute
+                background-color: $beige
+                width: 10%
+                height: 10%
+                animation: fade-only-opacity .5s 2.5s both
+                top: 50%
+                transform: translateY(-50%) rotate(9deg)
+                &:nth-of-type(1)
+                    right: -8%
+                &:nth-of-type(2)
+                    left: -8%
+            &:nth-of-type(2)
+                width: 150%
+                height: 150%
+                animation: circle-size 3s both, circle-spin $circleRotateTime 3s linear infinite reverse

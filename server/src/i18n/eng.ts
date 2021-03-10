@@ -32,6 +32,7 @@ export const RegisterErrorMessages = {
         "string.empty": "Email address is required!",
         "string.max": "Email address can be maximum {#limit} characters long",
         "any.required": `Email address is required!`,
+        taken: "Email is taken!",
     },
     password: {
         "string.empty": "Password is required!",
