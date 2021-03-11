@@ -7,7 +7,7 @@ import { CreateRequest } from "../@types/Offers";
 export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
         title: Joi.string().min(3).max(50).required().messages(CreateOfferErrorMessages.title),
-        category: Joi.string().min(3).max(40).required().messages(CreateOfferErrorMessages.category),
+        category: Joi.string().valid("services", "automotive", "education", "sport", "fasion", "electronic", "real-estate", "job-advertisement", "house-and-garden", "computer-and-games").required().messages(CreateOfferErrorMessages.category),
         description: Joi.string().min(10).max(2000).required(),
         contact: Joi.object({
             email: Joi.string().email().min(3).max(100),
@@ -26,7 +26,7 @@ export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next:
             .min(1)
             .messages(CreateOfferErrorMessages.contact),
         price: Joi.number().required().messages(CreateOfferErrorMessages.price),
-        currency: Joi.string().min(1).max(5).required().messages(CreateOfferErrorMessages.currency),
+        currency: Joi.string().valid("PLN", "EUR", "USD", "GBP").required().messages(CreateOfferErrorMessages.currency),
         localization: Joi.string().min(3).max(100).required().messages(CreateOfferErrorMessages.localization),
         country: Joi.string().min(3).max(100).required().messages(CreateOfferErrorMessages.country),
         advantages: Joi.array().items(Joi.string().min(3).max(150)).min(1).max(30).required().messages(CreateOfferErrorMessages.advantages),

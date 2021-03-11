@@ -99,6 +99,8 @@ describe("Offers creating, deleting, and fetching data", () => {
         loggedUsers.common.createdOfferFolder = offer.folder;
         expect(true).toEqual(fs.existsSync(path.join(offerUploadPath, offer.folder)));
         expect(offer.photos.length).toEqual(fs.readdirSync(path.join(offerUploadPath, offer.folder)).length);
+        expect(offer.valueInUSD).toBeGreaterThan(1300);
+        expect(offer.valueInUSD).toBeLessThan(1305);
         //
         done();
     });
@@ -205,7 +207,7 @@ describe("Offers creating, deleting, and fetching data", () => {
                 }),
                 photos: JSON.stringify(["img-one", "img-two"]),
                 localization: "Budapeszt",
-                currency: "pln",
+                currency: "PLN",
                 country: "Hungary",
                 advantages: JSON.stringify(["img-one", "img-two"]),
             });
@@ -244,10 +246,11 @@ describe("Offers creating, deleting, and fetching data", () => {
         await Offer.create({
             id: 5000,
             title: "Sprzedam komputer",
-            category: "COMPUTERY",
+            category: "computer-and-games",
             description: "Lorem ipsum ipsum lorem",
             price: 5000,
-            currency: "pln",
+            valueInUSD: 1303.28,
+            currency: "PLN",
             contact: {
                 phone: "111 222 333",
                 fb: "https://www.facebook.com/Centrum-Kszta%C5%82cenia-Zawodowego-i-Ustawicznego-nr-2-w-Wadowicach-283938188765939",

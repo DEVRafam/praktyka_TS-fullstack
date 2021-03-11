@@ -2,10 +2,11 @@
     {
         "title": "Sprzedam książki profil biolchem",
         "slug": "sprzedam-ksiazki-biolchem",
-        "category": ["Education"],
+        "category": "education",
         "description": "Jebac ten profil, oddam książki w dobre, naiwne rece za nie duże pieniądze.",
         "price": 100,
-        "currency": "pln",
+        "valueInUSD": 26.07,
+        "currency": "PLN",
         "creator_id": 1,
         "contact": {
             "phone": "999 888 777"
@@ -19,10 +20,11 @@
     {
         "title": "Sprzedam fiata seicento",
         "slug": "sprzedam-seicento",
-        "category": ["Automotive"],
+        "category": "automotive",
         "description": "Sprzedam super auto w super cenie, prawie jak z salonu, rocznik 1999",
         "price": 900,
-        "currency": "pln",
+        "valueInUSD": 234.59,
+        "currency": "PLN",
         "creator_id": 3,
         "contact": {
             "phone": "777 888 999"
@@ -36,11 +38,12 @@
     {
         "title": "Usługi weterynarskie",
         "slug": "uslugi-weterynaryjne",
-        "category": ["Services"],
+        "category": "services",
         "description": "Lekarz dentysta, lekarz stomatolog, pot. dentysta – osoba uprawniona do praktycznego stosowania wiedzy z zakresu stomatologii.",
         "price": 2000,
+        "valueInUSD": 521.31,
         "creator_id": 2,
-        "currency": "pln",
+        "currency": "PLN",
         "contact": {
             "phone": "888 777 999"
         },
@@ -54,10 +57,11 @@
     {
         "title": "Czyszczenie kominów",
         "slug": "czyszczenie-kominow",
-        "category": ["Services"],
+        "category": "services",
         "description": "Kominiarz − rzemieślnik zajmujący się czyszczeniem i sprawdzaniem stanu technicznego przewodów kominowych dymowych, spalinowych i wentylacyjnych.",
         "price": 1000,
-        "currency": "pln",
+        "valueInUSD": 260.66,
+        "currency": "PLN",
         "creator_id": 2,
         "contact": {
             "phone": "888 777 999"
@@ -71,10 +75,11 @@
     {
         "title": "APPLE MacBook Pro 16 i9-9980H 16GB 1000GB SSD AMD Pro 5500M macOS",
         "slug": "macbook",
-        "category": "Electronic",
+        "category": "electronic",
         "description": "Oto najpotężniejszy notebook od Apple. Stworzony dla twórców. Ma niesamowity wyświetlacz Retina o przekątnej 16 cali, superszybkie procesory, grafikę nowej generacji, najpojemniejszą baterię w historii MacBooka Pro, nową klawiaturę Magic Keyboard i olbrzymią pamięć masową. To najdoskonalszy sprzęt dla najbardziej wymagających profesjonalistów. Nowy MacBook Pro ma olśniewający wyświetlacz o przekątnej 16 cali – największy ekran Retina w historii przenośnych Maców. Stale utrzymuje jasność 500 nitów, uwydatniając jasne elementy obrazu. Jednocześnie z niesamowitą precyzją porządkuje cząsteczki ciekłego kryształu, żeby generować głębsze czernie. A dzięki szerokiej gamie kolorów P3 zdjęcia i filmy są jeszcze bliższe rzeczywistości. Bez względu na to, gdzie jesteś, rezultaty swojej pracy zobaczysz w najlepszym świetle.",
         "price": 12399,
-        "currency": "pln",
+        "valueInUSD": 3231.87,
+        "currency": "PLN",
         "creator_id": 1,
         "contact": {
             "phone": "222 333 444"
@@ -88,10 +93,11 @@
     {
         "title": "Konsola SONY PlayStation 5",
         "slug": "ps5",
-        "category": "Electronic",
+        "category": "electronic",
         "description": "PRĘDKOŚĆ BŁYSKAWICY Ultraszybki dysk SSD zapewnia błyskawiczne czasy ładowania. Zainstalowane na konsoli PS5 gry będą ładować się w mgnieniu oka. Wykorzystując moc procesora niestandardowego, procesora graficznego i dysku SSD ze zintegrowanym We/Wy, stworzono nowe zasady tego, na co stać konsolę PlayStation. Co oznacza mniej czekania na loadingu! Kontroler bezprzewodowy DualSense do konsoli PS5 oferuje realistyczne efekty dotykowe, dynamiczne efekty „Trigger” oraz wbudowany mikrofon – a wszystko to zintegrowane w kultowej konstrukcji. Grając, możesz korzystać z efektów dotykowych w wybranych grach na PS5, by na własnej skórze odczuwać akcję, która rozgrywa się na ekranie. Poznaj możliwości adaptacyjnych efektów „Trigger” w wybranych tytułach na PS5. Dzięki tej technologii opór podczas wciskania spustów na kontrolerze zmienia się w zależności od tego, co robisz w grze.",
         "price": 2600,
-        "currency": "pln",
+        "valueInUSD": 677.7,
+        "currency": "PLN",
         "creator_id": 1,
         "contact": {
             "phone": "222 333 444"
@@ -105,10 +111,11 @@
     {
         "title": "AIR MAX EXOSENSE",
         "slug": "air-max-exosense",
-        "category": "Fasion",
+        "category": "fasion",
         "description": "Zrób wokół siebie szum dzięki butom Nike Air Max Exosense. Ten fantastyczny fason ma bezszwowe powłoki dodające głębi. Wyściełane poduszki, amortyzacja Nike Air i pianka Cushlon zapewniają nieziemską wygodę. Nowoczesny wygląd dodaje energii, której napływ czujesz w każdym kroku.",
         "price": 399,
-        "currency": "pln",
+        "valueInUSD": 104,
+        "currency": "PLN",
         "creator_id": 3,
         "contact": {
             "phone": "333 222 444"
@@ -127,10 +134,11 @@
     {
         "title": "FC Barcelona 2021 Stadium Away",
         "slug": "fcb-2021-away",
-        "category": "Fasion",
+        "category": "fasion",
         "description": "Reprezentuj swoją drużynę w koszulce FC Barcelona Stadium (wersja wyjazdowa). Jest wykonana z przewiewnego materiału odprowadzającego wilgoć ze skóry, który przynosi ochłodę zarówno podczas gry na boisku, jak i w trakcie kibicowania na trybunach. Ten produkt jest wykonany w 100% z poliestru z recyklingu.",
         "price": 299,
-        "currency": "pln",
+        "valueInUSD": 77.94,
+        "currency": "PLN",
         "creator_id": 4,
         "contact": {
             "phone": "333 222 444"
@@ -144,10 +152,11 @@
     {
         "title": "London, SW15 5JS United Kingdom",
         "slug": "uk-london-mansion",
-        "category": "Real estate",
+        "category": "real-estate",
         "description": "This exquisitely designed, detached house sits in a generous plot on one of Roehampton’s most favoured residential roads, just minutes from the Royal Richmond Park. The house boasts sixluxurious bedrooms and five bathrooms spread over two floors, as well as a self-contained studio flat on the lower ground floor.",
         "price": 10000000,
-        "currency": "gbp",
+        "valueInUSD": 13929850,
+        "currency": "GBP",
         "creator_id": 1,
         "contact": {
             "phone": "999 888 111"
@@ -161,10 +170,11 @@
     {
         "title": "Oficjalna piłka Spalding NBA Gameball",
         "slug": "nba-ball",
-        "category": "Sport",
+        "category": "sport",
         "description": "Oficjalna piłka NBA Spalding Gameball, którą widzimy codziennie na meczach przez ostatnie prawie 30 lat. Jest specjalnie zaprojektowana na potrzeby najlepszych koszykarzy na świecie, do gry na hali (Indoor). Jest to jedyny model firmy Spalding wykonany z prawdziwej, pełnowartościowej skóry naturalnej. Dzięki temu piłka NBA Game Ball ma długotrwałą żywotność i dostosowuje się do ręki coraz lepiej z gry na grę. Przez wielu fanów okrzyknięta jako najlepsza piłka do koszykówki. Ma doskonały chwyt oraz prowadzenie. Sygnowana przez samego komisarza ligi Adama Silvera. Wszystkie nadruki na piłce są zagłębione w wyżłobieniach ze skóry, co jest charakterystyczne tylko i wyłącznie dla modelu z oficjalnej dystrubucji Spalding Polska.",
         "price": 999,
-        "currency": "pln",
+        "valueInUSD": 260.39,
+        "currency": "PLN",
         "creator_id": 3,
         "contact": {
             "phone": "333 111 444"
@@ -178,10 +188,11 @@
     {
         "title": "Poszukiwany nauczyciel do technikum informatycznego",
         "slug": "technik-informatyk",
-        "category": "Job advertisement",
+        "category": "job-advertisement",
         "description": "Samobójstwo – celowe odebranie sobie życia. Przyczyny samobójstw są wielorakie. Często wynika ono z uczucia smutku, które w wielu przypadkach jest rezultatem zaburzeń psychicznych, takich jak depresja, zaburzenia afektywne dwubiegunowe, schizofrenia, alkoholizm lub inne uzależnienie od środków odurzających. Stresory takie jak problemy finansowe lub problemy w zakresie relacji międzyludzkich również odgrywają istotną rolę. Samobójstwo może być również popełnione przez zdrowego psychicznie człowieka z powodów ideologicznych. .",
         "price": 2300,
-        "currency": "pln",
+        "valueInUSD": 599.51,
+        "currency": "PLN",
         "creator_id": 2,
         "contact": {
             "phone": "999 999 999"
@@ -195,10 +206,11 @@
     {
         "title": "Tesla Model 3",
         "slug": "tesla-model-3",
-        "category": "Automotive",
+        "category": "automotive",
         "description": "Safety is the most important part of the overall Model 3 design. The metal structure is a combination of aluminum and steel, for maximum strength in every area. In a roof-crush test, Model 3 resisted four times its own mass, even with an all-glass roof: that's the same weight as two full-grown African elephants.",
         "price": 160000,
-        "currency": "pln",
+        "valueInUSD": 41704.85,
+        "currency": "PLN",
         "creator_id": 1,
         "contact": {
             "phone": "333 444 222"
@@ -215,5 +227,45 @@
             "Go anywhere with up to 353 mi of estimated range on a single charge",
             "You can use your smartphone as a key, and access all driver controls in the central 15-inch touchscreen. "
         ]
+    },
+    {
+        "title": "Lego Gwiezdne Wojny: Saga Skywalkerów Gra PS5",
+        "slug": "lego-star-wars-ps5",
+        "category": "computer-and-games",
+        "description": "LEGO Gwiezdne Wojny: Skywalker– saga to największa gra z serii LEGO Gwiezdne Wojny, zawierające wszystkie 9 filmów sagi, w tym wysoce oczekiwaną konkluzję serii: Gwiezdne Wojny: Skywalker. Odrodzenie. Wraz z rodziną i przyjaciółmi poprowadźcie setki postaci i pojazdów w swojej własnej podróży przez galaktykę! Od pustyni Geonosis, po bagna Dagobah i śnieżne przestrzenie bazy Starkiller – gracze będą mieli moc odwiedzać wszystkie planety, kiedy chcą i w jakiej kolejności chcą. Cała galaktyka czeka na odkrycie i zabawę!",
+        "price": 225,
+        "valueInUSD": 58.66,
+        "currency": "PLN",
+        "creator_id": 1,
+        "contact": {
+            "phone": "333 444 222"
+        },
+        "folder": "lego-star-wars-ps5",
+        "photos": ["1.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": [
+            "Weź udział w akcji wszystkich 9 filmów sagi Gwiezdne Wojny, od Mrocznego widma po, po raz pierwszy w serii LEGO Gwiezdne Wojny, Skywalker. Przebudzenie",
+            "Największy wybór postaci w historii serii LEGO Gwiezdne wojny – możesz grać przeciwko siłom zła między innymi jako Luke Skywalker, Rey, Obi-Wan Kenobi, Finn, BB-8 i cały zastęp innych bohaterów, bądź dołączyć do ciemnej strony Mocy jako Darth Vader, Imperator Palpatine, Kylo Ren i inni",
+            "Najsłynniejsze pojazdy z całej galaktyki dostępne na zawołanie – wskocz w nad świetlną w Sokole Millennium, by uciec imperialnym statkom, walcz z TIE fighterami Nowego Porządku na pokładzie X-Winga Rebelii, albo ścigaj się na Tatooine"
+        ]
+    },
+    {
+        "title": "Ratchet & Clank: Rift Apart PS5",
+        "slug": "ratchet-clank-ps5",
+        "category": "computer-and-games",
+        "description": "The game shares many gameplay similarities with Ratchet & Clank (2016) and other entries in the series. The main playable character is Ratchet. He is accompanied by his robotic friend and sidekick Clank, who is hung on his back. There will also be a playable female Lombax. The player navigates Ratchet through diverse environments across a multitude of levels, defeating enemies with an array of varied weapons and gadgets, and traversing obstacles to complete key mission objectives. This will be the first game in the series to introduce the concept of real-time near instantaneous travel between different areas, planets and other worlds within gameplay scenes via a system of inter-dimensional portals. In order for the player to utilize this feature, a new mechanic dubbed the Rift Tether is introduced in Ratchet's arsenal that pulls him from one side of the portal to another, facilitating that travel functionality with great ease. The game will take advantage of the PlayStation 5's Dualsense controller, Tempest Engine and dedicated ray tracing hardware to support advanced haptic feedback, 3D spatial audio and real-time ray tracing effects.",
+        "price": 85,
+        "valueInUSD": 85,
+        "currency": "USD",
+        "creator_id": 2,
+        "contact": {
+            "phone": "333 444 222"
+        },
+        "folder": "rachet-and-clank-ps5",
+        "photos": ["1.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["Blast your way home with an arsenal of outrageous weaponry.", "Experience the shuffle of dimensional rifts and dynamic gameplay.", "Explore never-before-seen planets and parallel universe versions of old favourites."]
     }
 ]

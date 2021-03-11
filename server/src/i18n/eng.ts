@@ -54,8 +54,7 @@ export const CreateOfferErrorMessages = {
     },
     category: {
         "string.empty": "Category is required!",
-        "string.max": "Category can be maximum {#limit} characters long",
-        "string.min": "Category must be at least {#limit} characters long",
+        "string.valid": "Invalid category!",
         "any.required": "Category is required!",
     },
     description: {
@@ -94,8 +93,7 @@ export const CreateOfferErrorMessages = {
     },
     currency: {
         "string.empty": "Currency is required!",
-        "string.max": "Currency can be maximum {#limit} characters long",
-        "string.min": "Currency must be at least {#limit} characters long",
+        "string.valid": "Available currencies: PLN, EUR, USD, GBP",
         "any.required": "Currency is required!",
     },
     advantages: {

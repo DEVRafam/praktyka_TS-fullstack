@@ -5,9 +5,14 @@ const schema = {
     },
     slug: {
         type: DataTypes.STRING,
+        // generated automatically
+    },
+    creator_id: {
+        type: DataTypes.INTEGER,
+        // generated automatically
     },
     category: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("services", "automotive", "education", "sport", "fasion", "electronic", "real-estate", "job-advertisement", "house-and-garden", "computer-and-games"),
     },
     description: {
         type: DataTypes.TEXT,
@@ -16,13 +21,14 @@ const schema = {
         type: DataTypes.JSON,
     },
     price: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
     },
     currency: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("PLN", "EUR", "USD", "GBP"),
     },
-    creator_id: {
-        type: DataTypes.INTEGER,
+    valueInUSD: {
+        type: DataTypes.FLOAT,
+        // generated automatically
     },
     contact: {
         type: DataTypes.JSON,
@@ -39,9 +45,11 @@ const schema = {
     status: {
         type: DataTypes.ENUM(["DEFAULT", "SOLD", "BANNED", "HIDDEN"]),
         defaultValue: "DEFAULT",
+        // generated automatically
     },
     folder: {
         type: DataTypes.STRING,
+        // generated automatically
     },
 };
 // set allowNull property to false for all schema fields
