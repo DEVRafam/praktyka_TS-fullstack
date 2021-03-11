@@ -6,14 +6,20 @@ const schema = {
     slug: {
         type: DataTypes.STRING,
     },
-    categories: {
-        type: DataTypes.JSON,
+    category: {
+        type: DataTypes.STRING,
     },
     description: {
         type: DataTypes.TEXT,
     },
+    advantages: {
+        type: DataTypes.JSON,
+    },
     price: {
         type: DataTypes.INTEGER,
+    },
+    currency: {
+        type: DataTypes.STRING,
     },
     creator_id: {
         type: DataTypes.INTEGER,
@@ -25,6 +31,9 @@ const schema = {
         type: DataTypes.JSON,
     },
     localization: {
+        type: DataTypes.STRING,
+    },
+    country: {
         type: DataTypes.STRING,
     },
     status: {

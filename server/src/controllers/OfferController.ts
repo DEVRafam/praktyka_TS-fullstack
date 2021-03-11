@@ -169,12 +169,15 @@ class OfferController {
                 title: req.body.title,
                 slug,
                 folder,
-                categories: JSON.parse(req.body.categories),
+                category: req.body.category,
                 description: req.body.description,
+                advantages: JSON.parse(req.body.advantages),
+                currency: req.body.currency,
                 price: req.body.price,
                 contact: JSON.parse(req.body.contact),
                 photos,
                 localization: req.body.localization,
+                country: req.body.country,
                 creator_id: req.authorizedToken.id,
             };
             //

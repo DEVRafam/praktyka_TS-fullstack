@@ -1,59 +1,219 @@
 [
     {
-        "title": "Sprzedam książki profil technik informatyk",
-        "slug": "sprzedam-ksiazki-informatyk",
-        "categories": ["Komedia"],
+        "title": "Sprzedam książki profil biolchem",
+        "slug": "sprzedam-ksiazki-biolchem",
+        "category": ["Education"],
         "description": "Jebac ten profil, oddam książki w dobre, naiwne rece za nie duże pieniądze.",
         "price": 100,
+        "currency": "pln",
         "creator_id": 1,
         "contact": {
             "phone": "999 888 777"
         },
-        "photos": ["IT.jpg"],
-        "folder": "informatyk",
-        "localization": "Wadowice"
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "folder": "ksiazki",
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["Przylosciowy zakup", "Tanio"]
     },
     {
         "title": "Sprzedam fiata seicento",
         "slug": "sprzedam-seicento",
-        "categories": ["Motoryzacja"],
+        "category": ["Automotive"],
         "description": "Sprzedam super auto w super cenie, prawie jak z salonu, rocznik 1999",
         "price": 900,
+        "currency": "pln",
         "creator_id": 3,
         "contact": {
             "phone": "777 888 999"
         },
         "folder": "seicento",
         "photos": ["car_1", "car_2", "car_3", "car_4"],
-        "localization": "Mucharz"
+        "localization": "Mucharz",
+        "country": "Polska",
+        "advantages": ["Tanio", "Jezdzi"]
     },
     {
         "title": "Usługi weterynarskie",
         "slug": "uslugi-weterynaryjne",
-        "categories": ["Usługi"],
+        "category": ["Services"],
         "description": "Lekarz dentysta, lekarz stomatolog, pot. dentysta – osoba uprawniona do praktycznego stosowania wiedzy z zakresu stomatologii.",
         "price": 2000,
         "creator_id": 2,
+        "currency": "pln",
         "contact": {
             "phone": "888 777 999"
         },
         "folder": "vet",
         "photos": ["vet.jpg"],
         "status": "HIDDEN",
-        "localization": "Wadowice"
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["Zwierzatka sa najwazniejsze"]
     },
     {
         "title": "Czyszczenie kominów",
         "slug": "czyszczenie-kominow",
-        "categories": ["Usługi"],
+        "category": ["Services"],
         "description": "Kominiarz − rzemieślnik zajmujący się czyszczeniem i sprawdzaniem stanu technicznego przewodów kominowych dymowych, spalinowych i wentylacyjnych.",
         "price": 1000,
+        "currency": "pln",
         "creator_id": 2,
         "contact": {
             "phone": "888 777 999"
         },
         "folder": "chimney",
         "photos": ["chimney.jpg"],
-        "localization": "Kraków"
+        "localization": "Kraków",
+        "country": "Polska",
+        "advantages": ["Komin przedkany"]
+    },
+    {
+        "title": "APPLE MacBook Pro 16 i9-9980H 16GB 1000GB SSD AMD Pro 5500M macOS",
+        "slug": "macbook",
+        "category": "Electronic",
+        "description": "Oto najpotężniejszy notebook od Apple. Stworzony dla twórców. Ma niesamowity wyświetlacz Retina o przekątnej 16 cali, superszybkie procesory, grafikę nowej generacji, najpojemniejszą baterię w historii MacBooka Pro, nową klawiaturę Magic Keyboard i olbrzymią pamięć masową. To najdoskonalszy sprzęt dla najbardziej wymagających profesjonalistów. Nowy MacBook Pro ma olśniewający wyświetlacz o przekątnej 16 cali – największy ekran Retina w historii przenośnych Maców. Stale utrzymuje jasność 500 nitów, uwydatniając jasne elementy obrazu. Jednocześnie z niesamowitą precyzją porządkuje cząsteczki ciekłego kryształu, żeby generować głębsze czernie. A dzięki szerokiej gamie kolorów P3 zdjęcia i filmy są jeszcze bliższe rzeczywistości. Bez względu na to, gdzie jesteś, rezultaty swojej pracy zobaczysz w najlepszym świetle.",
+        "price": 12399,
+        "currency": "pln",
+        "creator_id": 1,
+        "contact": {
+            "phone": "222 333 444"
+        },
+        "folder": "macbook",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["Ekran 16\", 3072 x 1920px", "Procesor Intel Core i9-9980H", "Wielkość pamięci RAM [GB] 16", "Dysk 1000 GB SSD", "Karta graficzna AMD Radeon Pro 5500M", "System operacyjny macOS Catalina"]
+    },
+    {
+        "title": "Konsola SONY PlayStation 5",
+        "slug": "ps5",
+        "category": "Electronic",
+        "description": "PRĘDKOŚĆ BŁYSKAWICY Ultraszybki dysk SSD zapewnia błyskawiczne czasy ładowania. Zainstalowane na konsoli PS5 gry będą ładować się w mgnieniu oka. Wykorzystując moc procesora niestandardowego, procesora graficznego i dysku SSD ze zintegrowanym We/Wy, stworzono nowe zasady tego, na co stać konsolę PlayStation. Co oznacza mniej czekania na loadingu! Kontroler bezprzewodowy DualSense do konsoli PS5 oferuje realistyczne efekty dotykowe, dynamiczne efekty „Trigger” oraz wbudowany mikrofon – a wszystko to zintegrowane w kultowej konstrukcji. Grając, możesz korzystać z efektów dotykowych w wybranych grach na PS5, by na własnej skórze odczuwać akcję, która rozgrywa się na ekranie. Poznaj możliwości adaptacyjnych efektów „Trigger” w wybranych tytułach na PS5. Dzięki tej technologii opór podczas wciskania spustów na kontrolerze zmienia się w zależności od tego, co robisz w grze.",
+        "price": 2600,
+        "currency": "pln",
+        "creator_id": 1,
+        "contact": {
+            "phone": "222 333 444"
+        },
+        "folder": "ps5",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["Pojemność dysku twardego 825 GB", "Brak gier w zestawie", "Dołączony kontroler"]
+    },
+    {
+        "title": "AIR MAX EXOSENSE",
+        "slug": "air-max-exosense",
+        "category": "Fasion",
+        "description": "Zrób wokół siebie szum dzięki butom Nike Air Max Exosense. Ten fantastyczny fason ma bezszwowe powłoki dodające głębi. Wyściełane poduszki, amortyzacja Nike Air i pianka Cushlon zapewniają nieziemską wygodę. Nowoczesny wygląd dodaje energii, której napływ czujesz w każdym kroku.",
+        "price": 399,
+        "currency": "pln",
+        "creator_id": 3,
+        "contact": {
+            "phone": "333 222 444"
+        },
+        "folder": "AIR MAX EXOSENSE",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+        "localization": "Mucharz",
+        "country": "Polska",
+        "advantages": [
+            "Prezentowany kolor: Czerń/Dark",
+            "Amortyzacja Nike Air w połączeniu z pianką Cushlon daje uczucie miękkości i sprężystości.",
+            "Pasek w obszarze śródstopia łączy się ze sznurowadłami, zwiększając wsparcie.",
+            "Wyściełane poduszki na cholewce znajdują się też po wewnętrznej stronie, zwiększając wygodę oraz nadając futurystyczny styl."
+        ]
+    },
+    {
+        "title": "FC Barcelona 2021 Stadium Away",
+        "slug": "fcb-2021-away",
+        "category": "Fasion",
+        "description": "Reprezentuj swoją drużynę w koszulce FC Barcelona Stadium (wersja wyjazdowa). Jest wykonana z przewiewnego materiału odprowadzającego wilgoć ze skóry, który przynosi ochłodę zarówno podczas gry na boisku, jak i w trakcie kibicowania na trybunach. Ten produkt jest wykonany w 100% z poliestru z recyklingu.",
+        "price": 299,
+        "currency": "pln",
+        "creator_id": 4,
+        "contact": {
+            "phone": "333 222 444"
+        },
+        "folder": "FC Barcelona 2021 Stadium Away",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+        "localization": "Kraków",
+        "country": "Polska",
+        "advantages": ["Charakteryzujący się dużą przewiewnością materiał Nike Breathe przynosi ochłodę.", "Odprowadzanie wilgoci i profesjonalna jakość", "Fason wzorowany na strojach, które zawodnicy noszą w trakcie meczów.", "100% poliester.", "Mozna prac w pralce"]
+    },
+    {
+        "title": "London, SW15 5JS United Kingdom",
+        "slug": "uk-london-mansion",
+        "category": "Real estate",
+        "description": "This exquisitely designed, detached house sits in a generous plot on one of Roehampton’s most favoured residential roads, just minutes from the Royal Richmond Park. The house boasts sixluxurious bedrooms and five bathrooms spread over two floors, as well as a self-contained studio flat on the lower ground floor.",
+        "price": 10000000,
+        "currency": "gbp",
+        "creator_id": 1,
+        "contact": {
+            "phone": "999 888 111"
+        },
+        "folder": "uk-mansion",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"],
+        "localization": "London",
+        "country": "United Kingdoms",
+        "advantages": ["FULL BATHROOMS: 5", "BEDROOMS: 7"]
+    },
+    {
+        "title": "Oficjalna piłka Spalding NBA Gameball",
+        "slug": "nba-ball",
+        "category": "Sport",
+        "description": "Oficjalna piłka NBA Spalding Gameball, którą widzimy codziennie na meczach przez ostatnie prawie 30 lat. Jest specjalnie zaprojektowana na potrzeby najlepszych koszykarzy na świecie, do gry na hali (Indoor). Jest to jedyny model firmy Spalding wykonany z prawdziwej, pełnowartościowej skóry naturalnej. Dzięki temu piłka NBA Game Ball ma długotrwałą żywotność i dostosowuje się do ręki coraz lepiej z gry na grę. Przez wielu fanów okrzyknięta jako najlepsza piłka do koszykówki. Ma doskonały chwyt oraz prowadzenie. Sygnowana przez samego komisarza ligi Adama Silvera. Wszystkie nadruki na piłce są zagłębione w wyżłobieniach ze skóry, co jest charakterystyczne tylko i wyłącznie dla modelu z oficjalnej dystrubucji Spalding Polska.",
+        "price": 999,
+        "currency": "pln",
+        "creator_id": 3,
+        "contact": {
+            "phone": "333 111 444"
+        },
+        "folder": "nba",
+        "photos": "1.jpg",
+        "localization": "Warszawa",
+        "country": "Polska",
+        "advantages": ["Przeznaczenie: Indoor", "Materiał: Pełnowartościowa skóra", "Rozmiar: 7"]
+    },
+    {
+        "title": "Poszukiwany nauczyciel do technikum informatycznego",
+        "slug": "technik-informatyk",
+        "category": "Job advertisement",
+        "description": "Samobójstwo – celowe odebranie sobie życia. Przyczyny samobójstw są wielorakie. Często wynika ono z uczucia smutku, które w wielu przypadkach jest rezultatem zaburzeń psychicznych, takich jak depresja, zaburzenia afektywne dwubiegunowe, schizofrenia, alkoholizm lub inne uzależnienie od środków odurzających. Stresory takie jak problemy finansowe lub problemy w zakresie relacji międzyludzkich również odgrywają istotną rolę. Samobójstwo może być również popełnione przez zdrowego psychicznie człowieka z powodów ideologicznych. .",
+        "price": 2300,
+        "currency": "pln",
+        "creator_id": 2,
+        "contact": {
+            "phone": "999 999 999"
+        },
+        "folder": "nauczyciel",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["Minimalna krajowa"]
+    },
+    {
+        "title": "Tesla Model 3",
+        "slug": "tesla-model-3",
+        "category": "Automotive",
+        "description": "Safety is the most important part of the overall Model 3 design. The metal structure is a combination of aluminum and steel, for maximum strength in every area. In a roof-crush test, Model 3 resisted four times its own mass, even with an all-glass roof: that's the same weight as two full-grown African elephants.",
+        "price": 160000,
+        "currency": "pln",
+        "creator_id": 1,
+        "contact": {
+            "phone": "333 444 222"
+        },
+        "folder": "tesla",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": [
+            "All-Wheel Drive Dual Motor",
+            "Quickest acceleration—from zero to 60 mph in as little as 3.1 seconds",
+            "Impact Protection",
+            "Improved handling and aerodynamics allow for a top speed of 162 mph",
+            "Go anywhere with up to 353 mi of estimated range on a single charge",
+            "You can use your smartphone as a key, and access all driver controls in the central 15-inch touchscreen. "
+        ]
     }
 ]

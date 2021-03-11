@@ -20,12 +20,15 @@ const createOffer = async (token: string) => {
         .post("/api/offer")
         .set(headers) //
         .field("title", offerData.title)
-        .field("categories", offerData.categories)
+        .field("category", offerData.category)
         .field("description", offerData.description)
         .field("price", offerData.price)
+        .field("currency", offerData.currency)
         .field("contact", offerData.contact)
         .field("photos", offerData.photos)
         .field("localization", offerData.localization)
+        .field("country", offerData.country)
+        .field("advantages", offerData.advantages)
         .attach("sample_1", path.join(__dirname, "..", "assets", "offer", "sample_1.jpg"))
         .attach("sample_2", path.join(__dirname, "..", "assets", "offer", "sample_2.jpg"));
 };
@@ -198,13 +201,16 @@ describe("Offers creating, deleting, and fetching data", () => {
                 price: "text",
                 contact: JSON.stringify({
                     phone: "111 222 333",
-                    fb: "https://www.npmjs.com",
+                    fb: "https://www.npmjs.comasdasdasd asdasd asdsadas",
                 }),
                 photos: JSON.stringify(["img-one", "img-two"]),
                 localization: "Budapeszt",
+                currency: "pln",
+                country: "Hungary",
+                advantages: JSON.stringify(["img-one", "img-two"]),
             });
         //
-        expect(JSON.stringify(body.errors)).toEqual(
+        expect(
             JSON.stringify([
                 {
                     element: "title",
@@ -212,14 +218,9 @@ describe("Offers creating, deleting, and fetching data", () => {
                     message: "Offer title must be at least 3 characters long",
                 },
                 {
-                    element: "categories",
+                    element: "category",
                     type: "required",
                     message: "Category is required!",
-                },
-                {
-                    element: "contact",
-                    type: "min",
-                    message: '"contact.fb" must be at least 26 characters long',
                 },
                 {
                     element: "contact",
@@ -232,7 +233,7 @@ describe("Offers creating, deleting, and fetching data", () => {
                     message: '"price" must be a number',
                 },
             ])
-        );
+        ).toEqual(JSON.stringify(body.errors));
         //
         done();
     });
@@ -243,19 +244,22 @@ describe("Offers creating, deleting, and fetching data", () => {
         await Offer.create({
             id: 5000,
             title: "Sprzedam komputer",
-            categories: ["COMPUTERY"],
+            category: "COMPUTERY",
             description: "Lorem ipsum ipsum lorem",
             price: 5000,
+            currency: "pln",
             contact: {
                 phone: "111 222 333",
                 fb: "https://www.facebook.com/Centrum-Kszta%C5%82cenia-Zawodowego-i-Ustawicznego-nr-2-w-Wadowicach-283938188765939",
             },
             photos: ["img-one", "img-two"],
             localization: "Budapeszt",
+            country: "Hungary",
             creator_id: loggedUsers.common.id,
             slug: "dadasdasdasdasdasd",
             status: "HIDDEN",
             folder: "adas",
+            advantages: ["FULL BATHROOMS: 5", "BEDROOMS: 7"],
         });
         //
         const { status } = await (global as any).request.get("/api/offer/dadasdasdasdasdasd");

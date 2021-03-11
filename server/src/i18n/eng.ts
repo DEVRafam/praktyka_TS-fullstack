@@ -52,10 +52,10 @@ export const CreateOfferErrorMessages = {
         "string.min": "Offer title must be at least {#limit} characters long",
         "any.required": "Offer title is required!",
     },
-    categories: {
+    category: {
         "string.empty": "Category is required!",
-        "string.max": "Single category can be maximum {#limit} characters long",
-        "string.min": "Single category must be at least {#limit} characters long",
+        "string.max": "Category can be maximum {#limit} characters long",
+        "string.min": "Category must be at least {#limit} characters long",
         "any.required": "Category is required!",
     },
     description: {
@@ -85,6 +85,25 @@ export const CreateOfferErrorMessages = {
         "string.max": "{#label} can be maximum {#limit} characters long",
         "string.min": "{#label} must be at least {#limit} characters long",
         "fb.invalid": "Facebook link must start with 'https://www.facebook.com/profile'",
+    },
+    country: {
+        "string.empty": "Country is required!",
+        "string.max": "Country can be maximum {#limit} characters long",
+        "string.min": "Country must be at least {#limit} characters long",
+        "any.required": "Country is required!",
+    },
+    currency: {
+        "string.empty": "Currency is required!",
+        "string.max": "Currency can be maximum {#limit} characters long",
+        "string.min": "Currency must be at least {#limit} characters long",
+        "any.required": "Currency is required!",
+    },
+    advantages: {
+        "any.required": "Advantages is required!",
+        "array.min": "At least {#limit} advantage gotta be passed",
+        "array.max": "Advantages list can be maximum {#limit} elements long",
+        "string.min": "Single advantage must be at least {#limit} characters long",
+        "string.max": "Single advantage can be maximum {#limit} characters long",
     },
 };
 //

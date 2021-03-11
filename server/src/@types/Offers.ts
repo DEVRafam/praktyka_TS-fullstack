@@ -16,12 +16,15 @@ export type GetSingleRequest = Request<{ slug: string }>;
 //
 interface Create_BODY {
     title: string;
-    categories: string;
+    category: string;
     description: string;
     price: number;
     contact: string;
     photos: string;
+    country: string;
+    currency: string;
     localization: string;
+    advantages: string;
 }
 export type CreateRequest = Authorized & Request<{}, {}, Create_BODY>;
 //

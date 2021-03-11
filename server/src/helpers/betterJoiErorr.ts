@@ -17,13 +17,18 @@ type BetterJoiError = {
 };
 //
 export default (joiErrorsSchema: ValidationError): BetterJoiError[] => {
-    return joiErrorsSchema.details.map((singleError: JoiError) => {
+    const resultElementsList: BetterJoiError[] = [];
+    joiErrorsSchema.details.forEach((singleError: JoiError) => {
         const result = {} as BetterJoiError;
         //
         result.element = singleError.path[0];
         result.type = singleError.type.split(".")[1];
         result.message = singleError.message;
-        //
-        return result;
+        // avoid duplicate errors for the same element ( array validation case )
+        if (!resultElementsList.find((el) => el.element === result.element)) {
+            resultElementsList.push(result);
+        }
     });
+    //
+    return resultElementsList;
 };

@@ -6,9 +6,9 @@ import { CreateRequest } from "../@types/Offers";
 //
 export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
-        title: Joi.string().min(3).max(20).required().messages(CreateOfferErrorMessages.title),
-        categories: Joi.array().items(Joi.string().min(3).max(50)).max(3).required().messages(CreateOfferErrorMessages.categories),
-        description: Joi.string().min(10).max(1000).required(),
+        title: Joi.string().min(3).max(50).required().messages(CreateOfferErrorMessages.title),
+        category: Joi.string().min(3).max(40).required().messages(CreateOfferErrorMessages.category),
+        description: Joi.string().min(10).max(2000).required(),
         contact: Joi.object({
             email: Joi.string().email().min(3).max(100),
             phone: Joi.string().min(11).max(11),
@@ -26,7 +26,10 @@ export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next:
             .min(1)
             .messages(CreateOfferErrorMessages.contact),
         price: Joi.number().required().messages(CreateOfferErrorMessages.price),
+        currency: Joi.string().min(1).max(5).required().messages(CreateOfferErrorMessages.currency),
         localization: Joi.string().min(3).max(100).required().messages(CreateOfferErrorMessages.localization),
+        country: Joi.string().min(3).max(100).required().messages(CreateOfferErrorMessages.country),
+        advantages: Joi.array().items(Joi.string().min(3).max(150)).min(1).max(30).required().messages(CreateOfferErrorMessages.advantages),
         photos: Joi.array().min(1).required().messages(CreateOfferErrorMessages.photos),
     });
     // convert multipart/data into JSON
@@ -34,12 +37,15 @@ export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next:
     const { error } = scheme.validate(
         {
             title: req.body.title,
-            categories: req.body.categories && JSON.parse(req.body.categories),
+            category: req.body.category,
             description: req.body.description,
             price: req.body.price,
             contact: req.body.contact && JSON.parse(req.body.contact),
             localization: req.body.localization,
             photos: req.body.photos && JSON.parse(req.body.photos),
+            currency: req.body.currency,
+            country: req.body.country,
+            advantages: req.body.advantages && JSON.parse(req.body.advantages),
         },
         { abortEarly: false }
     );
