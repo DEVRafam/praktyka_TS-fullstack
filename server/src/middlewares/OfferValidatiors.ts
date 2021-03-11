@@ -7,7 +7,7 @@ import { CreateRequest } from "../@types/Offers";
 export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
         title: Joi.string().min(3).max(50).required().messages(CreateOfferErrorMessages.title),
-        category: Joi.string().valid("services", "automotive", "education", "sport", "fasion", "electronic", "real-estate", "job-advertisement", "house-and-garden", "computer-and-games").required().messages(CreateOfferErrorMessages.category),
+        category: Joi.string().valid("services", "automotive", "education", "sport", "fashion", "electronic", "real-estate", "job-advertisement", "house-and-garden", "computer-and-games").required().messages(CreateOfferErrorMessages.category),
         description: Joi.string().min(10).max(2000).required(),
         contact: Joi.object({
             email: Joi.string().email().min(3).max(100),

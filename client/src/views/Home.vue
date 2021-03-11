@@ -1,13 +1,18 @@
 <template>
-    <section id="home">
-        <h1>Home</h1>
+    <section id="many-offers-main-wrapper">
+        <Navigation></Navigation>
+        <!--  -->
     </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import Navigation from "@/components/offers/many/OffersNavigation.vue";
+//
 export default defineComponent({
-    name: "Home"
+    components: { Navigation },
+    setup() {
+        //
+    }
 });
 </script>

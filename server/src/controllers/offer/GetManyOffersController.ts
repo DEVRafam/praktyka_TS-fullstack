@@ -1,4 +1,4 @@
-import { GetAllRequest, OfferSchema } from "../../@types/Offers";
+import { GetAllRequest } from "../../@types/Offers";
 import { Offer, User } from "../../services/Models";
 import { Response } from "express";
 //
@@ -55,7 +55,7 @@ class GetManyOffersController {
     async main(req: GetAllRequest, res: Response) {
         this.req = req;
         try {
-            const response = await Offer.findAll({
+            const response = await Offer.findAndCountAll({
                 ...this.generateWhereClause(),
                 attributes: {
                     exclude: [...this.excludes.fromOffer, "status"],
@@ -73,7 +73,7 @@ class GetManyOffersController {
                 ...this.handlePagination(),
             });
             //
-            return res.send(response as OfferSchema[]);
+            return res.send(response);
         } catch (e: any) {
             return res.sendStatus(500);
         }

@@ -12,7 +12,7 @@ const schema = {
         // generated automatically
     },
     category: {
-        type: DataTypes.ENUM("services", "automotive", "education", "sport", "fasion", "electronic", "real-estate", "job-advertisement", "house-and-garden", "computer-and-games"),
+        type: DataTypes.ENUM("services", "automotive", "education", "sport", "fashion", "electronic", "real-estate", "job", "house-and-garden", "computer-and-games"),
     },
     description: {
         type: DataTypes.TEXT,

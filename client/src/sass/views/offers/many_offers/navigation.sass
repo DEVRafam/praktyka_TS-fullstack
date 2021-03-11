@@ -1,0 +1,104 @@
+header#many-offers-main-nav
+    &::after
+        content: ''
+        position: absolute
+        width: 100%
+        height: 50px
+        left: 0%
+        bottom: 0
+        background-image: url('/images/waves/bottom.svg')
+    span.background
+        @include absoluteFull
+        background-size: cover
+        opacity: 0
+        animation: bg-img-going-vertically 30s linear infinite both alternate-reverse
+        transition: background-image .5s .3s, opacity .5s .7s
+    &.displayBackground
+        span.background
+            opacity: .15
+    section.categories-wrap
+        div.category
+            position: relative
+            // colors
+            &:nth-of-type(1)
+                color: #ff9ff3
+                &:hover
+                    background-color: #ff9ff3
+            &:nth-of-type(2)
+                color: #feca57
+                &:hover
+                    background-color: #feca57
+            &:nth-of-type(3)
+                color: #ff6b6b
+                &:hover
+                    background-color: #ff6b6b
+            &:nth-of-type(4)
+                color: #48dbfb
+                &:hover
+                    background-color: #48dbfb
+            &:nth-of-type(5)
+                color: #1dd1a1
+                &:hover
+                    background-color: #1dd1a1
+            &:nth-of-type(6)
+                color: #ee5253
+                &:hover
+                    background-color: #ee5253
+            &:nth-of-type(7)
+                color: #0abde3
+                &:hover
+                    background-color: #0abde3
+            &:nth-of-type(8)
+                color: #10ac84
+                &:hover
+                    background-color: #10ac84
+            &:nth-of-type(9)
+                color: #f368e0
+                &:hover
+                    background-color: #f368e0
+            &:nth-of-type(10)
+                color: #ff9f43
+                &:hover
+                    background-color: #ff9f43
+header#many-offers-main-nav
+    @include flexColumn(true)
+    margin-top: 20px
+    padding: 30px 30px 80px 30px
+    background-color: $beige
+    position: relative
+    h1,section.categories-wrap
+        position: relative
+        z-index: 3
+    h1
+        @include textUS
+        font-size: 2.5rem
+        letter-spacing: 2px
+    section.categories-wrap
+        display: flex
+        justify-content: center
+        max-width: 1200px
+        flex-wrap: wrap
+        div.category
+            @include flexColumn(true)
+            margin: 20px
+            width: 170px
+            height: 150px
+            border-radius: 30px
+            background-color: #fff
+            border: 3px solid
+            color: $mainColor
+            transition: all .4s
+            cursor: pointer
+            &:hover
+                svg,span
+                    color: #fff
+            svg,span
+                transition: color .4s
+            svg
+                color: inherit
+                font-size: 4rem
+                margin-bottom: 15px
+            span
+                user-select: none
+                color: #000
+                letter-spacing: 2px

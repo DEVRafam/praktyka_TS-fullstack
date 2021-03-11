@@ -2,7 +2,7 @@ import { Request } from "express";
 import { Authorized } from "./authenticate";
 //
 //
-type OfferCategory = "services" | "automotive" | "education" | "sport" | "fasion" | "electronic" | "real-estate" | "job-advertisement" | "house-and-garden";
+type OfferCategory = "services" | "automotive" | "education" | "sport" | "fashion" | "electronic" | "real-estate" | "job" | "house-and-garden";
 interface GetAll_QUERY {
     limit: number | undefined;
     page: number | undefined;
