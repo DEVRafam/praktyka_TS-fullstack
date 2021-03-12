@@ -1,0 +1,76 @@
+div.single-offer.LIST,
+div.single-offer.GRID
+    h5  
+        @include textUS
+        background-color: $mainColorDark
+        font-weight: normal
+        font-size: 1.2rem
+        margin: 0
+        letter-spacing: 3px
+        color: #fff
+        text-align: left
+        box-sizing: border-box
+        position: relative
+        padding: 10px 10px 10px 50px
+        
+    footer
+        text-align: right
+        padding: 10px 10px 10px 20px
+        box-sizing: border-box
+        width: 100%
+        color: $mainColorDark
+        display: flex
+        justify-content: space-between
+        align-items: center
+        cursor: default
+        span
+            letter-spacing: 2px
+        span.date
+            @include flexColumn
+            align-items: flex-start
+            span.color
+                font-weight: bold
+                color: $mainColor
+        span.category
+            border: 2px solid $mainColor
+            padding: 5px 10px
+            background-color: $mainColorDark
+            color: #fff
+    div.follow-price
+        button
+            @include smoothHoverReversed($mainColorDark)
+            @include buttonStyles
+            font-size: 1rem
+            svg
+                margin-right: 10px
+                color: $mainColor
+        span.price
+            @include flexCenter
+            color: $mainColorDark
+            font-size: 1rem
+            letter-spacing: 2px
+            cursor: default
+            height: 100%
+            span.currency
+                color: $mainColor
+                margin-left: 10px
+                font-weight: bold
+    div.img
+        background-color: #fff
+        position: relative
+        cursor: pointer
+        div.one,div.two
+            @include absoluteFull
+            background-size: contain
+            background-position: center
+            background-repeat: no-repeat
+            transition: opacity .3s
+            opacity: 1
+        div.two
+            opacity: 0
+        &.hoverable
+            &:hover
+                div.one
+                    opacity: 0
+                div.two
+                    opacity: 1

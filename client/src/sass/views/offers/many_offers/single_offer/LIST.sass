@@ -1,0 +1,61 @@
+div.single-offer.LIST
+    margin: 0 auto 70px auto
+    width: 100%
+    max-width: 1000px
+    box-sizing: border-box
+    background-color: $beige
+    display: flex
+    border-radius: 5px
+    position: relative
+    &::after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 3px
+        transform: translateY(100%)
+        background-color: $mainColorDark
+    //
+    div.body
+        @include flexColumn
+        align-items: center
+        width: calc( 100% - 300px  )
+        box-sizing: border-box
+        padding: 10px 0
+        justify-content: space-evenly
+        h5
+            width: 100%
+        div.follow-price,footer
+            width: calc(100% - 20px)
+            align-items: center
+            display: flex
+            justify-content: space-between
+            box-sizing: border-box
+            padding: 10px 20px
+            background-color: #fff
+            margin-top: 10px
+    //
+    div.img
+        box-sizing: border-box
+        width: 300px
+        min-height: 200px
+        position: relative
+        background-color: #fff
+        border-top: 10px solid $beige
+        border-left: 10px solid $beige
+        div.one,div.two
+            @include absoluteFull
+            background-size: contain
+            background-position: center
+            background-repeat: no-repeat
+            transition: opacity .3s
+            opacity: 1
+        div.two
+            opacity: 0
+        &.hoverable
+            &:hover
+                div.one
+                    opacity: 0
+                div.two
+                    opacity: 1

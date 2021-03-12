@@ -1,2 +1,30 @@
 section#many-offers-main-wrapper
-    @import ./navigation
+    @import ./navigation/navigation
+    section#display-many-offers
+        @include flexColumn
+        align-items: center
+        div.offers-wrap
+            max-width: 1500px
+            width: 100%
+            display: flex
+            flex-wrap: wrap
+        //
+        @import ./single_offer/common
+        @import ./single_offer/GRID
+        @import ./single_offer/LIST
+
+    div.pagination
+        display: flex
+        margin-bottom: 100px
+        span.field
+            @include spacingHorizontal
+            @include flexCenter
+            @include smoothHover
+            width: 40px
+            height: 50px
+            font-size: 2rem
+            cursor: pointer
+            border-radius: 5px
+            &.active
+                background-color: $mainColor
+                color: #fff !important

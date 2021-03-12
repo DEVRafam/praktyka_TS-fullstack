@@ -1,0 +1,17 @@
+section#organization
+    background-color: #fff
+    width: 100%
+    display: flex
+    justify-content: space-between
+    padding: 20px 5%
+    box-sizing: border-box
+    border-radius: 10px
+    button,input,select
+        @include buttonStyles
+        border-radius: 5px
+    button
+        margin-left: 10px
+        &.dark
+            @include smoothHoverReversed($mainColorDark)
+        &.light
+            @include smoothHover($mainColorDark)

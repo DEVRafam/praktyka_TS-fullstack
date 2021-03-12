@@ -1,0 +1,44 @@
+div.single-offer.GRID
+    @include flexColumn
+    align-items: center
+    width: 33.3333%
+    box-sizing: border-box
+    border-top: 30px solid #fff
+    border-left: 30px solid #fff
+    border-right: 30px solid #fff
+    border-bottom: 70px solid #fff
+    background-color: $beige
+    header
+        display: flex
+        flex-grow: 1
+        width: 100%
+        flex-direction: column
+        h5,div.follow-price
+            display: flex
+            align-items: center
+        h5  
+            background-color: $mainColorDark
+            color: #fff
+            flex-grow: 1
+            &::after
+                content: ''
+                position: absolute
+                top: 50%
+                left: 10px
+                transform: translateY(-50%)
+                width: 8px
+                height: 70%
+                border: $mainColor 2px solid
+        div.follow-price
+            padding: 10px
+            justify-content: space-between
+    div.img
+        width: 100%
+        min-height: 300px
+        border-left: 5px solid $beige
+        border-right: 5px solid $beige
+        box-sizing: border-box
+        div.one,div.two
+            border: 10px solid #fff
+            box-sizing: border-box
+      

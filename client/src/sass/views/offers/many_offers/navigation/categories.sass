@@ -1,0 +1,47 @@
+header.info
+    height: 100px
+    position: relative
+    width: 100%
+    overflow: hidden
+    &.scroll
+        h1.categories
+            transform: translateY(-100%)
+    h1.categories
+        @include textUS
+        @include flexCenter
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        font-size: 2.5rem
+        letter-spacing: 2px
+        margin: 0
+        transition: transform .3s
+        span.color
+            color: $mainColor
+            margin-left: 20px
+        &.choosen
+            top: 100%
+section#categories-wrap
+    div.category
+        @include flexColumn(true)
+        margin: 20px
+        width: 170px
+        height: 150px
+        border-radius: 30px
+        background-color: #fff
+        border: 3px solid
+        color: $mainColor
+        transition: all .4s
+        cursor: pointer
+        svg,span
+            transition: color .4s
+        svg
+            color: inherit
+            font-size: 4rem
+            margin-bottom: 15px
+        span
+            user-select: none
+            color: #000
+            letter-spacing: 2px

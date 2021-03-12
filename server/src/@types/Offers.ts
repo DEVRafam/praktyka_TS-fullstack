@@ -41,7 +41,7 @@ export interface OfferSchema {
     id?: any;
     title?: string;
     slug?: string;
-    category?: string;
+    category?: OfferCategory;
     description?: string;
     price?: number;
     valueInUSD?: number;

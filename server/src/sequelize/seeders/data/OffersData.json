@@ -30,7 +30,7 @@
             "phone": "777 888 999"
         },
         "folder": "seicento",
-        "photos": ["car_1", "car_2", "car_3", "car_4"],
+        "photos": ["car_1.jpg", "car_2.jpg", "car_3.jpg", "car_4.jpg"],
         "localization": "Mucharz",
         "country": "Polska",
         "advantages": ["Tanio", "Jezdzi"]
@@ -180,7 +180,7 @@
             "phone": "333 111 444"
         },
         "folder": "nba",
-        "photos": "1.jpg",
+        "photos": ["1.jpg"],
         "localization": "Warszawa",
         "country": "Polska",
         "advantages": ["Przeznaczenie: Indoor", "Materiał: Pełnowartościowa skóra", "Rozmiar: 7"]
@@ -190,9 +190,9 @@
         "slug": "technik-informatyk",
         "category": "job",
         "description": "Samobójstwo – celowe odebranie sobie życia. Przyczyny samobójstw są wielorakie. Często wynika ono z uczucia smutku, które w wielu przypadkach jest rezultatem zaburzeń psychicznych, takich jak depresja, zaburzenia afektywne dwubiegunowe, schizofrenia, alkoholizm lub inne uzależnienie od środków odurzających. Stresory takie jak problemy finansowe lub problemy w zakresie relacji międzyludzkich również odgrywają istotną rolę. Samobójstwo może być również popełnione przez zdrowego psychicznie człowieka z powodów ideologicznych. .",
-        "price": 2300,
-        "valueInUSD": 599.51,
-        "currency": "PLN",
+        "price": 10000,
+        "valueInUSD": 10000,
+        "currency": "USD",
         "creator_id": 2,
         "contact": {
             "phone": "999 999 999"

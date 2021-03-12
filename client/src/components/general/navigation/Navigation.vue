@@ -5,8 +5,6 @@
         <!--  -->
         <!--  -->
         <div class="wrap">
-            <input type="text" placeholder="Search an offer..." />
-            <!--  -->
             <Suspense>
                 <AccountManagement></AccountManagement>
             </Suspense>
