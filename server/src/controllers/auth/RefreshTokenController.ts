@@ -92,9 +92,18 @@ class RefreshTokenController {
             }
             //
             else {
+                const { user } = this;
                 return res.send({
                     result: "positive",
-                    accessToken: generateJWT(this.user, "ACCESS"),
+                    accessToken: generateJWT(user, "ACCESS"),
+                    userData: {
+                        id: user.id,
+                        name: user.name,
+                        surname: user.surname,
+                        email: user.email,
+                        avatar: user.avatar,
+                        role: user.role,
+                    },
                 } as RefreshTokenResponse);
             }
         } catch (e: any) {

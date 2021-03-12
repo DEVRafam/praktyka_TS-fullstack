@@ -11,7 +11,15 @@ export interface RefreshTokenRequest extends Request {
 export interface RefreshTokenResponse {
     result: "positive" | "negative";
     error?: string;
-    accessToken: string;
+    accessToken?: string;
+    userData?: {
+        id: any;
+        name: string;
+        surname: string;
+        email: string;
+        avatar: string;
+        role: string;
+    };
 }
 //
 //
@@ -47,5 +55,6 @@ export interface LoginResponse {
         surname: string;
         email: string;
         avatar: string;
+        role: string;
     };
 }

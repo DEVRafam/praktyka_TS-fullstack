@@ -3,6 +3,7 @@ import { computed, ComputedRef } from "vue";
 //
 type Result = ComputedRef<string | boolean>;
 //
+// eslint-disable-next-line
 export default (errors: JoiError[] | any, certin: string): Result => {
     return computed<string | boolean>(() => {
         if (!(errors.value instanceof Array)) return false;

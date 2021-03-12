@@ -42,6 +42,7 @@ class LoginController {
                     surname: user.surname,
                     email: user.email,
                     avatar: user.avatar,
+                    role: user.role,
                 },
             } as LoginResponse);
         } catch (e: any) {

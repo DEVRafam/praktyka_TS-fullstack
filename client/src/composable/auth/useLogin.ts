@@ -2,31 +2,8 @@ import axios from "axios";
 import { ref, computed } from "vue";
 import { API_ADDRESS } from "@/composable/env";
 import { authenticate } from "@/composable/auth/authenticate";
-import { JoiError } from "@/@types/joiError";
 import generateJoiMessage from "@/helpers/generateJoiMessage";
-//
-//
-//
-type Errors = JoiError[] | "credentials_do_not_match";
-interface LoginResponse {
-    result: "positive" | "negative";
-    errors?: Errors;
-    tokens?: {
-        accessToken: string;
-        refreshToken: string;
-    };
-    userData?: {
-        id: number | string;
-        name: string;
-        surname: string;
-        email: string;
-        avatar: string;
-    };
-}
-interface LoginBody {
-    email: string;
-    password: string;
-}
+import { LocalStorageUser, Errors, LoginResponse, LoginBody } from "@/@types/auth";
 //
 //
 //
@@ -57,9 +34,10 @@ export const _login = async (body: LoginBody) => {
                 surname: data.userData?.surname,
                 email: data.userData?.email,
                 avatar: data.userData?.avatar,
+                role: data.userData?.role,
                 accessToken: data.tokens?.accessToken,
                 refreshToken: data.tokens?.refreshToken
-            })
+            } as LocalStorageUser)
         );
         location.reload();
     }
