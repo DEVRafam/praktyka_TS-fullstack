@@ -267,5 +267,161 @@
         "localization": "Wadowice",
         "country": "Polska",
         "advantages": ["Blast your way home with an arsenal of outrageous weaponry.", "Experience the shuffle of dimensional rifts and dynamic gameplay.", "Explore never-before-seen planets and parallel universe versions of old favourites."]
+    },
+    {
+        "title": "Smartfon SAMSUNG Galaxy S20+",
+        "slug": "samsung-galaxy-s20",
+        "category": "electronic",
+        "description": "Coraz częściej komunikujemy się przez obrazy, chcemy być w kontakcie ze znajomymi zawsze i wszędzie. Dlatego Samsung Galaxy S20+ otrzymał całkowicie nowy system aparatów, który ma perfekcyjnie uchwycić każdy moment. Powitajmy aparat ze wsparciem AI, Space Zoom i wideo w rozdzielczości 8K. Ze wsparciem sieci 5G*, potężnym procesorem, inteligentną baterią oraz mnóstwem pamięci, smartfon jest gotowy na nowe wyzwania. Galaxy S20+ posiada inteligentny zestaw obiektywów. Sztuczna inteligencja, rozpoznaje sceny i dobiera do nich optymalny czas naświetlania i nasycenia kolorów. Każde zdjęcie perfekcyjnie odda rzeczywistość.Większa matryca aparatu*, rejestrująca większe piksele (1,8 µm) potrafi zarejestrować fotografie bogate w detale nawet przy gorszych warunkach oświetleniowych. A jeśli uruchomisz Tryb nocny, aparat wykona 30 zdjęć w 5 sekund i połączy je w jedną, poprawnie naświetloną i wyraźną fotografię.",
+        "price": 4399,
+        "valueInUSD": 1143.2,
+        "currency": "PLN",
+        "creator_id": 3,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "samsung-s20",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+        "localization": "Wrocław",
+        "country": "Polska",
+        "advantages": ["Bateria, która dotrzyma Ci kroku", "Rewolucyjne zdjęcia i wideo", "Wyświetlacz Infinity-O", "Bezpieczeństwo danych", "Procesor Exynos 990"]
+    },
+    {
+        "title": "Nike Air Vapormax Plus Męskie Czarne ",
+        "slug": "nike-air-vapormax",
+        "category": "fashion",
+        "description": "AIR VAPORMAX PLUS Dziedzictwo rewolucji. W 1987 roku powstała linia Air Max z pierwszą w historii widoczną poduszką gazową. Eksperymentowanie z amortyzacją przyniosło zaskakujące wyniki, a powstały dzięki temu model szybko zyskał status legendy, podbijając zarówno bieżnie, jak i ulice. Na przestrzeni lat ukazywał się w coraz to nowszych, lepszych odsłonach, nie tracąc jednak nic ze swojej oryginalności.",
+        "price": 900,
+        "valueInUSD": 234,
+        "currency": "PLN",
+        "creator_id": 4,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "nike-air-vapormax",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Jasna Góra",
+        "country": "Polska",
+        "advantages": ["Rodzaj obuwia: buty sportowe", "Przeznaczenie: lifestyle", "Materiał cholewki: materiał tekstylny, materiał syntetyczny"]
+    },
+    {
+        "title": "ADICOLOR CLASSICS PRIMEBLUE SST TRACK JACKET",
+        "slug": "adidas-tracksuit",
+        "category": "fashion",
+        "description": "We're not saying that adidas introduced the track suit back in '64. But that doesn't mean others haven't said it. What's undeniable is that those signature 3-Stripes have been popping off of it for decades, whether on the sidelines, in stadiums or on the streets. Everyone from athletes to clubgoers has embraced it, and you can too with this track jacket. For an added bonus, it's supremely comfortable and made from Parley Ocean Plastic yarn that's sourced from recycled plastic",
+        "price": 75,
+        "valueInUSD": 75,
+        "currency": "USD",
+        "creator_id": 3,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "adidas-tracksuit",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Winchester",
+        "country": "United Kingdoms",
+        "advantages": ["Regular fit", "Ribbed collar", "60% recycled polyester, 40% cotton interlock", "Front zip pockets"]
+    },
+    {
+        "title": "Casio FX-9750G II",
+        "slug": "expenscive-calculator",
+        "category": "education",
+        "description": "Kalkulator – niewielkich rozmiarów, przenośne (najczęściej kieszonkowe) elektroniczne urządzenie liczące (początkowo mechaniczne), służące do wykonywania obliczeń matematycznych. Dawniej zdolne do wykonywania jedynie podstawowych operacji arytmetycznych. Obecnie bardziej zaawansowane urządzenia umożliwiają pisanie programów, wykonywanie operacji algebraicznych, na funkcjach matematycznych oraz graficzną prezentację wykresów funkcji – a tym samym coraz bardziej upodobniają się do komputerów. Kalkulator jednak różni się od komputera okrojonymi możliwościami i interfejsem zoptymalizowanym pod kątem obliczeń interaktywnych, a nie programowania.",
+        "price": 649,
+        "valueInUSD": 167,
+        "currency": "USD",
+        "creator_id": 4,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "calculator",
+        "photos": ["1.jpg", "2.jpg"],
+        "localization": "Kraków",
+        "country": "Polska",
+        "advantages": ["Flex w pierwszej lawce", "Umie policzyc pierwiastek z kazdej liczby"]
+    },
+    {
+        "title": "Cyberpunk 2077",
+        "slug": "cyberpunk2077",
+        "category": "computer-and-games",
+        "description": "Cyberpunk 2077 jest fabularną grą akcji, zawierającą elementy strzelanek pierwszoosobowych[1]. Gracz wciela się w V, którego płeć, głos, wygląd (twarz, fryzurę, sylwetkę, modyfikacje ciała, rozmiar przyrodzenia czy biustu), pochodzenie i ubiór może dostosować według własnych upodobań. W grze nie ma podziału na klasy postaci, natomiast gracz określa swój sposób gry poprzez rozwijanie cech – budowy ciała, inteligencji, refleksu, zdolności technicznych i opanowania. Postać może rozwijać umiejętności walki wręcz, posługiwania się ostrzami, bronią krótką, strzelbami, karabinami, karabinami snajperskimi, dwiema broniami, jak również hakowania, skrytobójstwa, „zimnej krwi”, inżynierii i sprawności fizycznej. W celu nabycia bądź ulepszenia cyberwszczepów, V musi odwiedzić ripperdoca, z kolei na czarnym rynku kupić może ulepszenia wojskowe[16][17][18][19][20][21][22]. Rzadkość znajdowanego wyposażenia określana jest przez system poziomów, reprezentowanych odpowiednimi kolorami[23]. Przemieszczając się po świecie gry, postać może chować się za osłonami, celować, biegać, wykonywać ślizgi, skoki i podwójne skoki[24][25]. Ataki wręcz można wyprowadzać za pomocą broni do walki w zwarciu[18][26], z kolei broń palna może być modyfikowana i dzieli się na typy Power (rykoszetująca), Tech (przebijająca ściany i przeciwników) oraz Smart (z naprowadzanymi pociskami)[27][28][29]. Pociski z broni dystansowych można spowolnić w trybie bullet-time[18]. W grze pojawiają się cztery rodzaje zadawanych i otrzymywanych obrażeń: fizyczne, termiczne, elektromagnetyczne i chemiczne[17][21][30]. Cyberpunk 2077 oferuje również bronie i cyberwszczepy ogłuszające czy ulepszające skradanie się, wobec czego grę można ukończyć bez zabijania kogokolwiek[31][5].",
+        "price": 189,
+        "valueInUSD": 50,
+        "currency": "PLN",
+        "creator_id": 1,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "cyberpunk",
+        "photos": ["1.jpg"],
+        "localization": "Kraków",
+        "country": "Polska",
+        "advantages": ["Rewelacyjna gra"]
+    },
+    {
+        "title": "APPLE iPad Pro 11 6/256GB LTE Gwiezdna szarość",
+        "slug": "ipad-pro-11",
+        "category": "electronic",
+        "description": "Może być magiczną taflą szkła. Może być szybszy niż większość laptopów PC. Może mieć profesjonalne aparaty, które potrafią wzbogacać rzeczywistość. Wystarczy, że Twoim następnym komputerem będzie nowy iPad Pro. Sięgający krawędzi wyświetlacz Liquid Retina robi niesamowite wrażenie1. Dzieje się tak, bo do wyświetlania niesamowitych obrazów wykorzystuje szereg zaawansowanych technologii – od True Tone po ProMotion – i zapewnia najlepsze w branży odwzorowanie kolorów. Wszystko wygląda na nim zachwycająco, a każda czynność jest doskonale płynna. I to właśnie połączenie tych cech daje w sumie najbardziej zaawansowany mobilny wyświetlacz na świecie. Przedni aparat TrueDepth obsługuje Face ID, czyli najbezpieczniejszą metodę uwierzytelniania na podstawie twarzy kiedykolwiek użytą w tablecie czy komputerze. Za jego pomocą możesz też porozmawiać z przyjaciółmi przez FaceTime, zrobić selfie w trybie portretowym lub ożywić konwersacje w apce Wiadomości, zmieniając się w Animoji. ",
+        "price": 5200,
+        "valueInUSD": 1351,
+        "currency": "PLN",
+        "creator_id": 2,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "ipad-11pro",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Gdańsk",
+        "country": "Polska",
+        "advantages": ["Model procesora Apple A12Z Bionic", "Liczba rdzeni: 8", "Taktowanie procesora [GHz] 2.49", "Rozdzielczość ekranu 2388 x 1668"]
+    },
+    {
+        "title": "Volkswagen Passat 2.0",
+        "slug": "volkswagen-passat",
+        "category": "automotive",
+        "description": "Witam, posiadam na sprzedaż doinwestowane auto marki Volkswagen Passat b7 z niezawodnym silnikiem 2.0 140 konnym. Data 1 rejestracji 2013r. Samochód po wymianie kompletnego rozrządu, uszczelniacza wałka, chłodniczki oleju, sondy lambdy, teleje wahaczy, zrobiony był przegląd klimatyzacji wraz z nabiciem i odgrzybieniem. Zakupione zostały również nowe opony wielosezonowe wraz z geometrią kół. Garażowany, auto czyste i zadbane, przegląd do połowy grudnia.",
+        "price": 35000,
+        "valueInUSD": 9095,
+        "currency": "PLN",
+        "creator_id": 1,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "passat",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+        "localization": "Bochnia",
+        "country": "Polska",
+        "advantages": ["ABS", "Elektryczne szyby przednie", "Poduszka powietrzna kierowcy", "Wspomaganie kierownicy", "Bluetooth", "Czujniki parkowania przednie", "Isofix", "MP3", "Przyciemniane szyby", "Światła przeciwmgielne"]
+    },
+    {
+        "title": "NEU: Penthouse mit Aufdachterrasse im Boxhagener Kiez",
+        "slug": "penthouse-berlin-neu",
+        "category": "real-estate",
+        "description": "Auf einem historischen Altbau thronend, bietet dieses Penthouse höchsten Komfort und Privatheit. Mit dem Aufzug gelangen Sie bequem bis kurz vor die eigene Wohnungstür, denn das Penthouse liegt auf einer komplett neuen Etage und die Aufdachterrasse nochmals über der eigentlichen Gebäudehöhe. Hier residieren Sie mit vier Schlafzimmern, drei Badezimmern und vielen weiteren Highlights. Das Herzstück bildet der loftartige Wohnbereich mit Süd-Ausrichtung, den Anschlüssen für eine offene Küche sowie die Treppe, über die Sie hinauf zur privaten Aufdachterrasse mit ihrem spektakulären Blick über die Hauptstadt gelangen. Hier können Sie die Sommermonate auf ihrem Sonnendeck genießen und den Sonnenuntergang beobachten, wenn die Hochhäuser der Hauptstadt in dunkelrotes Licht getaucht werden. Ein weiteres Highlight ist der Master Bedroom, denn er besteht aus dem Ankleidebereich, dem eigentlichen Schlafzimmer, dem anschließenden Balkon sowie einem riesigen en suite Badezimmer mit Platz für die eigene Sauna. Darüber hinaus können eine Eckbadewanne, eine bodengleiche Dusche und ein Doppelwaschtisch eingebaut werden. Ein weiteres Schlafzimmer verfügt ebenfalls über ein en suite Badezimmer. Formschöne Armaturen, Badewanne und Dusche sorgen für das perfekte Wellness-Erlebnis als kleine Auszeit. Mit reichlich Wandflächen für Einbauschränke und dem attraktiven Grundriss garantiert dieses Penthouse höchsten Wohnkomfort.",
+        "price": 1699000,
+        "valueInUSD": 2025121,
+        "currency": "EUR",
+        "creator_id": 1,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "wohnung",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+        "localization": "Berlin",
+        "country": "Deutschland",
+        "advantages": [
+            "Fahrstuhl",
+            "Großzügige lichtdurchflutete Räume",
+            "Atemberaubender Berlin-Blick",
+            "Aufdachterrasse mit eigenem Aufgang",
+            "Balkon",
+            "Raumklimatisierung",
+            "Fußbodenheizung",
+            "Sauna",
+            "Ankleideraum",
+            "2 en suite Badezimmer + ein WC",
+            "Kurzfristig bezugsfertig"
+        ]
     }
 ]
