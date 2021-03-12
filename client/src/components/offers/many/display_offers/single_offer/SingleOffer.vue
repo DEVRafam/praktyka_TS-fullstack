@@ -1,5 +1,9 @@
 <template>
     <div class="single-offer" :class="layout">
+        <!-- MANAGEMENT -->
+        <template v-if="isAdmin || isOwner(data)">
+            <Management :data="data"></Management>
+        </template>
         <!--  -->
         <!-- GRID -->
         <!--  -->
@@ -28,15 +32,15 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Offer } from "@/@types/Offer";
+import { isAdmin } from "@/composable/auth/authenticate";
 import useManyOffers from "@/composable/offers/useManyOffers";
-import formatDate from "@/utils/formatDate";
-import useCategoriesList from "@/composable/offers/useCategoriesList";
 import useOffersNavigation from "@/composable/offers/useOffersNavigation";
 // components
 import Header from "./Header.vue";
 import DateCategory from "./Footer.vue";
 import Image from "./Image.vue";
 import PriceAndFollow from "./PriceAndFollow.vue";
+import Management from "./Management.vue";
 //
 export default defineComponent({
     props: {
@@ -45,14 +49,13 @@ export default defineComponent({
         }
     },
     //
-    components: { Header, DateCategory, Image, PriceAndFollow },
+    components: { Header, DateCategory, Image, PriceAndFollow, Management },
     //
     setup() {
-        const { findLabel } = useCategoriesList;
-        const { imgPath } = useManyOffers;
+        const { isOwner } = useManyOffers;
         const { layout } = useOffersNavigation;
         //
-        return { imgPath, formatDate, findLabel, layout };
+        return { layout, isOwner, isAdmin };
     }
 });
 </script>

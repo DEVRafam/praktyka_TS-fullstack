@@ -6,7 +6,7 @@ class GetManyOffersController {
     protected req: GetAllRequest;
     protected excludes = {
         fromOffer: ["createdAt", "creator_id", "advantages", "valueInUSD"],
-        fromCreator: ["id", "createdAt", "updatedAt", "tokens", "password", "contact", "email"],
+        fromCreator: ["createdAt", "updatedAt", "tokens", "password", "contact", "email"],
     };
     //
     // helpers

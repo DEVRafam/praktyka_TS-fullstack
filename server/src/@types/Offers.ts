@@ -54,6 +54,7 @@ export interface OfferSchema {
     currency?: "PLN" | "EUR" | "USD" | "GBP";
     country?: string;
     creator?: {
+        id?: any;
         name?: string;
         surname?: string;
         email?: string;

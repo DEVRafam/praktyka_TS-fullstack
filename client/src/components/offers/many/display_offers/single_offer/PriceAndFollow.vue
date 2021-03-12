@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Offer } from "@/@types/Offer";
-import useManyOffers from "@/composable/offers/useManyOffers";
+import priceSeparators from "@/utils/priceSeparators";
 //
 export default defineComponent({
     props: {
@@ -23,8 +23,6 @@ export default defineComponent({
         }
     },
     setup() {
-        const { priceSeparators } = useManyOffers;
-        //
         return { priceSeparators };
     }
 });

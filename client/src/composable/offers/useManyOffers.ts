@@ -3,6 +3,7 @@ import { API_ADDRESS, OFFERS_PER_PAGE } from "@/composable/env";
 import { useRoute } from "vue-router";
 import { reactive, toRefs } from "vue";
 import { Offer } from "@/@types/Offer";
+import { currentUser, deepAuthenticate } from "@/composable/auth/authenticate";
 //
 //
 interface DataInterface {
@@ -40,26 +41,24 @@ const imgPath = (offer: Offer, index = 0) => {
         return `background-image: url('${url}')`;
     } else return null;
 };
-// transform price from 10000
-const priceSeparators = (offer: Offer): string => {
-    const addSeparators = (val: string): string => {
-        return val
-            .split("")
-            .reverse()
-            .map((el, index) => {
-                return (index - 1) % 3 === 2 ? `${el} ` : el;
-            })
-            .reverse()
-            .join("");
-    };
-    const result = String(offer.price);
-    const fractionIndex = result.indexOf(".");
-    if (fractionIndex === -1) return addSeparators(result);
-    else {
-        return addSeparators(result.slice(0, fractionIndex)) + `,${result.slice(fractionIndex + 1)}`;
+//
+const isOwner = (offer: Offer): boolean => {
+    if (offer.creator?.id) return currentUser.id == offer.creator?.id;
+    return false;
+};
+//
+const deleteOffer = async (offer: Offer) => {
+    if (await deepAuthenticate()) {
+        await axios.delete(`${API_ADDRESS}/api/offer/${offer.id}`, {
+            headers: {
+                Authorization: `Bearer ${currentUser.accessToken}`
+            }
+        });
     }
+    //
+    location.reload();
 };
 //
 //
 //
-export default { fetchOffers, ...toRefs(data), imgPath, priceSeparators };
+export default { ...toRefs(data), fetchOffers, imgPath, isOwner, deleteOffer };

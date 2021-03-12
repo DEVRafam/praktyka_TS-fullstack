@@ -1,5 +1,19 @@
 div.single-offer.LIST,
 div.single-offer.GRID
+    position: relative
+    section.management
+        position: absolute
+        top: -5px
+        right: -5px
+        z-index: 5
+        button.delete
+            @include smoothHoverReversed($red)
+            padding: 5px 10px
+            letter-spacing: 2px
+            cursor: pointer
+            border-radius: 5px
+            &:focus
+                outline: none
     h5  
         @include textUS
         background-color: $mainColorDark

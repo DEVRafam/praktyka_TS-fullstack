@@ -1,0 +1,95 @@
+@keyframes overlay-animation
+    from
+        opacity: 0
+    to
+        opacity: .3
+//
+div#modal
+    @include absoluteFull
+    z-index: 1000
+    position: fixed
+    div.overlay
+        @include absoluteFull
+        z-index: 1000
+        background-color: #000
+        opacity: .3
+        animation: overlay-animation both .3s linear
+    div.modal-card
+        animation: fade-only-opacity .3s both linear
+        @include absoluteCenter
+        @include flexColumn
+        justify-content: space-between
+        z-index: 1001
+        background-color: #fff
+        padding: 20px
+        border-radius: 5px
+        h1,h2,h3,h4,h5,h6
+            margin: 0
+        // sizes
+        // x
+        &.hor-big
+            width: 90%
+        &.hor-medium
+            width: 50%
+        &.hor-small
+            width: 30%
+        // y
+        &.ver-big
+            height: 85%
+        &.ver-medium
+            height: 75%
+        &.ver-small
+            height: 45%
+        &.ver-extra-small
+            height: 25%
+        // conf
+        &.scrollable
+            section.body
+                @include innerScrollbar
+                overflow-y: scroll
+        button.close
+            @include flexCenter
+            @include buttonStyles(false)
+            position: absolute
+            top: 20px
+            right: 20px
+            font-size: 1rem
+            @include smoothHover($red)
+            border-radius: 5px
+        // content
+        header.modal-header
+            text-align: left
+            margin-right: 150px
+            letter-spacing: 5px
+            div.button-wrap
+                display: flex
+                button
+                    @include spacingHorizontal
+                    @include flexCenter
+                    @include buttonStyles
+                    @include smoothHoverReversed
+                    letter-spacing: 5px
+
+        section.body
+            margin: 15px 0
+            text-align: left
+            h3.info
+                letter-spacing: 2px
+                margin: 30px 0 20px 0
+                font-weight: normal
+                cursor: default
+                span.color
+                    font-weight: bold
+                    color: $mainColor
+            div.confirmation
+                @include flexCenter
+                button
+                    @include spacingHorizontal
+                    @include buttonStyles
+                    border-radius: 5px
+                    &:focus
+                        outline: none
+                button.accept
+                    @include smoothHoverReversed($green)
+                button.discard
+                    @include smoothHoverReversed($red)

@@ -1,6 +1,14 @@
 import axios from "axios";
 import { API_ADDRESS } from "@/composable/env";
 import { RefreshTokenResponse, LocalStorageUser } from "@/@types/auth";
+import { ref, computed, reactive } from "vue";
+//
+export const isDeepAuthenticated = ref<boolean>(false);
+export const currentUser = reactive({} as LocalStorageUser & { id: number });
+export const isAdmin = computed<boolean>(() => {
+    if (isDeepAuthenticated.value) return currentUser.role === "ADMIN";
+    else return false;
+});
 //
 export const removeUserFormLocalStorage = () => {
     localStorage.setItem("user", JSON.stringify({}));
@@ -35,21 +43,27 @@ export const deepAuthenticate = async () => {
             user.accessToken = feedback.accessToken;
             //
             if (feedback.userData) {
-                user.name = feedback.userData.name;
-                user.surname = feedback.userData.surname;
-                user.avatar = feedback.userData.avatar;
-                user.email = feedback.userData.email;
-                user.role = feedback.userData.role;
+                ["name", "surname", "email", "role", "role"].forEach(prop => {
+                    // eslint-disable-next-line
+                    (user as any)[prop] = (feedback.userData as any)[prop];
+                    // eslint-disable-next-line
+                    (currentUser as any)[prop] = (feedback.userData as any)[prop];
+                });
+                currentUser.id = feedback.userData.id;
+                currentUser.accessToken = feedback.accessToken;
             }
             //
+            isDeepAuthenticated.value = true;
             localStorage.setItem("user", JSON.stringify(user));
+            //
+            return true;
         } else {
+            isDeepAuthenticated.value = false;
             removeUserFormLocalStorage();
             return false;
         }
-        //
-        return true;
     } catch (e) {
+        isDeepAuthenticated.value = false;
         removeUserFormLocalStorage();
         return false;
     }
