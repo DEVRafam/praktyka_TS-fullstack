@@ -21,7 +21,7 @@ export default defineComponent({
             // search
             if (search.value) summary += ` that conteins phrase "<span class="color">${search.value}</span>"`;
             // category
-            if (category.value) summary += ` in category <span class="color">"${category.value}"</span>`;
+            if (category.value) summary += ` in category "<span class="color">${category.value}</span>"`;
             //
             if (!search.value && !category.value) summary += " in total";
             return summary;
