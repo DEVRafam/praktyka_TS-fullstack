@@ -1,5 +1,5 @@
 <template>
-    <header id="many-offers-main-nav" :class="{ displayBackground: displayBackgroundAccess || category }">
+    <header id="many-offers-main-nav" :class="{ displayBackground: (displayBackgroundAccess || category) && categorySectionDevelop }">
         <span class="background" :style="backgroundStyles"></span>
         <!--  -->
         <Organization></Organization>
@@ -18,8 +18,8 @@ import Organization from "./Organization.vue";
 export default defineComponent({
     components: { ChooseCategory, Organization },
     setup() {
-        const { backgroundStyles, displayBackgroundAccess, category } = useOffersNavigation;
-        return { backgroundStyles, displayBackgroundAccess, category };
+        const { backgroundStyles, displayBackgroundAccess, category, categorySectionDevelop } = useOffersNavigation;
+        return { backgroundStyles, displayBackgroundAccess, category, categorySectionDevelop };
     }
 });
 </script>

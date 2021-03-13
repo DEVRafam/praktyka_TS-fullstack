@@ -8,11 +8,9 @@
         <!-- GRID -->
         <!--  -->
         <template v-if="layout === 'GRID'">
-            <header>
-                <Header :data="data"></Header>
-                <PriceAndFollow :data="data"></PriceAndFollow>
-            </header>
+            <PriceAndFollow :data="data"></PriceAndFollow>
             <Image :data="data"></Image>
+            <Header :data="data"></Header>
             <DateCategory :data="data"> </DateCategory>
         </template>
         <!--  -->

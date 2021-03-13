@@ -1,6 +1,7 @@
 import { GetAllRequest } from "../../@types/Offers";
 import { Offer, User } from "../../services/Models";
 import { Response } from "express";
+import { Op } from "sequelize";
 //
 class GetManyOffersController {
     protected req: GetAllRequest;
@@ -30,13 +31,19 @@ class GetManyOffersController {
     protected generateWhereClause() {
         return {
             where: (() => {
-                const { category } = this.req.query;
-                if (category === undefined) return { status: "DEFAULT" };
-                else
-                    return {
-                        status: "DEFAULT",
-                        category: category,
-                    };
+                const { category, search } = this.req.query;
+                console.log(search);
+                const where = {
+                    status: "DEFAULT",
+                    category: category,
+                    [Op.or]: [{ title: { [Op.iLike]: `%${search}%` } }, { description: { [Op.iLike]: `%${search}%` } }],
+                };
+                //
+                if (category === undefined) delete where.category;
+                if (search === undefined) {
+                    delete where[Op.or];
+                }
+                return where;
             })(),
         };
     }

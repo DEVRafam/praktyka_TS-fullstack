@@ -36,7 +36,7 @@ const categoriesList = [
     },
     {
         val: "job",
-        label: "Job advertisement",
+        label: "Job offer",
         icon: "handshake"
     },
     {

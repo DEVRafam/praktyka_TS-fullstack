@@ -21,9 +21,6 @@ import Navigation from "@/components/offers/many/navigation/OffersNavigation.vue
 import DisplayOffers from "@/components/offers/many/display_offers/DisplayOffers.vue";
 //
 export default defineComponent({
-    components: { Navigation, DisplayOffers },
-    setup() {
-        //
-    }
+    components: { Navigation, DisplayOffers }
 });
 </script>

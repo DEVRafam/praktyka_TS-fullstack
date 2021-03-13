@@ -13,6 +13,7 @@ watch(layout, val => {
 const router = ref();
 const order = ref<string>("newest");
 const category = ref<string>("");
+const search = ref<string>("");
 //
 // background managements
 //
@@ -26,5 +27,8 @@ const hoverInit = (val: string) => {
     displayBackgroundAccess.value = true;
 };
 //
+// additionals
 //
-export default { background, displayBackgroundAccess, hoverInit, backgroundStyles, layout, order, category, router };
+const categorySectionDevelop = ref<boolean>(false);
+//
+export default { background, displayBackgroundAccess, hoverInit, backgroundStyles, layout, order, category, router, search, categorySectionDevelop };

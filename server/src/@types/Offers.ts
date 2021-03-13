@@ -8,6 +8,7 @@ interface GetAll_QUERY {
     page: number | undefined;
     category: undefined | OfferCategory;
     order: undefined | "oldest" | "cheapest" | "most-expensive";
+    search: undefined | string;
 }
 export type GetAllRequest = Request<{}, {}, {}, GetAll_QUERY>;
 //

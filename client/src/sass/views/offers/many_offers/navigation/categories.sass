@@ -1,47 +1,140 @@
-header.info
-    height: 100px
-    position: relative
-    width: 100%
+section#choose-category
+    margin-top: 30px
+    max-height: 60px
     overflow: hidden
-    &.scroll
-        h1.categories
-            transform: translateY(-100%)
-    h1.categories
-        @include textUS
-        @include flexCenter
-        position: absolute
-        top: 0
-        left: 0
+    transition: max-height .2s
+    &.develop
+        max-height: 400px
+        div.buttons-wrap
+            button
+                transform: translateY(-200%)
+    header.info
+        height: 60px
+        position: relative
         width: 100%
-        height: 100%
-        font-size: 2.5rem
-        letter-spacing: 2px
-        margin: 0
-        transition: transform .3s
-        span.color
-            color: $mainColor
-            margin-left: 20px
-        &.choosen
-            top: 100%
-section#categories-wrap
-    div.category
-        @include flexColumn(true)
-        margin: 20px
-        width: 170px
-        height: 150px
-        border-radius: 30px
+        overflow: hidden
+        border-radius: 10px
         background-color: #fff
-        border: 3px solid
-        color: $mainColor
-        transition: all .4s
-        cursor: pointer
-        svg,span
-            transition: color .4s
-        svg
-            color: inherit
-            font-size: 4rem
-            margin-bottom: 15px
-        span
-            user-select: none
-            color: #000
-            letter-spacing: 2px
+        display: flex
+        justify-content: center
+        align-items: center
+        &.scroll
+            h2.categories
+                transform: translateY(-100%)
+        div.buttons-wrap
+            position: relative
+            margin-right: 50px
+            height: 35px
+            width: 200px
+            overflow: hidden
+            button
+                user-select: none
+                position: absolute
+                height: 100%
+                top: 0%
+                right: 0
+                @include buttonStyles
+                @include smoothHover
+                z-index: 100
+                &:nth-of-type(2)
+                    top: 200%     
+        div.headers-wrap
+            position: relative
+            flex-grow: 1
+            height: 100%
+            h2.categories
+                @include textUS
+                @include flexCenter
+                position: absolute
+                top: 0
+                left: 50px
+                display: flex
+                align-items: center
+                justify-content: flex-start
+                width: 100%
+                height: 100%
+                font-size: 1.3rem
+                letter-spacing: 2px
+                margin: 0
+                transition: transform .3s
+                span.color
+                    color: $mainColor
+                    margin-left: 20px
+                &.choosen
+                    top: 100%
+    section#categories-wrap
+        div.category
+            @include flexColumn(true)
+            margin: 20px
+            width: 135px
+            height: 120px
+            border-radius: 30px
+            background-color: #fff
+            border: 3px solid
+            color: $mainColor
+            transition: all .4s
+            cursor: pointer
+            svg,span
+                transition: color .4s
+            svg
+                color: inherit
+                font-size: 3rem
+                margin-bottom: 15px
+            span
+                font-size: .9rem
+                user-select: none
+                color: #000
+                letter-spacing: 2px
+//
+//
+// COLORS
+//
+//
+section#choose-category
+    section#categories-wrap
+        div.category
+            position: relative
+            // colors
+            &:hover,&.active
+                svg,span
+                    color: #fff
+            &:nth-of-type(1)
+                color: #ff9ff3
+                &:hover,&.active
+                    background-color: #ff9ff3
+            &:nth-of-type(2)
+                color: #feca57
+                &:hover,&.active
+                    background-color: #feca57
+            &:nth-of-type(3)
+                color: #ff6b6b
+                &:hover,&.active
+                    background-color: #ff6b6b
+            &:nth-of-type(4)
+                color: #48dbfb
+                &:hover,&.active
+                    background-color: #48dbfb
+            &:nth-of-type(5)
+                color: #1dd1a1
+                &:hover,&.active
+                    background-color: #1dd1a1
+            &:nth-of-type(6)
+                color: #ee5253
+                &:hover,&.active
+                    background-color: #ee5253
+            &:nth-of-type(7)
+                color: #0abde3
+                &:hover,&.active
+                    background-color: #0abde3
+            &:nth-of-type(8)
+                color: #10ac84
+                &:hover,&.active
+                    background-color: #10ac84
+            &:nth-of-type(9)
+                color: #f368e0
+                &:hover,&.active
+                    background-color: #f368e0
+            &:nth-of-type(10)
+                color: #ff9f43
+                &:hover,&.active
+                    background-color: #ff9f43

@@ -1,8 +1,8 @@
 <template>
     <section id="organization">
         <div class="right">
-            <input type="text" placeholder="Search for an offer..." />
-            <button class="dark">Search</button>
+            <input type="text" placeholder="Search for an offer..." v-model="search" v-if="renderProperInput" />
+            <button :class="search ? 'dark' : 'light'" @click="search = ''">Reset</button>
         </div>
         <!--  -->
         <div class="left">
@@ -27,41 +27,48 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount } from "vue";
+import { defineComponent, onBeforeUnmount, ref } from "vue";
 import useOffersNavigation from "@/composable/offers/useOffersNavigation";
 //
 export default defineComponent({
     setup() {
-        const { layout, order, category } = useOffersNavigation;
+        const { layout, order, category, search } = useOffersNavigation;
         onBeforeUnmount(() => {
             order.value = "newest";
             category.value = "";
+            search.value = "";
         });
-        //
-        return { layout, order };
+        // serach.value can be inherited from url, and v-model directive doesn't want to
+        // recognize this behaviour propery, so i decided to prevent rendering input
+        const renderProperInput = ref<boolean>(false);
+        setTimeout(() => (renderProperInput.value = true), 1);
+
+        return { layout, order, search, renderProperInput };
     },
     computed: {
         isClearAvailable(): boolean {
-            const { category, order } = this.$route.query;
-            return !!(category || order);
+            const { category, order, search } = this.$route.query;
+            return !!(category || order || search);
         },
         isApplyAvailable(): boolean {
-            const { category: qc, order: qo } = this.$route.query; //q- query
-            const { category: nc, order: no } = useOffersNavigation; //n- new
+            const { category: qc, order: qo, search: qs } = this.$route.query; //q- query
+            const { category: nc, order: no, search: ns } = useOffersNavigation; //n- new
             if (qo === undefined && no.value === "newest" && !nc.value) return false;
-            return !!((nc.value && qc != nc.value) || qo != no.value);
+            return !!((nc.value && qc != nc.value) || qo != no.value || ((qs || ns.value) && qs != ns.value));
         }
     },
     methods: {
         applyFilter() {
-            const { category, order } = useOffersNavigation;
+            const { category, order, search, categorySectionDevelop } = useOffersNavigation;
             const routerParams = {
                 path: "/",
                 query: {
                     category: category.value,
-                    order: order.value
+                    order: order.value,
+                    search: search.value
                 }
             };
+            categorySectionDevelop.value = false;
             if (!category.value) {
                 // eslint-disable-next-line
                 delete (routerParams.query as any).category;
@@ -70,12 +77,19 @@ export default defineComponent({
                 // eslint-disable-next-line
                 delete (routerParams.query as any).order;
             }
+            if (!search.value) {
+                // eslint-disable-next-line
+                delete (routerParams.query as any).search;
+            }
             this.$router.push(routerParams);
         },
         clearFilters() {
-            const { category, order } = useOffersNavigation;
+            const { category, order, search } = useOffersNavigation;
+            //
             category.value = "";
             order.value = "newest";
+            search.value = "";
+            //
             this.$router.push({
                 path: "/",
                 query: {}

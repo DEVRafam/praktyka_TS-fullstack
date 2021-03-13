@@ -4,15 +4,15 @@ section#many-offers-main-wrapper
         @include flexColumn
         align-items: center
         div.offers-wrap
-            max-width: 1500px
+            max-width: 1300px
             width: 100%
             display: flex
             flex-wrap: wrap
         //
         @import ./single_offer/common
-        @import ./single_offer/GRID
         @import ./single_offer/LIST
-
+        @import ./single_offer/GRID
+    //
     div.pagination
         display: flex
         margin-bottom: 100px
@@ -28,3 +28,15 @@ section#many-offers-main-wrapper
             &.active
                 background-color: $mainColor
                 color: #fff !important
+    //
+    section#summary
+        margin-top: 50px
+        font-size: 1.5rem
+        cursor: default
+        svg.no-results
+            color: $mainColor
+            font-size: 5rem
+        h2
+            letter-spacing: 3px
+            span.color
+                color: $mainColor
