@@ -29,4 +29,8 @@ export interface Offer {
             updatedAt?: string;
         }[];
     };
+    follows?: {
+        user_id?: any;
+        offer_id?: any;
+    }[];
 }

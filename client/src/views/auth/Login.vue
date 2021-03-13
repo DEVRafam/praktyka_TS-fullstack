@@ -23,7 +23,7 @@
                         </button>
                     </div>
                     <!--  -->
-                    <button @click="handleLogin" class="send">Continoue</button>
+                    <button @click="login" class="send">Continoue</button>
                 </section>
                 <!--  -->
                 <section class="errors">
@@ -43,16 +43,25 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
 import useLogin from "@/composable/auth/useLogin";
+import { deepAuthenticate } from "@/composable/auth/authenticate";
 //
 export default defineComponent({
     setup() {
         // request logic
-        const { password, email, handleLogin, errors, passwordErrorMessage, credentialsErrorMessage, emailErrorMessage } = useLogin;
+        const { password, email, errors, passwordErrorMessage, credentialsErrorMessage, emailErrorMessage } = useLogin;
         // form using tools
         const showPassword = ref<boolean>(false);
         const inputType = computed<string>(() => (showPassword.value ? "text" : "password"));
         //
-        return { password, email, handleLogin, errors, showPassword, inputType, passwordErrorMessage, credentialsErrorMessage, emailErrorMessage };
+        return { password, email, errors, showPassword, inputType, passwordErrorMessage, credentialsErrorMessage, emailErrorMessage };
+    },
+    methods: {
+        async login() {
+            const { handleLogin } = useLogin;
+            await handleLogin();
+            this.$router.back();
+            await deepAuthenticate();
+        }
     }
 });
 </script>

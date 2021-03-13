@@ -53,11 +53,21 @@ div.single-offer.GRID
             color: #fff
     div.follow-price
         button
-            @include smoothHoverReversed($mainColorDark)
             @include buttonStyles
             font-size: 1rem
             svg
                 margin-right: 10px
+                transition: color .3s
+        button.following
+            @include smoothHover($mainColorDark)
+            svg
+                color: $mainColorDark
+            &:hover
+                svg
+                    color: #fff
+        button.follow
+            @include smoothHoverReversed($mainColorDark)
+            svg
                 color: $mainColor
         span.price
             @include flexCenter

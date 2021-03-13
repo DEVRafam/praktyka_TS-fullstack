@@ -1,5 +1,5 @@
 <template>
-    <Navigation></Navigation>
+    <Navigation :key="currentUser.id"></Navigation>
     <main>
         <router-view v-slot="{ Component }">
             <transition name="fade" mode="out-in">
@@ -13,6 +13,7 @@
 <script>
 import ScrollBtn from "@/components/general/Scrollbtn.vue";
 import Navigation from "@/components/general/navigation/Navigation.vue";
+import { currentUser } from "./composable/auth/authenticate";
 //
 export default {
     components: { Navigation, ScrollBtn },
@@ -20,6 +21,9 @@ export default {
         fullPath() {
             return this.$route.fullPath;
         }
+    },
+    setup() {
+        return { currentUser };
     },
     watch: {
         fullPath() {

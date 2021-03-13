@@ -71,4 +71,8 @@ export interface OfferSchema {
             updatedAt?: string;
         }[];
     };
+    follows?: {
+        user_id?: any;
+        offer_id?: any;
+    }[];
 }

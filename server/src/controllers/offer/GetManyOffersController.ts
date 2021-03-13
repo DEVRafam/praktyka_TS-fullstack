@@ -1,13 +1,14 @@
 import { GetAllRequest } from "../../@types/Offers";
-import { Offer, User } from "../../services/Models";
+import { Offer, User, Follow } from "../../services/Models";
 import { Response } from "express";
 import { Op } from "sequelize";
 //
 class GetManyOffersController {
     protected req: GetAllRequest;
     protected excludes = {
-        fromOffer: ["createdAt", "creator_id", "advantages", "valueInUSD"],
+        fromOffer: ["createdAt", "creator_id", "advantages"],
         fromCreator: ["createdAt", "updatedAt", "tokens", "password", "contact", "email"],
+        fromFollows: ["createdAt", "updatedAt", "offer_id"],
     };
     //
     // helpers
@@ -15,6 +16,7 @@ class GetManyOffersController {
     protected generateOrderClause() {
         return {
             order: (() => {
+                console.log(this.req.query.order);
                 switch (this.req.query.order) {
                     case "oldest":
                         return [["id", "ASC"]];
@@ -60,29 +62,32 @@ class GetManyOffersController {
     //
     async main(req: GetAllRequest, res: Response) {
         this.req = req;
-        try {
-            const response = await Offer.findAndCountAll({
-                ...this.generateWhereClause(),
-                attributes: {
-                    exclude: [...this.excludes.fromOffer, "status"],
-                },
-                include: [
-                    {
-                        model: User,
-                        as: "creator",
-                        attributes: {
-                            exclude: this.excludes.fromCreator,
-                        },
+        const response = await Offer.findAndCountAll({
+            ...this.generateWhereClause(),
+            attributes: {
+                exclude: [...this.excludes.fromOffer, "status"],
+            },
+            include: [
+                {
+                    model: User,
+                    as: "creator",
+                    attributes: {
+                        exclude: this.excludes.fromCreator,
                     },
-                ],
-                ...this.generateOrderClause(),
-                ...this.handlePagination(),
-            });
-            //
-            return res.send(response);
-        } catch (e: any) {
-            return res.sendStatus(500);
-        }
+                },
+                {
+                    model: Follow,
+                    as: "follows",
+                    attributes: {
+                        exclude: this.excludes.fromFollows,
+                    },
+                },
+            ],
+            ...this.generateOrderClause(),
+            ...this.handlePagination(),
+        });
+        //
+        return res.send(response);
     }
 }
 export default new GetManyOffersController();
