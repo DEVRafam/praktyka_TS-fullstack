@@ -1,11 +1,13 @@
 import path from "path";
 import fs from "fs";
 import fse from "fs-extra";
-import { User, Offer } from "../../services/Models";
+import { User, Offer, Follow } from "../../services/Models";
 import { offerData, loggedUsers, usersData } from "../assets/offer/data";
 import { LoginResponse } from "../../@types/auth";
 //
 const offerUploadPath = path.join(__dirname, "..", "..", "..", "upload", "offers");
+let deletedOfferID: number | null = null;
+//
 const mocks: { model: any; id: any; folder?: string }[] = [];
 //
 // helpers
@@ -107,7 +109,44 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("2. Owner of offer should be able to delete it", async (done) => {
+    it("2. Others users should be able to follow created offer", async (done) => {
+        expect(await Follow.findOne({ where: { user_id: loggedUsers.admin.id, offer_id: loggedUsers.common.createdOfferId } })).toBeNull();
+        //
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.post(`/api/offer/${loggedUsers.common.createdOfferId}/follow`).set(headers);
+        //
+        expect(status).toEqual(200);
+        expect(await Follow.findOne({ where: { user_id: loggedUsers.admin.id, offer_id: loggedUsers.common.createdOfferId } })).not.toBeNull();
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("3. Others users should be able to unfollow created offer", async (done) => {
+        expect(await Follow.findOne({ where: { user_id: loggedUsers.admin.id, offer_id: loggedUsers.common.createdOfferId } })).not.toBeNull();
+        //
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.post(`/api/offer/${loggedUsers.common.createdOfferId}/follow`).set(headers);
+        expect(status).toEqual(200);
+        expect(await Follow.findOne({ where: { user_id: loggedUsers.admin.id, offer_id: loggedUsers.common.createdOfferId } })).toBeNull();
+        //
+        // prepare follow for futher test
+        //
+        await (global as any).request.post(`/api/offer/${loggedUsers.common.createdOfferId}/follow`).set(headers);
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("4. Owner of offer should be able to delete it", async (done) => {
         const { status } = await (global as any).request.delete(`/api/offer/${loggedUsers.common.createdOfferId}`).set({
             Authorization: `Bearer ${loggedUsers.common.accessToken}`,
         });
@@ -117,6 +156,7 @@ describe("Offers creating, deleting, and fetching data", () => {
         expect(await Offer.findOne({ where: { id: loggedUsers.common.createdOfferId } })).toBeNull();
         //
         loggedUsers.common.createdOfferFolder = null;
+        deletedOfferID = loggedUsers.common.createdOfferId;
         loggedUsers.common.createdOfferId = null;
         //
         done();
@@ -124,7 +164,15 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("3. Admin can delete any offer", async (done) => {
+    it("5. Delete offer should also delete associated follows", async (done) => {
+        expect(await Follow.findOne({ where: { user_id: loggedUsers.admin.id, offer_id: deletedOfferID } })).toBeNull();
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("6. Admin can delete any offer", async (done) => {
         await createOffer(loggedUsers.common.accessToken);
         const offer = await Offer.findOne({ where: { title: offerData.title, description: offerData.description } });
         //
@@ -141,7 +189,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("4. User can not delete somoneone's else offer", async (done) => {
+    it("7. User can not delete somoneone's else offer", async (done) => {
         await createOffer(loggedUsers.admin.accessToken);
         const offer = await Offer.findOne({ where: { title: offerData.title, description: offerData.description } });
         //
@@ -162,7 +210,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("5. Unlogged user can not delete offer", async (done) => {
+    it("8. Unlogged user can not delete offer", async (done) => {
         const { status } = await (global as any).request.delete(`/api/offer/1`);
         expect(status).toEqual(401);
         //
@@ -171,7 +219,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("6. Unlogged user can not add offer", async (done) => {
+    it("9. Unlogged user can not add offer", async (done) => {
         const { status } = await createOffer("");
         expect(status).toEqual(401);
         //
@@ -180,7 +228,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("7. Trying to delete unexisting offer should return code 404", async (done) => {
+    it("10. Trying to delete unexisting offer should return code 404", async (done) => {
         const { status } = await (global as any).request.delete(`/api/offer/3123121`).set({
             Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
         });
@@ -191,7 +239,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("8. Validators should return 400 code while trying to create offer with invalid data", async (done) => {
+    it("11. Validators should return 400 code while trying to create offer with invalid data", async (done) => {
         const { body } = await (global as any).request
             .post("/api/offer")
             .set({
@@ -242,7 +290,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("9. Trying to fetch offer with status different than DEFAULT should retrun 404", async (done) => {
+    it("12. Trying to fetch offer with status different than DEFAULT should retrun 404", async (done) => {
         await Offer.create({
             id: 5000,
             title: "Sprzedam komputer",
@@ -275,7 +323,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("10. Admin should be allowed to fetch any kind of offer", async (done) => {
+    it("13. Admin should be allowed to fetch any kind of offer", async (done) => {
         const { status } = await (global as any).request.get("/api/offer/dadasdasdasdasdasd").set({
             Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
         });
@@ -286,7 +334,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("11. Offer's owner should be allowed to fetch his offer", async (done) => {
+    it("14. Offer's owner should be allowed to fetch his offer", async (done) => {
         const { status } = await (global as any).request.get("/api/offer/dadasdasdasdasdasd").set({
             Authorization: `Bearer ${loggedUsers.common.accessToken}`,
         });
@@ -297,7 +345,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("12. Random should not be allowed to fetch offer with status different than DEFAULT", async (done) => {
+    it("15. Random should not be allowed to fetch offer with status different than DEFAULT", async (done) => {
         await Offer.update({ creator_id: loggedUsers.admin.id }, { where: { id: 5000 } });
         //
         const { status } = await (global as any).request.get("/api/offer/dadasdasdasdasdasd").set({

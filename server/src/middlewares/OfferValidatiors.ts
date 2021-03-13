@@ -3,6 +3,9 @@ import { Response, NextFunction } from "express";
 import BetterJoiError from "../helpers/betterJoiErorr";
 import { CreateOfferErrorMessages } from "../i18n/eng";
 import { CreateRequest } from "../@types/Offers";
+import { Offer } from "../services/Models";
+//
+//
 //
 export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
@@ -55,4 +58,10 @@ export const CreateNewOfferValidator = (req: CreateRequest, res: Response, next:
             errors: BetterJoiError(error),
         });
     } else next();
+};
+//
+//
+//
+export const FollowOfferValidator = async (req: any, res: Response, next: NextFunction) => {
+    (await Offer.findByPk(req.params.id)) ? next() : res.sendStatus(404);
 };

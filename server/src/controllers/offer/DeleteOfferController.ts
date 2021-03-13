@@ -3,7 +3,7 @@ import fse from "fs-extra";
 import { Response } from "express";
 //
 import { DeleteRequest } from "../../@types/Offers";
-import { Offer, User } from "../../services/Models";
+import { Offer, User, Follow } from "../../services/Models";
 //
 class DeleteOfferController {
     protected req: DeleteRequest;
@@ -21,6 +21,7 @@ class DeleteOfferController {
     }
     protected async handleDelete() {
         await fse.remove(path.join(this.uploadPath, this.offer.folder));
+        await Follow.destroy({ where: { offer_id: this.offer.id } });
         await this.offer.destroy();
     }
     protected async findOffer() {

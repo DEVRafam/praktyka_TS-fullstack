@@ -32,7 +32,6 @@ class GetManyOffersController {
         return {
             where: (() => {
                 const { category, search } = this.req.query;
-                console.log(search);
                 const where = {
                     status: "DEFAULT",
                     category: category,

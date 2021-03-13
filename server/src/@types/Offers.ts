@@ -38,6 +38,10 @@ export type DeleteRequest = Authorized & Request<{ id: number }>;
 //
 //
 //
+export type FollowRequest = Authorized & Request<{ id: number }>;
+//
+//
+//
 export interface OfferSchema {
     id?: any;
     title?: string;
