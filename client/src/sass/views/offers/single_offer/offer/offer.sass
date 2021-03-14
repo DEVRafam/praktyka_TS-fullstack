@@ -1,5 +1,6 @@
 section#offer-data
     //
+    @import ./header
     @import ./recommendations
     //
     @include flexColumn
@@ -10,10 +11,17 @@ section#offer-data
         width: 100%
         height: 600px
         position: sticky
-        top: 200px
+        top: 210px
         background-position: center
         background-repeat: no-repeat
         background-size: contain
+        label
+            @include textUS
+            position: absolute
+            top: 20px
+            right: 0
+            padding: 5px 10px
+            border: 2px solid $mainColor
         button
             @include buttonStyles
             @include smoothHover
@@ -27,32 +35,7 @@ section#offer-data
                 right: 0
             &.previous
                 left: 0
-    header.main-offer-header
-        display: flex
-        width: 100%
-        justify-content: space-between
-        flex-direction: row-reverse
-        align-items: flex-end
-        position: sticky
-        top: 75px
-        z-index: 100
-        padding: 10px
-        padding-top: 50px
-        background-color: #fff
-        div.price
-            background-color: $mainColorDark
-            color: #fff
-            font-size: 1.5rem
-            padding: 5px 30px
-            span.currency
-                margin-left: 10px
-                color: $mainColor
-                font-weight: bold
-        div.date
-            letter-spacing: 2px
-            font-size: 1.2rem
-            span
-                margin-right: 10px
+    
     div.content
         @include flexColumn
         align-items: flex-end
