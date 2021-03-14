@@ -42,6 +42,10 @@ export type FollowRequest = Authorized & Request<{ id: number }>;
 //
 //
 //
+export type RecommendationsRequest = Request<{ id: number }>;
+//
+//
+//
 export interface OfferSchema {
     id?: any;
     title?: string;
@@ -58,6 +62,7 @@ export interface OfferSchema {
     advantages?: string;
     currency?: "PLN" | "EUR" | "USD" | "GBP";
     country?: string;
+    creator_id: any;
     creator?: {
         id?: any;
         name?: string;
