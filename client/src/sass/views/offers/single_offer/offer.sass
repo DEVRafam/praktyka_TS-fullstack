@@ -1,4 +1,7 @@
 section#offer-data
+    //
+    @import ./recommendations
+    //
     @include flexColumn
     align-items: flex-end
     text-align: right
@@ -24,7 +27,7 @@ section#offer-data
                 right: 0
             &.previous
                 left: 0
-    header
+    header.main-offer-header
         display: flex
         width: 100%
         justify-content: space-between
@@ -58,11 +61,12 @@ section#offer-data
         z-index: 5
         background-color: #fff
         margin-top: 50px
-        padding-bottom: 150px
+        padding-bottom: 50px
         h1.title
             font-size: 3rem
         h4.label
             margin: 20px 0 10px 0
+            letter-spacing: 2px
         p
             margin: 0
             letter-spacing: 2px

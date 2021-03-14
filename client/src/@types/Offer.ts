@@ -2,6 +2,35 @@ import { User } from "./user";
 
 export type OfferCategory = "services" | "automotive" | "education" | "sport" | "fashion" | "electronic" | "real-estate" | "job" | "house-and-garden";
 //
+export interface OfferRecommendations {
+    fromCategories: {
+        id?: any;
+        title?: string;
+        slug?: string;
+        category?: string;
+        price?: number;
+        photos?: string[];
+        localization?: string;
+        folder?: string;
+        updatedAt?: string;
+        currency?: "PLN" | "EUR" | "USD" | "GBP";
+        country?: string;
+    };
+    fromDealer: {
+        id?: any;
+        title?: string;
+        slug?: string;
+        category?: string;
+        price?: number;
+        photos?: string[];
+        localization?: string;
+        folder?: string;
+        updatedAt?: string;
+        currency?: "PLN" | "EUR" | "USD" | "GBP";
+        country?: string;
+    };
+}
+//
 export interface Offer {
     id?: any;
     title?: string;

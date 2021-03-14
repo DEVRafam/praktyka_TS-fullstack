@@ -51,7 +51,7 @@ const categoriesList = [
     }
 ];
 //
-const findLabel = (category: string) => {
+export const findLabel = (category: string) => {
     const result = categoriesList.find(target => target.val === category)?.label;
     return result;
 };

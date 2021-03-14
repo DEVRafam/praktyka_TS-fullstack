@@ -30,6 +30,7 @@ class RecommendationsOfferController {
         return await Offer.findAll({
             where: {
                 id: { [Op.not]: this.offer.id },
+                category: { [Op.not]: this.offer.category },
                 creator_id: this.offer.creator_id,
                 status: "DEFAULT",
             },

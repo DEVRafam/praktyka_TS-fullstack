@@ -1,0 +1,52 @@
+section#recommendations
+    width: 100%
+    margin-top: 50px
+    h2.label
+        letter-spacing: 2px
+    h4.label
+        letter-spacing: 2px
+        margin: 40px 0 20px 0 
+        span.color
+            color: $mainColor
+            margin: 0 5px
+    div.level
+        width: 100%
+        display: flex
+        justify-content: flex-end
+        div.recommendation
+            @include flexColumn
+            flex-basis: 33.333%
+            border-left: 20px solid #fff
+            header
+                width: 100%
+                display: flex
+                justify-content: space-between
+                padding: 5px 10px
+                box-sizing: border-box
+                letter-spacing: 2px
+                background-color: $mainColorDark
+                color: #fff
+                margin-bottom: 5px
+                span.price
+                    span.color
+                        margin-left: 5px
+                        color: $mainColor
+                        font-weight: bold
+            div.r-img
+                height: 200px
+                width: 100%
+                background-position: center
+                background-repeat: no-repeat
+                background-size: contain
+            h5
+                @include flexCenter
+                flex-grow: 1
+                letter-spacing: 2px
+                font-weight: normal
+                text-align: center
+            a
+                align-self: flex-end
+                @include smoothHover
+                @include buttonStyles
+                text-decoration: none
+                font-size: .8rem

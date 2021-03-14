@@ -39,7 +39,7 @@ const fetchOffers = async () => {
     })();
 };
 //
-const imgPath = (offer: Offer, index = 0) => {
+export const imgPath = (offer: Offer, index = 0) => {
     const img = (offer.photos as string[])[index];
     if (img) {
         const url = `${API_ADDRESS}/api/photo/offers/${offer.folder}/${img}`;

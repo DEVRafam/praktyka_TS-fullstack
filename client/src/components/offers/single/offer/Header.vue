@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="main-offer-header">
         <div class="price" v-if="offer.price">
             <span>{{ priceSeparators(offer) }}</span>
             <span class="currency">{{ offer.currency }}</span>
