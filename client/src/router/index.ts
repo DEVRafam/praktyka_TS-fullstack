@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Page404 from "@/views/404.vue";
+import SingleOffer from "@/views/SingleOffer.vue";
 import auth from "./auth";
 //
 const routes: Array<RouteRecordRaw> = [
@@ -13,6 +14,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "/",
         name: "Home",
         component: Home
+    },
+    {
+        path: "/offer/:slug",
+        name: "SingleOffer",
+        component: SingleOffer
     },
     ...auth
 ];

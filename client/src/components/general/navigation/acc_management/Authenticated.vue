@@ -1,5 +1,5 @@
 <template>
-    <div class="icon" :style="avatarStyles"></div>
+    <div class="icon" :style="currentUserAvatar()"></div>
     <span class="signed-info">
         <span>Signed in as: </span>
         <strong>{{ user.name }} {{ user.surname }}</strong>
@@ -12,16 +12,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { API_ADDRESS } from "@/composable/env";
-import { logout } from "@/composable/auth/authenticate";
+import { logout, currentUserAvatar } from "@/composable/auth/authenticate";
 //
 export default defineComponent({
     setup() {
         const user = JSON.parse(localStorage.getItem("user") as string);
-        const avatar = user.avatar ? `${API_ADDRESS}/api/photo/avatar/${user.avatar}` : "/images/default_user_avatar.jpg";
-        const avatarStyles = `background-image: url(${avatar})`;
         //
-        return { user, avatarStyles, logout };
+        return { user, currentUserAvatar, logout };
     }
 });
 </script>

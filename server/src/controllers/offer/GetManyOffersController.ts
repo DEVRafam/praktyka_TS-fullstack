@@ -16,7 +16,6 @@ class GetManyOffersController {
     protected generateOrderClause() {
         return {
             order: (() => {
-                console.log(this.req.query.order);
                 switch (this.req.query.order) {
                     case "oldest":
                         return [["id", "ASC"]];

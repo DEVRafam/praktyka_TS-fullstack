@@ -31,9 +31,40 @@ import {
     faHeart,
     faThLarge,
     faBars,
-    faTimesCircle
+    faTimesCircle,
+    faStar,
+    faStarHalf,
+    faChevronLeft,
+    faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faSearch, faUser, faArrowUp, faSignInAlt, faStoreAltSlash, faEye, faEyeSlash, faSignOutAlt, faUsers, faCar, faUniversity, faFootballBall, faTshirt, faTv, faHome, faHandshake, faTree, faGamepad, faHeart, faThLarge, faBars, faTimesCircle);
+library.add(
+    faSearch,
+    faUser,
+    faArrowUp,
+    faSignInAlt,
+    faStoreAltSlash,
+    faEye,
+    faEyeSlash,
+    faSignOutAlt,
+    faUsers,
+    faCar,
+    faUniversity,
+    faFootballBall,
+    faTshirt,
+    faTv,
+    faHome,
+    faHandshake,
+    faTree,
+    faGamepad,
+    faHeart,
+    faThLarge,
+    faBars,
+    faTimesCircle,
+    faStar,
+    faStarHalf,
+    faChevronLeft,
+    faChevronRight
+);
 app.component("font-awesome-icon", FontAwesomeIcon);
 //
 // global components

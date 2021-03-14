@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export type OfferCategory = "services" | "automotive" | "education" | "sport" | "fashion" | "electronic" | "real-estate" | "job" | "house-and-garden";
 //
 export interface Offer {
@@ -16,19 +18,7 @@ export interface Offer {
     advantages?: string;
     currency?: "PLN" | "EUR" | "USD" | "GBP";
     country?: string;
-    creator?: {
-        id?: any;
-        name?: string;
-        surname?: string;
-        email?: string;
-        role?: string;
-        avatar?: string | null;
-        reviews_about_self?: {
-            explanation?: string;
-            scroe?: number;
-            updatedAt?: string;
-        }[];
-    };
+    creator?: User;
     follows?: {
         user_id?: any;
         offer_id?: any;

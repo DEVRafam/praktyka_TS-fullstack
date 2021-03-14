@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import path from "path";
 import { GetSingleRequest, OfferSchema } from "../../@types/Offers";
-import { Offer, User, Review } from "../../services/Models";
+import { Offer, User, Review, Follow } from "../../services/Models";
 import { Response } from "express";
 const { access_secret } = require(path.join(__dirname, "..", "..", "config", "config")).tokens;
 //
@@ -9,8 +9,9 @@ class GetSingleOfferController {
     protected req: GetSingleRequest;
     protected excludes = {
         fromOffer: ["createdAt", "creator_id", "valueInUSD"],
-        fromCreator: ["id", "createdAt", "updatedAt", "tokens", "password"],
-        fromReviews: ["createdAt", "id", "creator_id", "reviewer_id", "dealer_id"],
+        fromCreator: ["id", "updatedAt", "tokens", "password"],
+        fromReviews: ["createdAt", "id", "creator_id", "reviewer_id", "dealer_id", "explanation", "updatedAt"],
+        fromFollows: ["createdAt", "updatedAt", "user_id"],
     };
     //
     // helpers
@@ -83,6 +84,13 @@ class GetSingleOfferController {
                                 order: [["id", "DESC"]],
                             },
                         ],
+                    },
+                    {
+                        model: Follow,
+                        as: "follows",
+                        attributes: {
+                            exclude: this.excludes.fromFollows,
+                        },
                     },
                 ],
             });

@@ -19,7 +19,7 @@ export default defineComponent({
             // amount
             summary += `There ${resultAmount.value === 1 ? "is <span class='color'>one result</span>" : "are <span class='color'>" + resultAmount.value + " results</span>"}`;
             // search
-            if (search.value) summary += ` that conteins phrase "<span class="color">${search.value}</span>"`;
+            if (search.value) summary += ` that contains phrase "<span class="color">${search.value}</span>"`;
             // category
             if (category.value) summary += ` in category "<span class="color">${category.value}</span>"`;
             //

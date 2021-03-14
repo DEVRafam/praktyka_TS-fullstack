@@ -36,26 +36,28 @@ div.single-offer.LIST
             background-color: #fff
             margin-top: 10px
     //
-    div.img
-        box-sizing: border-box
+    a
         width: 300px
         min-height: 200px
-        position: relative
-        background-color: #fff
-        border-top: 10px solid $beige
-        border-left: 10px solid $beige
-        div.one,div.two
-            @include absoluteFull
-            background-size: contain
-            background-position: center
-            background-repeat: no-repeat
-            transition: opacity .3s
-            opacity: 1
-        div.two
-            opacity: 0
-        &.hoverable
-            &:hover
-                div.one
-                    opacity: 0
-                div.two
-                    opacity: 1
+        div.img
+            box-sizing: border-box
+
+            position: relative
+            background-color: #fff
+            border-top: 10px solid $beige
+            border-left: 10px solid $beige
+            div.one,div.two
+                @include absoluteFull
+                background-size: contain
+                background-position: center
+                background-repeat: no-repeat
+                transition: opacity .3s
+                opacity: 1
+            div.two
+                opacity: 0
+            &.hoverable
+                &:hover
+                    div.one
+                        opacity: 0
+                    div.two
+                        opacity: 1

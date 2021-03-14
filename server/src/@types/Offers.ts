@@ -65,9 +65,10 @@ export interface OfferSchema {
         email?: string;
         role?: string;
         avatar?: string | null;
+        createdAt?: string;
         reviews_about_self?: {
             explanation?: string;
-            scroe?: number;
+            score?: number;
             updatedAt?: string;
         }[];
     };

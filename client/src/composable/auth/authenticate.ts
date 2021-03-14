@@ -1,4 +1,5 @@
 import axios from "axios";
+import { avatarPath } from "@/composable/useUser";
 import { API_ADDRESS } from "@/composable/env";
 import { RefreshTokenResponse, LocalStorageUser } from "@/@types/auth";
 import { ref, computed, reactive } from "vue";
@@ -9,6 +10,10 @@ export const isAdmin = computed<boolean>(() => {
     if (isDeepAuthenticated.value) return currentUser.role === "ADMIN";
     else return false;
 });
+//
+export const currentUserAvatar = (genrateStyle: true) => {
+    return avatarPath(currentUser, genrateStyle);
+};
 //
 export const removeUserFormLocalStorage = () => {
     localStorage.setItem("user", JSON.stringify({}));
@@ -43,7 +48,7 @@ export const deepAuthenticate = async () => {
             user.accessToken = feedback.accessToken;
             //
             if (feedback.userData) {
-                ["name", "surname", "email", "role", "role"].forEach(prop => {
+                ["name", "surname", "email", "role", "role", "avatar"].forEach(prop => {
                     // eslint-disable-next-line
                     (user as any)[prop] = (feedback.userData as any)[prop];
                     // eslint-disable-next-line
