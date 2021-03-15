@@ -1,11 +1,46 @@
 import path from "path";
-import { Response } from "express";
+import { Response, Request } from "express";
 import { promisify } from "util";
 import fse from "fs-extra";
 import { AuthorizedRequest } from "../@types/authenticate";
-import { User } from "../services/Models";
+import { Offer, User, Review } from "../services/Models";
 //
 class UserController {
+    protected profileExcludes = {
+        fromUser: ["password", "updatedAt", "tokens"],
+        fromOffer: ["updatedAt", "status", "contact", "valueInUSD", "advantages", "description", "creator_id", "id"],
+        fromReview: ["id", "dealer_id", "updatedAt"],
+        fromReviewer: ["password", "updatedAt", "tokens", "email", "role"],
+    };
+    //
+    async profileData(req: Request<{ id: number }>, res: Response) {
+        const user = await User.findOne({
+            where: { id: req.params.id },
+            attributes: { exclude: this.profileExcludes.fromUser },
+
+            include: [
+                {
+                    model: Offer,
+                    as: "offers",
+                    attributes: { exclude: this.profileExcludes.fromOffer },
+                },
+                {
+                    model: Review,
+                    as: "reviews_about_self",
+                    attributes: { exclude: this.profileExcludes.fromReview },
+                    include: [
+                        {
+                            model: User,
+                            as: "reviewer",
+                            attributes: { exclude: this.profileExcludes.fromReviewer },
+                        },
+                    ],
+                },
+            ],
+        });
+        //
+        return res.send(user);
+    }
     //
     async changeAvatar(req: AuthorizedRequest, res: Response) {
         try {
