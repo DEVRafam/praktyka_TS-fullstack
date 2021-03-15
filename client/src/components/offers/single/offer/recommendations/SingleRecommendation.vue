@@ -9,7 +9,7 @@
             <span class="date">{{ formatDate(item.updatedAt) }}</span>
         </header>
         <!--  -->
-        <div class="r-img" :style="imgPath(item)"></div>
+        <div class="r-img" :style="imgPath(item, imgIndex)" @mouseenter="swapImage('next')" @mouseleave="swapImage('prev')"></div>
         <h5>{{ item.title }}</h5>
         <!--  -->
         <router-link :to="`/offer/${item.slug}`">Visit</router-link>
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 import useSingleOffer from "@/composable/offers/useSingleOffer";
 import { Offer } from "@/@types/Offer";
 import { imgPath } from "@/composable/offers/useManyOffers";
@@ -31,10 +31,17 @@ export default defineComponent({
             required: true
         }
     },
-    components: {},
-    async setup() {
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    async setup({ item }) {
         const { recommendations } = useSingleOffer;
-        return { recommendations, imgPath, priceSeparators, formatDate };
+        const imgIndex = ref<number>(0);
+        //
+        const swapImage = (destination: "next" | "prev") => {
+            if (item.photos?.length === 1) return;
+            else imgIndex.value = destination === "next" ? 1 : 0;
+        };
+        //
+        return { recommendations, imgPath, priceSeparators, formatDate, imgIndex, swapImage };
     }
 });
 </script>

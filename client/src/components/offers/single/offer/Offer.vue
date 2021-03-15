@@ -15,7 +15,7 @@ import { defineComponent, PropType } from "vue";
 import { Offer } from "@/@types/Offer";
 //
 import Content from "./Content.vue";
-import Images from "./Images.vue";
+import Images from "./preview_images/Images.vue";
 import Header from "./Header.vue";
 import Recommendations from "./recommendations/Recommendations.vue";
 //

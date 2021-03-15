@@ -29,6 +29,7 @@
 <script lang="ts">
 import { defineComponent, onBeforeUnmount, ref } from "vue";
 import useOffersNavigation from "@/composable/offers/useOffersNavigation";
+import useKeydown from "@/composable/useKeydown";
 //
 export default defineComponent({
     setup() {
@@ -44,6 +45,16 @@ export default defineComponent({
         setTimeout(() => (renderProperInput.value = true), 1);
 
         return { layout, order, search, renderProperInput };
+    },
+    mounted() {
+        useKeydown([
+            {
+                key: "Enter",
+                fn: () => {
+                    if (this.isApplyAvailable) this.applyFilter();
+                }
+            }
+        ]);
     },
     computed: {
         isClearAvailable(): boolean {

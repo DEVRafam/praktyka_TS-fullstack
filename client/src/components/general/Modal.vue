@@ -23,6 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, getCurrentInstance, onBeforeMount, onBeforeUnmount } from "vue";
+import useKeydown from "@/composable/useKeydown";
 //
 export default defineComponent({
     inheritAttrs: false,
@@ -53,7 +54,18 @@ export default defineComponent({
             emit("update:modelValue", null);
             emit("close", null);
         };
+        //
+        // close modal by pressing ESC
+        //
+        useKeydown([
+            {
+                key: "Escape",
+                fn: closeModal
+            }
+        ]);
+        //
         // blcok scrolling
+        //
         let initScrollY: number;
         onBeforeMount(() => {
             initScrollY = window.scrollY;

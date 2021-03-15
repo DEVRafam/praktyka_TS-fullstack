@@ -407,7 +407,7 @@
             "phone": "555 111 222"
         },
         "folder": "wohnung",
-        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
         "localization": "Berlin",
         "country": "Deutschland",
         "advantages": [

@@ -35,7 +35,8 @@ import {
     faStar,
     faStarHalf,
     faChevronLeft,
-    faChevronRight
+    faChevronRight,
+    faExpand
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
     faSearch,
@@ -63,7 +64,8 @@ library.add(
     faStar,
     faStarHalf,
     faChevronLeft,
-    faChevronRight
+    faChevronRight,
+    faExpand
 );
 app.component("font-awesome-icon", FontAwesomeIcon);
 //

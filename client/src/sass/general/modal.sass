@@ -8,14 +8,15 @@ div#modal
     @include absoluteFull
     z-index: 1000
     position: fixed
+    margin-top: 30px
     div.overlay
         @include absoluteFull
         z-index: 1000
         background-color: #000
         opacity: .3
-        animation: overlay-animation both .3s linear
+        animation: overlay-animation both .2s linear
     div.modal-card
-        animation: fade-only-opacity .3s both linear
+        animation: fade-only-opacity .2s both linear
         @include absoluteCenter
         @include flexColumn
         justify-content: space-between
@@ -56,7 +57,24 @@ div#modal
             font-size: 1rem
             @include smoothHover($red)
             border-radius: 5px
+        header
+            font-size: .8rem
+            cursor: default
+            text-indent: 50px
+        footer
+            display: flex
+            align-items: center
+            justify-content: center
+            label
+                margin: 0 20px
+                font-size: 1.2rem
+            button
+                @include buttonStyles
+                @include smoothHoverReversed
+                border-radius: 5px
+        //
         // content
+        //
         header.modal-header
             text-align: left
             margin-right: 150px
@@ -69,7 +87,6 @@ div#modal
                     @include buttonStyles
                     @include smoothHoverReversed
                     letter-spacing: 5px
-
         section.body
             margin: 15px 0
             text-align: left
@@ -93,3 +110,10 @@ div#modal
                     @include smoothHoverReversed($green)
                 button.discard
                     @include smoothHoverReversed($red)
+            div.image-preview
+                background-position: center
+                background-size: contain
+                background-repeat: no-repeat
+                width: 70vw
+                height: 70vh
+                transition: background-image .3s

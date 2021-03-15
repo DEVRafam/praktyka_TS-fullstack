@@ -19,8 +19,6 @@ export default defineComponent({
         }
     },
     setup(props) {
-        console.log(JSON.parse(JSON.stringify(props.data?.follows)));
-        console.log(currentUser.id);
         const isFollowing = (): boolean => {
             if (!props.data?.follows) return false;
             return !!props.data?.follows.find(el => el.user_id === currentUser.id);
