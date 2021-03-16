@@ -1,8 +1,8 @@
 <template>
-    <div class="icon" :style="currentUserAvatar()"></div>
+    <router-link :to="`/profile/${currentUser.id}`" class="icon" :style="currentUserAvatar()"> </router-link>
     <span class="signed-info">
         <span>Signed in as: </span>
-        <strong>{{ user.name }} {{ user.surname }}</strong>
+        <strong>{{ currentUser.name }} {{ currentUser.surname }}</strong>
     </span>
     <a class="up" @click="logout">
         <span>Logout</span>
@@ -12,13 +12,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { logout, currentUserAvatar } from "@/composable/auth/authenticate";
+import { logout, currentUserAvatar, currentUser } from "@/composable/auth/authenticate";
 //
 export default defineComponent({
     setup() {
-        const user = JSON.parse(localStorage.getItem("user") as string);
-        //
-        return { user, currentUserAvatar, logout };
+        return { currentUser, currentUserAvatar, logout };
     }
 });
 </script>

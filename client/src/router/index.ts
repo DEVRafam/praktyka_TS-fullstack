@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+//
 import Home from "../views/Home.vue";
 import Page404 from "@/views/404.vue";
 import SingleOffer from "@/views/SingleOffer.vue";
+import Profile from "@/views/Profile.vue";
+//
 import auth from "./auth";
 //
 const routes: Array<RouteRecordRaw> = [
@@ -19,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
         path: "/offer/:slug",
         name: "SingleOffer",
         component: SingleOffer
+    },
+    {
+        path: "/profile/:id",
+        name: "UserProfile",
+        component: Profile
     },
     ...auth
 ];

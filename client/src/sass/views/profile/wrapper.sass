@@ -1,0 +1,55 @@
+div.profile-wrap
+    width: 100vw
+    height: 100%
+    background-color: #eee
+    padding-top: 50px
+    @include flexCenter
+    section#user-profile
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        width: 98vw
+        max-width: 1400px
+        cursor: default
+        section#summary
+            width: 28%
+            position: sticky
+            top: 150px
+            background-color: #fff
+            padding: 20px
+            box-sizing: border-box
+            border-radius: 5px
+        section#activites
+            width: 70%
+            padding-bottom: 50px
+        //
+        //
+        //
+        @import ./summary
+        section#activites
+            h1.label
+                margin: 0
+                font-size: 2.5rem
+            //
+            section.chart-wrap
+                text-align: right
+                button
+                    @include buttonStyles
+                    margin-left: 10px
+                    &.active
+                        @include smoothHoverReversed($mainColor)
+                    &.unactive
+                        @include smoothHoverReversed($mainColorDark)
+            //
+            section#offers,section#reviews,section#reviewed,section#stats
+                margin-top: 50px
+                background-color: #fff
+                padding: 20px
+                box-sizing: border-box
+                border-radius: 5px
+            section#stats
+                margin-top: 0px
+            @import ./activities/reviewed
+            @import ./activities/reviews
+            @import ./activities/stats
+            @import ./activities/offer

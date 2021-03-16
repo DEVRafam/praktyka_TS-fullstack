@@ -9,7 +9,7 @@ class GetSingleOfferController {
     protected req: GetSingleRequest;
     protected excludes = {
         fromOffer: ["createdAt", "creator_id", "valueInUSD"],
-        fromCreator: ["id", "updatedAt", "tokens", "password"],
+        fromCreator: ["updatedAt", "tokens", "password"],
         fromReviews: ["createdAt", "id", "creator_id", "reviewer_id", "dealer_id", "explanation", "updatedAt"],
         fromFollows: ["createdAt", "updatedAt"],
     };

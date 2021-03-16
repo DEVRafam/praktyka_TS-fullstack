@@ -26,6 +26,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { User } from "@/@types/user";
+import { computeReviews } from "@/composable/useUser";
 //
 export default defineComponent({
     props: {
@@ -36,17 +37,7 @@ export default defineComponent({
     },
     components: {},
     setup(props) {
-        const averge = (() => {
-            const { reviews_about_self: reviews } = props.dealer;
-            if (!reviews) return null;
-            let total = 0;
-            reviews?.forEach(el => (total += el.score as number));
-            return (total / reviews.length).toFixed(2);
-        })();
-        //
-        const starsAmount = props.dealer.reviews_about_self?.length ? Math.floor(Number(averge)) : 0;
-        const halfStar = Number(averge) - starsAmount >= 0.5;
-        //
+        const { averge, starsAmount, halfStar } = computeReviews(props.dealer);
         return { averge, starsAmount, halfStar };
     }
 });

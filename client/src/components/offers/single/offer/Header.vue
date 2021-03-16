@@ -8,10 +8,10 @@
             <!--  -->
             <Follow :data="offer"></Follow>
             <!--  -->
-            <div>
-                <span>{{ formatDate(offer.updatedAt) }},</span>
+            <div class="date-and-localization">
+                <strong class="color">{{ formatDate(offer.updatedAt) }},</strong>
                 <span>{{ offer.localization }},</span>
-                <span>{{ offer.country }}</span>
+                <strong>{{ offer.country }}</strong>
             </div>
         </div>
     </header>

@@ -1,26 +1,98 @@
 [
     {
-        "explanation": "Wszystko ok, polecam!",
-        "score": 4.9,
+        "explanation": "Breathtaking!",
+        "score": 5,
         "dealer_id": 1,
-        "reviewer_id": 2
+        "reviewer_id": 7
     },
     {
-        "explanation": "Zajebiste!",
+        "explanation": "Transakcja przebiegła sprawniej niz kolejna piosenka na sylwestrze. Pozdrawiam serdecznie.",
+        "score": 5,
+        "dealer_id": 1,
+        "reviewer_id": 9
+    },
+    {
+        "explanation": "Zajebiste! Pan jaśnie wielmożny Kacper lepszy niz pan Tadeusz.",
         "score": 5,
         "dealer_id": 1,
         "reviewer_id": 3
     },
     {
-        "explanation": "Super!",
+        "explanation": "Niemiec plakal, jak sprzedawal, a rusek sie patrzyl i smial, ale dalej polska gora!",
         "score": 5,
         "dealer_id": 1,
         "reviewer_id": 4
     },
     {
-        "explanation": "Scam, nie polecam.",
-        "score": 1,
+        "explanation": "Kultralny, przystojny kawaler. Nie kazał mi wyp*erdalac.",
+        "score": 5,
+        "dealer_id": 1,
+        "reviewer_id": 5
+    },
+    {
+        "explanation": "This guy makes such of innovations in IT and economy departments, greeting from the Capitol #trump2020!",
+        "score": 5,
+        "dealer_id": 1,
+        "reviewer_id": 6
+    },
+    {
+        "explanation": "Transakcja przebiegła sprawniej niz kolejna piosenka na sylwestrze. Pozdrawiam serdecznie.",
+        "score": 5,
+        "dealer_id": 1,
+        "reviewer_id": 9
+    },
+    {
+        "explanation": "Es ist meine zweite liebling Dealer von Poland, die erste ein ist Jacek Sasin, who hat am Wählen 70 milionen verkackt",
+        "score": 5,
+        "dealer_id": 1,
+        "reviewer_id": 8
+    },
+    {
+        "explanation": "Wszystko ok, polecam! Cała kuria zachwycona, ministerstwo kultury odpali gaże, bezdomny przywiezie",
+        "score": 4.9,
+        "dealer_id": 1,
+        "reviewer_id": 2
+    },
+    {
+        "explanation": "Ojciec dyrektor mial nadzieje, ze dostanie pralke tak samo jak dotacje z ministerstwa ochrony srodowiska- za darmo",
+        "score": 5,
         "dealer_id": 2,
+        "reviewer_id": 1
+    },
+    {
+        "explanation": "Psychol, narkoman i chlor. Inaczej nie da sie opisac autora, bazujac na jego dorobku literackim.",
+        "score": 1,
+        "dealer_id": 3,
+        "reviewer_id": 1
+    },
+    {
+        "explanation": "Bez sensu jak caly romantyzm, Mickiwiewicz lepszy, ale dalej obaj przestarzali o 3 epoki",
+        "score": 3,
+        "dealer_id": 4,
+        "reviewer_id": 1
+    },
+    {
+        "explanation": "Chciala mi zabrac prawa do negocjacji ceny.",
+        "score": 3,
+        "dealer_id": 5,
+        "reviewer_id": 1
+    },
+    {
+        "explanation": "The only one true leader of United States of America",
+        "score": 2,
+        "dealer_id": 6,
+        "reviewer_id": 1
+    },
+    {
+        "explanation": "I'm still thinking about what makes somenone a criminal",
+        "score": 4,
+        "dealer_id": 7,
+        "reviewer_id": 1
+    },
+    {
+        "explanation": "Es hat viel gute Dinge verkauft",
+        "score": 5,
+        "dealer_id": 8,
         "reviewer_id": 1
     }
 ]

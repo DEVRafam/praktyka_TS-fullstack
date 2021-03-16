@@ -4,11 +4,13 @@ section#recommendations
     h2.label
         letter-spacing: 2px
     h4.label
+        font-weight: normal
         letter-spacing: 2px
         margin: 40px 0 20px 0 
         span.color
             color: $mainColor
             margin: 0 5px
+            font-weight: bold
     div.level
         width: 100%
         display: flex
@@ -32,12 +34,16 @@ section#recommendations
                         margin-left: 5px
                         color: $mainColor
                         font-weight: bold
-            div.r-img
+            a
                 height: 200px
                 width: 100%
-                background-position: center
-                background-repeat: no-repeat
-                background-size: contain
+                div.r-img
+                    width: 100%
+                    height: 100%
+                    background-position: center
+                    background-repeat: no-repeat
+                    background-size: contain
+                    transition: background-image .3s
             h5
                 @include flexCenter
                 flex-grow: 1
@@ -45,9 +51,3 @@ section#recommendations
                 font-weight: normal
                 text-align: center
                 margin: 5px 0
-            a
-                align-self: flex-end
-                @include smoothHover
-                @include buttonStyles
-                text-decoration: none
-                font-size: 1rem

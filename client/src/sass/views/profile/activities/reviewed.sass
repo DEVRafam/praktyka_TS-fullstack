@@ -1,0 +1,83 @@
+section#reviewed
+    @include flexColumn
+    align-items: flex-start
+    width: 100%
+    header.highlight
+        @include flexColumn
+        width: 100%
+        align-items: flex-start
+        span.field
+            margin-right: 10px
+            strong
+                color: $mainColor
+                font-size: 1.5rem
+    section.content
+        display: flex
+        justify-content: space-between
+        width: 100%
+        //
+        section.chart-wrap,
+        section.reviewed-list
+        section.chart-wrap
+            margin-top: 20px
+            width: 40%
+        //
+        section.reviewed-list
+            width: 55%
+            @include innerScrollbar
+            height: 450px
+            overflow-y: scroll
+            padding-right: 20px
+            div.single-reviewed
+                display: flex
+                justify-content: space-between
+                width: 100%
+                margin-bottom: 20px
+                a.avatar
+                    width: 50px
+                    height: 50px
+                    background-position: center
+                    background-size: contain
+                    background-repeat: no-repeat
+                    border-radius: 50%
+                    border: 2px solid $mainColor
+                    margin: 0 10px
+                div.content
+                    width: calc( 100% - 80px )
+                    header
+                        display: flex
+                        justify-content: space-between
+                        width: 100%
+                        letter-spacing: 2px
+                        font-size: 1.2rem
+                        div.author
+                            align-items: flex-start
+                            @include flexColumn
+                            span.name
+                                font-weight: bold
+                            span.date
+                                font-size: 1rem
+                                color: $mainColor
+                        div.score
+                            @include flexCenter
+                            font-size: 1.5rem
+                            font-weight: bold
+                            color: #fff
+                            width: 60px
+                            border-radius: 5px
+                            &.score-1
+                                background-color: #ee5253
+                            &.score-2
+                                background-color: #ff6b6b
+                            &.score-3
+                                background-color: #ff9f43
+                            &.score-4
+                                background-color: #1dd1a1
+                            &.score-5
+                                background-color: #10ac84
+                    p
+                        font-size: .9rem
+                        width: 100%
+                        text-align: left
+                        letter-spacing: 2px
+                        text-indent: 10px

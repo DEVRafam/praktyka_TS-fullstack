@@ -9,10 +9,10 @@
             <span class="date">{{ formatDate(item.updatedAt) }}</span>
         </header>
         <!--  -->
-        <div class="r-img" :style="imgPath(item, imgIndex)" @mouseenter="swapImage('next')" @mouseleave="swapImage('prev')"></div>
+        <router-link :to="`/offer/${item.slug}`">
+            <div class="r-img" :style="imgPath(item, imgIndex)" @mouseenter="swapImage('next')" @mouseleave="swapImage('prev')"></div>
+        </router-link>
         <h5>{{ item.title }}</h5>
-        <!--  -->
-        <router-link :to="`/offer/${item.slug}`">Visit</router-link>
     </div>
 </template>
 

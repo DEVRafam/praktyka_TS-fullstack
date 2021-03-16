@@ -24,8 +24,11 @@ header.main-offer-header
         font-size: 1.2rem
         @include flexColumn
         align-items: flex-start
-        span
-            margin-right: 10px
+        div.date-and-localization
+            span
+                margin: 0 10px
+            strong.color
+                color: $mainColor
         button
             @include buttonStyles
             font-size: 1rem

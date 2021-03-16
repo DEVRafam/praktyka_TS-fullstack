@@ -25,5 +25,40 @@
         "surname": "Słowacki",
         "email": "jmickiewicza@lp.pl",
         "password": "zaq123"
+    },
+    {
+        "name": "Kaja",
+        "surname": "Godek",
+        "email": "kaja_godek@lp.pl",
+        "password": "zaq123",
+        "avatar": "kaja_godek.jpg"
+    },
+    {
+        "name": "Donald",
+        "surname": "Trump",
+        "email": "donald_trump1@lp.us",
+        "password": "zaq123",
+        "avatar": "trump.jpg"
+    },
+    {
+        "name": "Keanu",
+        "surname": "Reeves",
+        "email": "keanu_reeves@lp.us",
+        "password": "zaq123",
+        "avatar": "keanu_reeves.jpg"
+    },
+    {
+        "name": "Bonez",
+        "surname": "MC",
+        "email": "187bande@lp.de",
+        "password": "zaq123",
+        "avatar": "bonez.jpg"
+    },
+    {
+        "name": "Maryla",
+        "surname": "Rodowicz",
+        "email": "marylka@lp.pl",
+        "password": "zaq123",
+        "avatar": "maryla_rodowicz.jpg"
     }
 ]

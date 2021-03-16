@@ -15,7 +15,7 @@
         <!--  -->
         <Reviews :dealer="dealer"></Reviews>
         <!--  -->
-        <a class="see-profile">Show more details</a>
+        <router-link :to="`/profile/${dealer.id}`">Show more details</router-link>
     </section>
 </template>
 <script lang="ts">
