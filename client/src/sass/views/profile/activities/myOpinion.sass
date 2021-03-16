@@ -1,0 +1,154 @@
+section#my-opinion
+    @include flexColumn
+    align-items: flex-start
+    header
+        width: 100%
+        display: flex
+        justify-content: space-between
+        button
+            @include buttonStyles
+            padding: 2px 20px
+            margin-left: 20px
+            border-radius: 2px
+            &.edit
+                @include smoothHoverReversed($mainColorDark)
+            &.delete
+                @include smoothHoverReversed($red)
+            &.create
+                @include smoothHoverReversed($green)
+        div.management-wrap
+            height: 30px
+            position: relative
+            width: 300px
+            overflow: hidden
+            div.management-swap
+                position: absolute
+                @include flexColumn
+                height: 300%
+                transition: transform .3s
+                justify-content: space-between
+                &.active
+                    transform: translateY(-66%)
+                div.management-item
+                    height: 33%
+                    width: 100%
+                    display: flex
+                    justify-content: flex-end
+                    align-items: center
+    //
+    // OFFER EXISTS
+    //
+    div.content-wrap
+        width: 100%
+        height: 100px
+        position: relative
+        overflow: hidden
+        margin: 5px 0 20px 0
+        div.content-swap
+            @include flexColumn
+            height: 200%
+            position: absolute
+            transition: transform .3s
+            transform: translateY(-50%)
+            width: 100%
+            &.active
+                transform: translateY(0%)
+            div.content-item
+                height: 50%
+                position: relative
+                width: 100%
+            div.content-item.displaying
+                @include flexColumn
+                align-items: flex-start
+                span.date
+                    margin: 0 0 10px 0
+                    padding-left: 10px
+                    letter-spacing: 2px
+                    strong
+                        margin-left: 10px
+                        color: $mainColor
+                div.review
+                    display: flex
+                    width: 100%
+                    justify-content: space-between
+                    p,i
+                        text-align: left
+                        width: calc( 100% - 100px )
+                        letter-spacing: 2px
+                        text-indent: 20px
+                    i
+                        text-align: center
+                    div.score
+                        @include flexCenter
+                        width: 60px
+                        height: 60px
+                        color: #fff
+                        font-size: 2rem
+                        font-weight: bold
+                        border-radius: 5px
+                        &.score-1
+                            background-color: #ee5253
+                        &.score-2
+                            background-color: #ff6b6b
+                        &.score-3
+                            background-color: #ff9f43
+                        &.score-4
+                            background-color: #1dd1a1
+                        &.score-5
+                            background-color: #10ac84
+            //
+            div.content-item.editing
+                @include flexColumn
+                align-items: flex-start
+                justify-content: space-between
+                div.group
+                    width: 100%
+                    display: flex
+                    position: relative
+                    input[type='range']
+                        width: 300px
+                    label
+                        text-align: left
+                        width: 250px
+                        font-size: 1rem
+                        letter-spacing: 2px
+                        strong
+                            color: $mainColor
+                    textarea
+                        @include coloredFocus
+                        letter-spacing: 2px
+                        font-size: 1rem
+                        height: 50px
+                        width: calc( 100% - 250px )
+                        resize: none
+    //
+    // OFFER DOES NOT EXIST
+    //
+    header.create-offer
+        align-items: center
+    div.create-new-offer
+        @include flexColumn
+        align-items: flex-start
+        justify-content: space-between
+        width: 100%
+        div.group
+            width: 100%
+            display: flex
+            position: relative
+            margin-bottom: 10px
+            input[type='range']
+                width: 300px
+            label
+                text-align: left
+                width: 250px
+                font-size: 1rem
+                letter-spacing: 2px
+                strong
+                    color: $mainColor
+            textarea
+                @include coloredFocus
+                letter-spacing: 2px
+                font-size: 1rem
+                height: 50px
+                width: calc( 100% - 250px )
+                resize: none

@@ -34,25 +34,29 @@ export interface ProfileOffer {
     }[];
 }
 //
+export interface ReviewAboutSelf {
+    id: any;
+    explanation: string;
+    score: number;
+    updatedAt?: string;
+    reviewer: {
+        id: any;
+        name: string;
+        surname: string;
+        avatar: string;
+        updatedAt: string;
+    };
+}
+//
 export interface Profile extends PureUser {
     offers: ProfileOffer[];
-    reviews_about_self: {
-        explanation: string;
-        score: number;
-        updatedAt?: string;
-        reviewer: {
-            id: any;
-            name: string;
-            surname: string;
-            avatar: string;
-            updatedAt: string;
-        };
-    }[];
+    reviews_about_self: ReviewAboutSelf[];
     reviews_about_others: {
+        id: any;
         explanation: string;
         score: number;
         updatedAt?: string;
-        reviewer: {
+        dealer: {
             id: any;
             name: string;
             surname: string;

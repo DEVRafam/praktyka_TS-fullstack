@@ -22,7 +22,8 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Profile } from "@/@types/user";
-import { topCategory, offersChartData } from "@/composable/useProfile";
+import { topCategory } from "@/composable/profile/useProfile";
+import { offersChartData } from "@/composable/useProfileChartData";
 //
 import Chart from "./Chart.vue";
 //

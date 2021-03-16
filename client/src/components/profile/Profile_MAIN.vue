@@ -10,7 +10,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useRoute } from "vue-router";
-import useProfile from "@/composable/useProfile";
+import useProfile from "@/composable/profile/useProfile";
 //
 import Summary from "./summary/Summary.vue";
 import Activities from "./activities/Activites.vue";

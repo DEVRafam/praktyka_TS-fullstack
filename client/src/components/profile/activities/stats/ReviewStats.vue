@@ -24,7 +24,7 @@
 import { defineComponent, PropType } from "vue";
 import { Profile } from "@/@types/user";
 import { computeReviews } from "@/composable/useUser";
-import { reviewsChartData } from "@/composable/useProfile";
+import { reviewsChartData } from "@/composable/useProfileChartData";
 //
 import Chart from "./Chart.vue";
 //

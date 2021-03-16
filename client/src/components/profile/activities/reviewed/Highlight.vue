@@ -1,7 +1,7 @@
 <template>
     <header class="highlight">
         <h1 class="label">Reviewed</h1>
-        <div>
+        <div v-if="profile.reviews_about_others.length">
             <span class="field">
                 <span>Total: </span>
                 <strong>{{ profile.reviews_about_others.length }}</strong>

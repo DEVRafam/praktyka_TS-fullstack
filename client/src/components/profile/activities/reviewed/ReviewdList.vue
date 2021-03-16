@@ -23,6 +23,7 @@
 import { defineComponent, PropType } from "vue";
 import { Profile } from "@/@types/user";
 import { avatarPath } from "@/composable/useUser";
+import { generateScoreColorClass } from "@/composable/profile/useProfile";
 import formatDate from "@/utils/formatDate";
 //
 export default defineComponent({
@@ -33,10 +34,6 @@ export default defineComponent({
         }
     },
     setup() {
-        const generateScoreColorClass = (review: { score: number }): string => {
-            return `score-${Math.floor(review.score)}`;
-        };
-        //
         return { avatarPath, formatDate, generateScoreColorClass };
     }
 });

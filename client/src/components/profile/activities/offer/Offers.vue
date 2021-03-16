@@ -2,11 +2,16 @@
     <section id="offers">
         <h1 class="label">Offers</h1>
         <!--  -->
-        <div class="offers-wrap">
+        <div class="offers-wrap" v-if="profile.offers.length">
             <div class="swap">
                 <SingleOffer v-for="offer in profile.offers" :key="offer.id" :offer="offer"></SingleOffer>
             </div>
         </div>
+        <!--  -->
+        <h2 v-else class="blank-notification">
+            <font-awesome-icon icon="times-circle"></font-awesome-icon>
+            <span>This user has not any offer published</span>
+        </h2>
         <!--  -->
     </section>
 </template>

@@ -10,7 +10,7 @@ class UserController {
     protected profileExcludes = {
         fromUser: ["password", "updatedAt", "tokens"],
         fromOffer: ["updatedAt", "status", "contact", "valueInUSD", "advantages", "description", "creator_id"],
-        fromReview: ["id", "dealer_id", "updatedAt"],
+        fromReview: ["dealer_id", "updatedAt"],
         fromReviewer: ["password", "updatedAt", "tokens", "email", "role"],
         fromFollows: ["createdAt", "updatedAt"],
     };

@@ -11,7 +11,7 @@ export const SetReviewValidator = async (req: any, res: Response, next: NextFunc
     if (req.params.id == req.authorizedToken.id) return res.sendStatus(400);
     const scheme = Joi.object({
         score: Joi.number().min(1).max(5).required().messages(SetReviewErrorMessages.score),
-        explanation: Joi.string().min(10).max(200).messages(SetReviewErrorMessages.explanation),
+        explanation: Joi.string().allow("", null).min(10).max(200).messages(SetReviewErrorMessages.explanation),
     });
     const { error } = scheme.validate(req.body, { abortEarly: false });
     if (error) {
