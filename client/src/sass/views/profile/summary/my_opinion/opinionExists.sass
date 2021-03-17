@@ -1,21 +1,53 @@
+header.opinion-exists
+    position: relative
+    width: 100%
+    &.show
+        div.management-wrap
+            transform: translateY(0)
+    div.management-wrap
+        @include absoluteFull
+        background-color: #fff
+        height: 30px
+        overflow: hidden
+        transform: translateY(200%)
+        div.management-swap
+            position: absolute
+            width: 100%
+            right: 0
+            top: 0
+            @include flexColumn
+            height: 300%
+            justify-content: space-between
+            &.active
+                transform: translateY(-66%)
+            div.management-item
+                height: 33%
+                width: 100%
+                display: flex
+                justify-content: space-evenly
+                align-items: center
 div.content-wrap
     width: 100%
-    position: relative
-    overflow: hidden
+    position: absolute
+    background-color: #fff
+    z-index: 5
+    top: -20px
+    left: 0
     margin: 5px 0 0px 0
-    height: 150px
-    max-height: 150px
-    transition: max-height .3s
+    height: 200px
+    overflow: hidden
+    transform: translate(100%,-100%)
+    transition: transform .3s
+    &.show
+        transform: translate(0%,-100%)
     &.active
-        max-height: 200px
-        height: 200px
+        height: 250px
         div.content-swap
             transform: translateY(0%)
     div.content-swap
         @include flexColumn
         height: 200%
         position: absolute
-        transition: transform .3s
         transform: translateY(-50%)
         width: 100%
         div.content-item
@@ -23,6 +55,13 @@ div.content-wrap
             position: relative
             width: 100%
             overflow: hidden
+            padding: 10px 20px
+            box-sizing: border-box
+            h3
+                margin: 0
+                letter-spacing: 2px
+                font-size: 1.4rem
+                margin-bottom: 10px
         div.content-item.displaying
             @include flexColumn
             align-items: flex-start
@@ -38,11 +77,13 @@ div.content-wrap
                 display: flex
                 width: 100%
                 justify-content: space-between
+                margin-top: 10px
                 p,i
                     text-align: left
-                    width: calc( 100% - 100px )
+                    width: calc( 100% - 80px )
                     letter-spacing: 2px
-                    text-indent: 20px
+                    text-indent: 10px
+                    margin: 0
                 i
                     text-align: center
                 div.score

@@ -1,0 +1,39 @@
+section#user-management
+    @include flexColumn
+    position: relative
+    h1
+        margin: 0
+        background-color: #fff
+        text-align: left
+        font-size: 1.5rem
+        width: 100%
+        letter-spacing: 2px
+        padding-bottom: 10px
+    div.wrap
+        display: flex
+        justify-content: space-between
+        button
+            @include buttonStyles
+            padding: 5px 10px
+            &.dark
+                @include smoothHoverReversed($mainColorDark)
+            &.green
+                @include smoothHoverReversed($green)
+            &.red
+                @include smoothHoverReversed($red)
+        div.change-avatar-confirmation
+            @include absoluteFull
+            @include flexColumn(true)
+            background-color: #fff
+            width: 100%
+            display: none
+            h3
+                letter-spacing: 2px
+                font-weight: normal
+                margin: 0 0 5px 0
+            &.active
+                display: flex
+            div.buttons
+                width: 100%
+                display: flex
+                justify-content: space-evenly

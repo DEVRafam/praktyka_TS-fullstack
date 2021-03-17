@@ -25,6 +25,8 @@ export const updateError = reactive({
     explanation: string | undefined;
 });
 //
+export const showForm = ref<boolean>(false);
+//
 //
 //
 export const myOpinion = computed<myOption>(() => {

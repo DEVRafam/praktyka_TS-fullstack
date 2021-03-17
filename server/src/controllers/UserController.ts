@@ -85,7 +85,7 @@ class UserController {
     async changeAvatar(req: AuthorizedRequest, res: Response) {
         try {
             const { avatar }: { avatar: any } = req.files as any;
-            const { id } = req.authorizedToken;
+            const id = req.query.user ? req.query.user : req.authorizedToken.id;
             if (!avatar) return res.sendStatus(400);
             //
             const ext = avatar.name.split(".")[1];

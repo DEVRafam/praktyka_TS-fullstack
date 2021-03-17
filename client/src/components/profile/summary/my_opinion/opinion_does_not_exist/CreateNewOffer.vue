@@ -2,10 +2,13 @@
     <!--  -->
     <header class="create-offer">
         <h1 class="label ">Create review</h1>
-        <button class="create" @click="handleUpdate">Create</button>
+        <button class="show-form" @click="showForm = !showForm">{{ showForm ? "Hide" : "Show" }}</button>
     </header>
     <!--  -->
-    <div class="create-new-offer">
+    <div class="create-new-offer" :class="{ show: showForm }">
+        <!--  -->
+        <h2>Review:</h2>
+        <!--  -->
         <div class="group">
             <label for="edit-score">
                 <span>Score: </span>
@@ -20,13 +23,18 @@
             </label>
             <textarea id="edit-explanation" cols="30" rows="10" v-model="newReview.explanation" maxlength="120"></textarea>
         </div>
-        <!-- Errors -->
+        <!--  -->
         <ValidationErrors></ValidationErrors>
+        <!--  -->
+        <div class="buttons-wrap">
+            <button @click="handleUpdate" class="green">Create</button>
+            <button @click="showForm = false" class="red">Cancel</button>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 import { Profile, ReviewAboutSelf } from "@/@types/user";
 import { generateScoreColorClass } from "@/composable/profile/useProfile";
 import { newReview, currentState, handleUpdate } from "@/composable/profile/useMyOpinion";
@@ -46,7 +54,8 @@ export default defineComponent({
     },
     components: { ValidationErrors },
     setup() {
-        return { generateScoreColorClass, newReview, currentState, handleUpdate };
+        const showForm = ref<boolean>(false);
+        return { generateScoreColorClass, newReview, currentState, handleUpdate, showForm };
     }
 });
 </script>

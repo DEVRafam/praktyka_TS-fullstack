@@ -23,7 +23,7 @@
 import { defineComponent, PropType } from "vue";
 import { Profile } from "@/@types/user";
 import { topCategory } from "@/composable/profile/useProfile";
-import { offersChartData } from "@/composable/useProfileChartData";
+import { offersChartData } from "@/composable/profile/useProfileChartData";
 //
 import Chart from "./Chart.vue";
 //

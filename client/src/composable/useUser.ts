@@ -2,6 +2,10 @@ import { User } from "@/@types/user";
 import { API_ADDRESS } from "@/composable/env";
 //
 export const avatarPath = (user: User, genrateStyle = true): string => {
+    if (user.avatar?.slice(0, 10) === "data:image") {
+        return genrateStyle ? `background-image: url(${user.avatar})` : user.avatar;
+    }
+    //
     const avatar = user.avatar ? `${API_ADDRESS}/api/photo/avatar/${user.avatar}` : "/images/default_user_avatar.jpg";
     return genrateStyle ? `background-image: url(${avatar})` : avatar;
 };

@@ -1,5 +1,6 @@
 <template>
     <div class="content-item editing">
+        <h3>My opinion editing</h3>
         <!--  -->
         <div class="group">
             <label for="edit-score">

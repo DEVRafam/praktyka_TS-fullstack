@@ -2,13 +2,36 @@ header.create-offer
     justify-content: space-between
     flex-direction: row
     align-items: center
-    button
-        margin: 0
+    margin-bottom: 0 !important
+
 div.create-new-offer
     @include flexColumn
     align-items: flex-start
     justify-content: space-between
     width: 100%
+    position: absolute
+    background-color: #fff
+    top: -20px
+    left: 0
+    padding: 20px
+    box-sizing: border-box
+    transform: translate(100%,-100%)
+    z-index: 5
+    transition: transform .3s
+    div.buttons-wrap
+        width: 100%
+        @include flexCenter
+        button
+            @include buttonStyles
+            padding: 2px 5px
+            &:nth-of-type(1)
+                margin-right: 10px
+            &.red
+                @include smoothHoverReversed($red)
+            &.green
+                @include smoothHoverReversed($green)
+    &.show
+        transform: translate(0%,-100%)
     div.group
         width: 100%
         display: flex

@@ -1,37 +1,21 @@
 <template>
     <section id="summary">
-        <!--  -->
-        <section class="visit">
-            <div class="avatar">
-                <div class="img" :style="avatarPath(profile)"></div>
-            </div>
-            <!--  -->
-            <div class="admin-bar" v-if="profile.role === 'ADMIN'">ADMIN</div>
-            <br v-else />
-            <!--  -->
-            <header class="main-header">
-                <span class="color">{{ profile.surname }}</span>
-                <span>{{ profile.name }}</span>
-            </header>
-            <!--  -->
-            <span class="member-since">
-                <span>Member since: </span>
-                <span class="color">{{ formatDate(profile.createdAt) }}</span>
-            </span>
-        </section>
-        <!--  -->
+        <Management :profile="profile" v-if="managementAccess"></Management>
+        <Visit :profile="profile"></Visit>
         <MyOpinion :profile="profile" v-if="myOpinion" :myOpinion="myOpinion"></MyOpinion>
+        <!--  -->
     </section>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Profile } from "@/@types/user";
-import formatDate from "@/utils/formatDate";
-import { avatarPath } from "@/composable/useUser";
 import { myOpinion } from "@/composable/profile/useMyOpinion";
+import { currentUser, isAdmin } from "@/composable/auth/authenticate";
 //
 import MyOpinion from "./my_opinion/MyOpinion.vue";
+import Visit from "./visit/Visit.vue";
+import Management from "./management/Management.vue";
 //
 export default defineComponent({
     props: {
@@ -40,10 +24,10 @@ export default defineComponent({
             required: true
         }
     },
-    components: { MyOpinion },
-    setup() {
-        //
-        return { formatDate, avatarPath, myOpinion };
+    components: { MyOpinion, Visit, Management },
+    setup(props) {
+        const managementAccess = currentUser.id === props.profile.id || isAdmin.value;
+        return { myOpinion, managementAccess };
     }
 });
 </script>

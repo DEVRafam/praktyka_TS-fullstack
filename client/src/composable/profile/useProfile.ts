@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_ADDRESS } from "@/composable/env";
 import { ref } from "vue";
 import { Profile } from "@/@types/user";
-import { offersChartData } from "@/composable/useProfileChartData";
+import { offersChartData } from "@/composable/profile/useProfileChartData";
 //
 export const profile = ref<Profile>();
 const NOT_FOUND = ref<boolean>();

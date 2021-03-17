@@ -19,7 +19,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Profile } from "@/@types/user";
-import { reviewedChartData } from "@/composable/useProfileChartData";
+import { reviewedChartData } from "@/composable/profile/useProfileChartData";
 //
 import Chart from "@/components/profile/activities/stats/Chart.vue";
 import Header from "./Highlight.vue";
