@@ -1,5 +1,6 @@
 import { reactive, ref, computed } from "vue";
 import { ReviewAboutSelf } from "@/@types/user";
+import { JoiError } from "@/@types/joiError";
 import { currentUser, deepAuthenticate } from "@/composable/auth/authenticate";
 import { profile } from "./useProfile";
 import { API_ADDRESS } from "@/composable/env";
@@ -16,6 +17,16 @@ export const newReview = reactive({
     explanation: ""
 } as NewReview);
 //
+export const updateError = reactive({
+    score: undefined,
+    explanation: undefined
+} as {
+    score: string | undefined;
+    explanation: string | undefined;
+});
+//
+//
+//
 export const myOpinion = computed<myOption>(() => {
     if (!currentUser.id || currentUser.id === profile.value?.id) return false;
     //
@@ -28,19 +39,24 @@ export const myOpinion = computed<myOption>(() => {
     } else return "OPINION_DOES_NOT_EXIST";
 });
 //
+//
+//
 export const handleUpdate = async () => {
     if (!(await deepAuthenticate())) return;
-    const options = {
+    const { data: response } = await axios.post(`${API_ADDRESS}/api/review/${profile.value?.id}`, newReview, {
         headers: {
             Authorization: `Bearer ${currentUser.accessToken}`
         }
-    };
-    const data = JSON.parse(JSON.stringify(newReview));
+    });
     //
-    await axios.post(`${API_ADDRESS}/api/review/${profile.value?.id}`, data, options);
-    location.reload();
-    //
+    if (response === "OK") location.reload();
+    else {
+        updateError.explanation = (response.errors as JoiError[]).find(el => el.element === "explanation")?.message;
+        updateError.score = (response.errors as JoiError[]).find(el => el.element === "score")?.message;
+    }
 };
+//
+//
 //
 export const handleDelete = async () => {
     if (typeof myOpinion.value !== "object" || !(await deepAuthenticate())) return;

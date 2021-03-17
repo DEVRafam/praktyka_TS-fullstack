@@ -73,7 +73,7 @@ class UserController {
             }),
         };
         //
-        user.reviews_about_self.reverse();
+        // user.reviews_about_self.reverse();
         user.reviews_about_others.reverse();
         user.offers.sort((e1: { id: number }, e2: { id: number }) => {
             return e2.id - e1.id;

@@ -2,37 +2,16 @@
     <!--  -->
     <Header :profile="profile" :myOpinion="myOpinion"></Header>
     <!--  -->
-    <div class="content-wrap">
-        <div class="content-swap" :class="{ active: currentState === 'editing' }">
+    <div class="content-wrap" :class="{ active: currentState === 'editing' }">
+        <div class="content-swap">
             <!--  -->
             <!-- Edit existing opinion -->
             <!--  -->
-            <div class="content-item editing">
-                <div class="group">
-                    <label for="edit-score">
-                        <span>Score: </span>
-                        <strong>[{{ newReview.score }}]</strong>
-                    </label>
-                    <input id="edit-score" type="range" min="1" max="5" step="0.1" v-model="newReview.score" @change="onScoreChange" />
-                </div>
-                <div class="group">
-                    <label for="edit-explanation">
-                        <span>Explanation: </span>
-                        <strong>{{ `${newReview.explanation.length}/120` }}</strong>
-                    </label>
-                    <textarea id="edit-explanation" cols="30" rows="10" v-model="newReview.explanation" maxlength="120"></textarea>
-                </div>
-            </div>
+            <Editing :profile="profile" :myOpinion="myOpinion"></Editing>
             <!--  -->
             <!-- Display existing opinion -->
             <!--  -->
             <div class="content-item displaying">
-                <!--  -->
-                <span class="date">
-                    <span>from</span>
-                    <strong>{{ formatDate(myOpinion.createdAt) }}</strong>
-                </span>
-                <!--  -->
                 <div class="review">
                     <div class="score" :class="generateScoreColorClass(myOpinion)">{{ myOpinion.score }}</div>
                     <p v-if="myOpinion.explanation">{{ myOpinion.explanation }}</p>
@@ -44,6 +23,7 @@
             <!--  -->
         </div>
     </div>
+    <!--  -->
 </template>
 
 <script lang="ts">
@@ -54,9 +34,10 @@ import { newReview, currentState } from "@/composable/profile/useMyOpinion";
 import formatDate from "@/utils/formatDate";
 //
 import Header from "./Header.vue";
+import Editing from "./Editing.vue";
 //
 export default defineComponent({
-    components: { Header },
+    components: { Header, Editing },
     props: {
         profile: {
             type: Object as PropType<Profile>,
