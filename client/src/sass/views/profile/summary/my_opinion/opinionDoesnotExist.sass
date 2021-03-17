@@ -1,0 +1,38 @@
+header.create-offer
+    justify-content: space-between
+    flex-direction: row
+    align-items: center
+    button
+        margin: 0
+div.create-new-offer
+    @include flexColumn
+    align-items: flex-start
+    justify-content: space-between
+    width: 100%
+    div.group
+        width: 100%
+        display: flex
+        position: relative
+        margin-bottom: 10px
+        &.column
+            flex-direction: column
+            textarea
+                margin-top: 10px
+                width: 100%
+                height: 100px
+        input[type='range']
+            width: 300px
+        label
+            text-align: left
+            width: 250px
+            font-size: 1rem
+            letter-spacing: 2px
+            strong
+                color: $mainColor
+        textarea
+            @include coloredFocus
+            letter-spacing: 2px
+            font-size: 1rem
+            height: 50px
+            width: calc( 100% - 250px )
+            resize: none

@@ -1,0 +1,100 @@
+div.content-wrap
+    width: 100%
+    position: relative
+    overflow: hidden
+    margin: 5px 0 0px 0
+    height: 150px
+    max-height: 150px
+    transition: max-height .3s
+    &.active
+        max-height: 200px
+        height: 200px
+        div.content-swap
+            transform: translateY(0%)
+    div.content-swap
+        @include flexColumn
+        height: 200%
+        position: absolute
+        transition: transform .3s
+        transform: translateY(-50%)
+        width: 100%
+        div.content-item
+            height: 50%
+            position: relative
+            width: 100%
+            overflow: hidden
+        div.content-item.displaying
+            @include flexColumn
+            align-items: flex-start
+            justify-content: center
+            span.date
+                margin: 0 0 10px 0
+                padding-left: 10px
+                letter-spacing: 2px
+                strong
+                    margin-left: 10px
+                    color: $mainColor
+            div.review
+                display: flex
+                width: 100%
+                justify-content: space-between
+                p,i
+                    text-align: left
+                    width: calc( 100% - 100px )
+                    letter-spacing: 2px
+                    text-indent: 20px
+                i
+                    text-align: center
+                div.score
+                    @include flexCenter
+                    width: 60px
+                    height: 60px
+                    color: #fff
+                    font-size: 2rem
+                    font-weight: bold
+                    border-radius: 5px
+                    &.score-1
+                        background-color: #ee5253
+                    &.score-2
+                        background-color: #ff6b6b
+                    &.score-3
+                        background-color: #ff9f43
+                    &.score-4
+                        background-color: #1dd1a1
+                    &.score-5
+                        background-color: #10ac84
+        //
+        div.content-item.editing
+            @include flexColumn
+            align-items: flex-start
+            justify-content: space-between
+            div.group
+                width: 100%
+                display: flex
+                position: relative
+                &.column
+                    flex-direction: column
+                    flex-grow: 1
+                    textarea
+                        flex-grow: 1
+                        box-sizing: border-box
+                        margin-top: 10px
+                        align-self: center
+                        width: 100%
+                        @include innerScrollbar
+                input[type='range']
+                    width: 300px
+                label
+                    text-align: left
+                    width: 250px
+                    font-size: 1rem
+                    letter-spacing: 2px
+                    strong
+                        color: $mainColor
+                textarea
+                    @include coloredFocus
+                    letter-spacing: 2px
+                    font-size: 1rem
+                    height: 50px
+                    width: calc( 100% - 250px )
+                    resize: none
