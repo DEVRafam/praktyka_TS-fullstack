@@ -51,7 +51,7 @@ export default defineComponent({
             {
                 key: "Enter",
                 fn: () => {
-                    if (this.isApplyAvailable) this.applyFilter();
+                    this.applyFilter();
                 }
             }
         ]);

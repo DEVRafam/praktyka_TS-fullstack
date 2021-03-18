@@ -1,0 +1,65 @@
+section#account-deletion-confirmation
+    @include flexColumn
+    max-height: 0
+    margin-bottom: 0
+    padding: 0
+    overflow: hidden
+    transition: all .3s
+    align-items: flex-start
+    &.develop
+        max-height: 200px
+        margin-bottom: 20px
+        padding: 20px
+    header.main-header
+        display: flex
+        width: 100%
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 10px
+        button
+            animation: fade-center .3s both
+            @include buttonStyles
+            @include smoothHoverReversed($red)
+    div.form
+        div.form-group
+            display: flex
+            justify-content: flex-start
+            margin-bottom: 10px
+            label,input
+                font-size: 1rem
+                letter-spacing: 2px
+            label
+                @include textUS
+                width: 150px
+                padding: 0
+                display: flex
+                align-items: center
+                justify-content: flex-end
+                padding-right: 10px
+                position: relative
+                &::after
+                    content: ''
+                    position: absolute
+                    top: 50%
+                    left: 0
+                    transform: translateY(-50%) skewY(-5deg)
+                    width: 20px
+                    height: 20px
+                    background-color: $mainColor
+            input,button
+                @include coloredFocus
+                border-radius: 5px
+            input
+                flex-grow: 1
+                padding: 5px 10px
+                transition: all .3s
+                &:focus
+                    background-color: $mainColor
+                    color: #fff
+            button
+                @include smoothHoverReversed
+                margin-left: 5px
+                width: 40px
+                cursor: pointer
+                svg
+                    font-size: 1.1rem

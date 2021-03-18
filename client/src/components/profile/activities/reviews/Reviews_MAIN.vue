@@ -5,7 +5,7 @@
         <ReviewsList :profile="profile" v-if="profile.reviews_about_self.length"></ReviewsList>
         <h2 v-else class="blank-notification">
             <font-awesome-icon icon="times-circle"></font-awesome-icon>
-            <span>This user has not any review yet</span>
+            <span>This user does not have any review</span>
         </h2>
         <!--  -->
     </section>

@@ -1,7 +1,17 @@
+import Joi from "joi";
 import { Response, NextFunction } from "express";
 import { User } from "../services/Models";
 //
 export const DeleteAccountValidator = async (req: any, res: Response, next: NextFunction) => {
+    const scheme = Joi.object({
+        email: Joi.string().email().min(3).max(255).required(),
+        password: Joi.string().max(32).required(),
+        repeat_password: Joi.any().valid(Joi.ref("password")).required(),
+    });
+    const { error } = scheme.validate(req.body, { abortEarly: false });
+    if (error) {
+        return res.sendStatus(400);
+    }
     // check whether user with id from params actually exists
     if (!(await User.findOne({ where: { id: req.params.id } }))) return res.sendStatus(404);
     // authorize authenticated user

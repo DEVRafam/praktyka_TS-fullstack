@@ -1,8 +1,8 @@
 <template>
     <section id="user-profile">
         <!--  -->
-        <Summary :profile="profile"></Summary>
-        <Activities :profile="profile"></Activities>
+        <Summary :profile="profile" :managementAccess="managementAccess"></Summary>
+        <Activities :profile="profile" :managementAccess="managementAccess"></Activities>
         <!--  -->
     </section>
 </template>
@@ -18,10 +18,10 @@ import Activities from "./activities/Activites.vue";
 export default defineComponent({
     components: { Summary, Activities },
     async setup() {
-        const { fetchData, profile } = useProfile;
+        const { fetchData, profile, managementAccess } = useProfile;
         await fetchData(Number(useRoute().params.id));
         //
-        return { profile };
+        return { profile, managementAccess };
     }
 });
 </script>

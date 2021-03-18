@@ -11,7 +11,6 @@
 import { defineComponent, PropType } from "vue";
 import { Profile } from "@/@types/user";
 import { myOpinion } from "@/composable/profile/useMyOpinion";
-import { currentUser, isAdmin } from "@/composable/auth/authenticate";
 //
 import MyOpinion from "./my_opinion/MyOpinion.vue";
 import Visit from "./visit/Visit.vue";
@@ -22,12 +21,15 @@ export default defineComponent({
         profile: {
             type: Object as PropType<Profile>,
             required: true
+        },
+        managementAccess: {
+            type: Boolean as PropType<boolean>,
+            required: true
         }
     },
     components: { MyOpinion, Visit, Management },
-    setup(props) {
-        const managementAccess = currentUser.id === props.profile.id || isAdmin.value;
-        return { myOpinion, managementAccess };
+    setup() {
+        return { myOpinion };
     }
 });
 </script>

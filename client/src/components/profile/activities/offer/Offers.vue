@@ -10,7 +10,7 @@
         <!--  -->
         <h2 v-else class="blank-notification">
             <font-awesome-icon icon="times-circle"></font-awesome-icon>
-            <span>This user has not any offer published</span>
+            <span>This user does not have any offer published</span>
         </h2>
         <!--  -->
     </section>

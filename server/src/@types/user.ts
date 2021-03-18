@@ -9,6 +9,6 @@ export type DeleteUserRequest = Authorized &
         {
             email: string;
             password: string;
-            password_repeat: string;
+            repeat_password: string;
         }
     >;

@@ -281,6 +281,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
         expect(await User.findOne({ where: { id: loggedUser.id } })).not.toBeNull();
         const { status }: { status: any } = await (global as any).request.post(`/api/user/${id}/delete`).send({
             password: fakeUserData.password,
+            repeat_password: fakeUserData.password,
             email: fakeUserData.email,
         });
         expect(status).toEqual(401);
@@ -335,6 +336,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
         //
         const { status }: { status: any } = await (global as any).request.post(`/api/user/${id}/delete`).set(headers).send({
             password: fakeUserData.password,
+            repeat_password: fakeUserData.password,
             email: fakeUserData.email,
         });
         //
@@ -371,6 +373,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
         const { status }: { status: any } = await (global as any).request.post(`/api/user/${5001}/delete`).set(headers).send({
             email: "email-one@gmail.com",
             password: "12345678",
+            repeat_password: "12345678",
         });
         //
         expect(status).toEqual(401);
@@ -389,6 +392,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
         const { status }: { status: any } = await (global as any).request.post(`/api/user/${5001}/delete`).set(headers).send({
             email: "email-one@gmail.com",
             password: "12345678",
+            repeat_password: "12345678",
         });
         //
         expect(status).toEqual(200);
