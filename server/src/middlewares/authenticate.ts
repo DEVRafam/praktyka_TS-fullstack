@@ -21,8 +21,8 @@ export default async (req: Request, res: Response, next: NextFunction) => {
             if (!keys.includes(property)) tokenIsRight = false;
         });
         // validate authenticity of data from token
+        const userFromDB = await User.findOne({ where: { id: userFromToken.id } });
         if (tokenIsRight) {
-            const userFromDB = await User.findOne({ where: { id: userFromToken.id } });
             const passwordDoNotMatch = userFromDB.password != userFromToken.password;
             const CreatedAtDoNotMatch = Number(new Date(userFromDB.createdAt)) != Number(new Date(userFromToken.createdAt));
             //
@@ -32,6 +32,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
         if (tokenIsRight) {
             (req as AuthorizedRequest).authorizedToken = {
                 id: userFromToken.id,
+                role: userFromDB.role,
             };
             next();
         } else res.sendStatus(401);

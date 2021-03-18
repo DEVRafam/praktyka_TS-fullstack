@@ -2,7 +2,7 @@ import { Router } from "express";
 //
 import ReviewController from "../controllers/ReviewController";
 import authorization from "../middlewares/authenticate";
-import { SetReviewValidator, DeleteReviewValidator } from "../middlewares/ReviewValidator";
+import { SetReviewValidator, DeleteReviewValidator } from "../middlewares/ReviewValidators";
 //
 const router = Router();
 //

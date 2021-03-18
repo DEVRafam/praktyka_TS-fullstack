@@ -4,36 +4,12 @@ import fse from "fs-extra";
 import { User, Offer, Follow } from "../../services/Models";
 import { offerData, loggedUsers, usersData } from "../assets/offer/data";
 import { LoginResponse } from "../../@types/auth";
+import { createOffer } from "../helpers/createOffer";
 //
 const offerUploadPath = path.join(__dirname, "..", "..", "..", "upload", "offers");
 let deletedOfferID: number | null = null;
 //
 const mocks: { model: any; id: any; folder?: string }[] = [];
-//
-// helpers
-//
-const createOffer = async (token: string) => {
-    const headers = {
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-    };
-    //
-    return await (global as any).request
-        .post("/api/offer")
-        .set(headers) //
-        .field("title", offerData.title)
-        .field("category", offerData.category)
-        .field("description", offerData.description)
-        .field("price", offerData.price)
-        .field("currency", offerData.currency)
-        .field("contact", offerData.contact)
-        .field("photos", offerData.photos)
-        .field("localization", offerData.localization)
-        .field("country", offerData.country)
-        .field("advantages", offerData.advantages)
-        .attach("sample_1", path.join(__dirname, "..", "assets", "offer", "sample_1.jpg"))
-        .attach("sample_2", path.join(__dirname, "..", "assets", "offer", "sample_2.jpg"));
-};
 //
 // tests
 //

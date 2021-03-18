@@ -57,7 +57,6 @@ export const LoginRequestValidate = (req: LoginRequest, res: Response, next: Nex
 //
 // /refresh-token
 //
-
 export const RefreshTokenValidate = (req: RefreshTokenRequest, res: Response, next: NextFunction) => {
     const scheme = Joi.object({
         refreshToken: Joi.string().required().max(400).min(200),
