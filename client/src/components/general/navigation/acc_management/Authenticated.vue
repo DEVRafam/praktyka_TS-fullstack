@@ -1,4 +1,5 @@
 <template>
+    <router-link to="/following" class="in">Following</router-link>
     <router-link :to="`/profile/${currentUser.id}`" class="icon" :style="currentUserAvatar()"> </router-link>
     <span class="signed-info">
         <span>Signed in as: </span>

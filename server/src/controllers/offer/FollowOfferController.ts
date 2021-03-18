@@ -1,6 +1,6 @@
 import { Response } from "express";
 import { FollowRequest } from "../../@types/Offers";
-import { Offer, Follow } from "../../services/Models";
+import { Follow } from "../../services/Models";
 //
 class FollowOfferController {
     async main(req: FollowRequest, res: Response) {

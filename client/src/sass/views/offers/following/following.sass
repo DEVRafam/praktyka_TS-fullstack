@@ -1,0 +1,93 @@
+section#following
+    @include flexColumn
+    align-items: center
+    width: 100vw
+    position: absolute
+    min-height: 100%
+    top: 0
+    background-color: #eee
+    padding-top: 80px
+    box-sizing: border-box
+    h1.main-header,
+    div.single-following-offer
+        width: 100vw
+        max-width: 1200px
+    h1.main-header
+        margin: 50px 0
+        letter-spacing: 2px
+        cursor: default
+        background-color: #fff
+        width: 100%
+        padding: 20px 0
+        border-radius: 5px
+        span.color
+            color: $mainColor
+    div.single-following-offer
+        display: flex
+        justify-content: space-between
+        margin-bottom: 20px
+        div.content,a
+            background-color: #fff
+            box-sizing: border-box
+            border-radius: 5px
+        a
+            padding: 10px
+        div.content
+            padding: 20px
+
+        div.content
+            @include flexColumn
+            align-items: flex-start
+            width: calc( 100% - 320px )
+            text-align: left
+            cursor: default
+            background-color: #fff
+            header
+                width: 100%
+                display: flex
+                justify-content: space-between
+                align-items: center
+                button.unfollow
+                    cursor: pointer
+                    margin-left: 10px
+                    @include smoothHover($mainColorDark)
+                    padding: 5px 10px
+                    letter-spacing: 2px
+                    border-radius: 2px
+                span
+                    a
+                        text-decoration: none
+                    strong
+                        color: $mainColor
+                        margin: 0px 5px
+                        &.dark
+                            background-color: $mainColorDark
+                            padding: 2px 5px
+            h3
+                margin: 20px 0 10px 0
+            p
+                margin: 0
+        a
+            width: 300px
+            height: 200px
+            div.img
+                background-color: #fff
+                position: relative
+                cursor: pointer
+                width: 100%
+                height: 100%
+                div.one,div.two
+                    @include absoluteFull
+                    background-size: contain
+                    background-position: center
+                    background-repeat: no-repeat
+                    transition: opacity .3s
+                    opacity: 1
+                div.two
+                    opacity: 0
+                &.hoverable
+                    &:hover
+                        div.one
+                            opacity: 0
+                        div.two
+                            opacity: 1

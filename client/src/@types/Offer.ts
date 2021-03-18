@@ -31,6 +31,20 @@ export interface OfferRecommendations {
     };
 }
 //
+export interface FollowingOffer {
+    title?: string;
+    slug?: string;
+    category?: string;
+    description?: string;
+    price?: number;
+    photos?: string[];
+    localization?: string;
+    folder?: string;
+    updatedAt?: string;
+    currency?: "PLN" | "EUR" | "USD" | "GBP";
+    country?: string;
+}
+//
 export interface Offer {
     id?: any;
     title?: string;

@@ -4,7 +4,6 @@ import { Offer, Follow, User } from "../../services/Models";
 //
 class GetFollowingOffer {
     protected excludes = {
-        fromUser: ["createdAt", "tokens", "password", "updatedAt", "role"],
         fromOffer: ["createdAt", "creator_id", "advantages", "valueInUSD", "contact"],
         fromFollows: ["createdAt", "updatedAt"],
     };
@@ -12,14 +11,11 @@ class GetFollowingOffer {
     async main(req: AuthorizedRequest, res: Response) {
         const response = await User.findOne({
             where: req.authorizedToken.id,
-            attributes: {
-                exclude: this.excludes.fromUser,
-            },
             include: [
                 {
                     model: Follow,
                     as: "following",
-                    attributes: { exclude: this.excludes.fromUser },
+                    attributes: { exclude: this.excludes.fromFollows },
                     include: [
                         {
                             model: Offer,
@@ -29,8 +25,12 @@ class GetFollowingOffer {
                 },
             ],
         });
-        response.following = response.following.filter((el: any) => el.Offer.status === "DEFAULT");
-        res.send(response);
+        res.send(
+            response.following
+                .filter((el: any) => el.Offer.status === "DEFAULT")
+                .map((el: any) => el.Offer)
+                .reverse()
+        );
     }
 }
 //

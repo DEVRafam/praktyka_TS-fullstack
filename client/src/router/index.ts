@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { authenticateGuard } from "./_guards";
 //
 import Home from "../views/Home.vue";
 import Page404 from "@/views/404.vue";
 import SingleOffer from "@/views/SingleOffer.vue";
 import Profile from "@/views/Profile.vue";
+import Following from "@/views/Following.vue";
 //
 import auth from "./auth";
 //
@@ -27,6 +29,12 @@ const routes: Array<RouteRecordRaw> = [
         path: "/profile/:id",
         name: "UserProfile",
         component: Profile
+    },
+    {
+        path: "/following",
+        name: "Following",
+        component: Following,
+        beforeEnter: authenticateGuard
     },
     ...auth
 ];
