@@ -6,6 +6,7 @@ import Page404 from "@/views/404.vue";
 import SingleOffer from "@/views/SingleOffer.vue";
 import Profile from "@/views/Profile.vue";
 import Following from "@/views/Following.vue";
+import CreateOffer from "@/views/CreateOffer.vue";
 //
 import auth from "./auth";
 //
@@ -34,6 +35,12 @@ const routes: Array<RouteRecordRaw> = [
         path: "/following",
         name: "Following",
         component: Following,
+        beforeEnter: authenticateGuard
+    },
+    {
+        path: "/create-offer",
+        name: "CreateOffer",
+        component: CreateOffer,
         beforeEnter: authenticateGuard
     },
     ...auth

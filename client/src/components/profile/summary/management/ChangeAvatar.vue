@@ -17,12 +17,7 @@ import { defineComponent, ref } from "vue";
 import { profile } from "@/composable/profile/useProfile";
 import { API_ADDRESS } from "@/composable/env";
 import { currentUser, deepAuthenticate } from "@/composable/auth/authenticate";
-//
-interface InputFile extends InputEvent {
-    target: HTMLInputElement & {
-        files: FileList;
-    };
-}
+import { InputFile } from "@/@types/general";
 //
 export default defineComponent({
     setup() {
