@@ -65,7 +65,7 @@ export default defineComponent({
             const { category: qc, order: qo, search: qs } = this.$route.query; //q- query
             const { category: nc, order: no, search: ns } = useOffersNavigation; //n- new
             if (qo === undefined && no.value === "newest" && !nc.value) return false;
-            return !!((nc.value && qc != nc.value) || qo != no.value || ((qs || ns.value) && qs != ns.value));
+            return !!((nc.value && qc != nc.value) || qo != no.value || ((qs != null || ns.value) && qs != ns.value));
         }
     },
     methods: {

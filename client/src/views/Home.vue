@@ -9,7 +9,7 @@
             </template>
             <!--  -->
             <template #fallback>
-                <h2>Loading ...</h2>
+                <Loading></Loading>
             </template>
         </Suspense>
     </section>

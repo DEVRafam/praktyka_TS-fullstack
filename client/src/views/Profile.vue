@@ -1,7 +1,13 @@
 <template>
     <div class="profile-wrap">
         <Suspense>
-            <ProfileWrap></ProfileWrap>
+            <template #default>
+                <ProfileWrap></ProfileWrap>
+            </template>
+            <!--  -->
+            <template #fallback>
+                <Loading></Loading>
+            </template>
         </Suspense>
     </div>
 </template>

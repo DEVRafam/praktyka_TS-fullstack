@@ -1,7 +1,13 @@
 <template>
     <div>
         <Suspense>
-            <FollowingMain></FollowingMain>
+            <template #default>
+                <FollowingMain></FollowingMain>
+            </template>
+            <!--  -->
+            <template #fallback>
+                <Loading></Loading>
+            </template>
         </Suspense>
     </div>
 </template>

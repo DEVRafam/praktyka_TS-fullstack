@@ -1,0 +1,23 @@
+div#content-loading
+    @include absoluteCenter
+    display: flex
+    align-items: center
+    border-radius: 5px
+    @keyframes loadingBarScale
+        0%
+            transform: scaleY(0)
+        100%
+            transform: scaleY(100%)
+            
+    span
+        @include spacingHorizontal(30px)
+        width: 30px
+        height: 100px
+        background-color: $mainColor
+        &:nth-of-type(1)
+            animation: loadingBarScale infinite both .3s alternate
+        &:nth-of-type(2)
+            height: 150px
+            animation: loadingBarScale infinite both .3s .1s alternate
+        &:nth-of-type(3)
+            animation: loadingBarScale infinite both .3s  alternate

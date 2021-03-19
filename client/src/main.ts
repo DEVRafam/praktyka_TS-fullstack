@@ -76,7 +76,9 @@ app.component("font-awesome-icon", FontAwesomeIcon);
 // global components
 //
 import Modal from "@/components/general/Modal.vue";
+import Loading from "@/components/general/LoadingScreen.vue";
 app.component("Modal", Modal);
+app.component("Loading", Loading);
 //
 //
 //

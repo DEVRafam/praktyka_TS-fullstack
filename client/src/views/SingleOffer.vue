@@ -1,7 +1,13 @@
 <template>
     <div>
         <Suspense>
-            <SingleOfferMain></SingleOfferMain>
+            <template #default>
+                <SingleOfferMain></SingleOfferMain>
+            </template>
+            <!--  -->
+            <template #fallback>
+                <Loading></Loading>
+            </template>
         </Suspense>
     </div>
 </template>
