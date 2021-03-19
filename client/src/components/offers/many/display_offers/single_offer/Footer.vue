@@ -4,9 +4,11 @@
             <span>{{ formatDate(data.updatedAt) }}</span>
             <span class="color">{{ data.localization }}</span>
         </span>
-        <span class="category">
-            {{ findLabel(data.category) }}
-        </span>
+        <router-link :to="`/?category=${data.category}&order=newest`">
+            <span class="category">
+                {{ findLabel(data.category) }}
+            </span>
+        </router-link>
     </footer>
 </template>
 

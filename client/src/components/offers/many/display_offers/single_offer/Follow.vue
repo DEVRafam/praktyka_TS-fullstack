@@ -1,25 +1,15 @@
 <template>
-    <div class="follow-price">
-        <!--  -->
-        <button :class="isFollowing() ? 'following' : 'follow'" @click="handleFolow">
-            <font-awesome-icon icon="heart" />
-            <span>{{ isFollowing() ? "Following" : "Follow" }}</span>
-        </button>
-        <!--  -->
-        <span class="price">
-            <span>{{ priceSeparators(data) }}</span>
-            <span class="currency">{{ data.currency }}</span>
-        </span>
-    </div>
+    <button :class="isFollowing() ? 'following' : 'follow'" @click="handleFolow">
+        <font-awesome-icon icon="heart" />
+        <span>{{ isFollowing() ? "Following" : "Follow" }}</span>
+    </button>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import axios from "axios";
 import { Offer } from "@/@types/Offer";
-import priceSeparators from "@/utils/priceSeparators";
-import { API_ADDRESS } from "@/composable/env";
 import { unauthenticate, currentUser, deepAuthenticate } from "@/composable/auth/authenticate";
+import { followToggle } from "@/composable/offers/useFollowing";
 //
 export default defineComponent({
     props: {
@@ -33,7 +23,7 @@ export default defineComponent({
             return !!props.data?.follows.find(el => el.user_id === currentUser.id);
         };
         //
-        return { priceSeparators, isFollowing };
+        return { isFollowing };
     },
     methods: {
         async handleFolow() {
@@ -56,15 +46,7 @@ export default defineComponent({
                     data.follows.push({ user_id: currentUser.id });
                 }
                 // database update
-                await axios.post(
-                    `${API_ADDRESS}/api/offer/${data.id}/follow`,
-                    {},
-                    {
-                        headers: {
-                            Authorization: `Bearer ${currentUser.accessToken}`
-                        }
-                    }
-                );
+                await followToggle(data.id, false);
             }
         }
     }

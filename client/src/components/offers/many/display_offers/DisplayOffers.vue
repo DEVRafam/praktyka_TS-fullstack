@@ -2,7 +2,7 @@
     <section id="display-many-offers">
         <Summary></Summary>
         <!--  -->
-        <div class="offers-wrap">
+        <div class="offers-wrap" :class="layout">
             <SingleOffer v-for="offer in offers" :key="offer.id" :data="offer"></SingleOffer>
         </div>
         <!--  -->
@@ -23,7 +23,7 @@ import Summary from "./Summary.vue";
 export default defineComponent({
     components: { SingleOffer, Pagination, Summary },
     async setup() {
-        const { category, order, search } = useOffersNavigation;
+        const { category, order, search, layout } = useOffersNavigation;
         const { fetchOffers, offers, pagesAmount } = useManyOffers;
         //
         // get data form router query
@@ -36,7 +36,7 @@ export default defineComponent({
         //
         //
         //
-        return { offers, pagesAmount };
+        return { offers, pagesAmount, layout };
     }
 });
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="`/offer/${data.slug}`">
+    <router-link :to="`/offer/${data.slug}`" class="img">
         <div class="img" :class="{ hoverable: imgPath(data, 1) }">
             <div class="one" :style="imgPath(data, 0)"></div>
             <div class="two" :style="imgPath(data, 1)"></div></div

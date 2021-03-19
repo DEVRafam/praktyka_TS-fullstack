@@ -1,5 +1,8 @@
 section#many-offers-main-wrapper
+    background-color: #eee
+    min-height: calc( 100vh - 100px )
     @import ./navigation/navigation
+    //
     section#display-many-offers
         @include flexColumn
         align-items: center
@@ -8,11 +11,13 @@ section#many-offers-main-wrapper
             width: 100%
             display: flex
             flex-wrap: wrap
+            &.LIST
+                max-width: 1200px
         //
         @import ./single_offer/common
         @import ./single_offer/LIST
         @import ./single_offer/GRID
-    //
+        //
     div.pagination
         display: flex
         margin-bottom: 100px

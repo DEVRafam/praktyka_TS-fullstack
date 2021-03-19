@@ -1,5 +1,5 @@
 <template>
-    <div class="single-offer" :class="layout">
+    <div class="single-offer">
         <!-- MANAGEMENT -->
         <template v-if="isAdmin || isOwner(data)">
             <Management :data="data"></Management>
@@ -8,20 +8,37 @@
         <!-- GRID -->
         <!--  -->
         <template v-if="layout === 'GRID'">
-            <PriceAndFollow :data="data"></PriceAndFollow>
+            <div class="follow-price">
+                <Follow :data="data"></Follow>
+                <Price :data="data"></Price>
+            </div>
             <Image :data="data"></Image>
-            <Header :data="data"></Header>
-            <DateCategory :data="data"> </DateCategory>
+            <h5>{{ data.title }}</h5>
+            <Footer :data="data"> </Footer>
         </template>
         <!--  -->
         <!-- LIST -->
         <!--  -->
         <template v-else>
             <Image :data="data"></Image>
-            <div class="body">
-                <Header :data="data"></Header>
-                <PriceAndFollow :data="data"></PriceAndFollow>
-                <DateCategory :data="data"> </DateCategory>
+            <div class="content">
+                <header>
+                    <span class="date">
+                        <span>At </span>
+                        <strong>{{ formatDate(data.updatedAt) }}</strong>
+                        <span> in category </span>
+                        <router-link :to="`/?category=${data.category}&order=newest`">
+                            <strong class="dark">{{ findLabel(data.category) }}</strong>
+                        </router-link>
+                    </span>
+                    <span class="price">
+                        <span>{{ priceSeparators(data) }}</span>
+                        <strong class="dark">{{ data.currency }}</strong>
+                        <Follow :data="data"></Follow>
+                    </span>
+                </header>
+                <h3>{{ data.title }}</h3>
+                <p>{{ data.description.slice(0, 250) }}</p>
             </div>
         </template>
     </div>
@@ -33,12 +50,15 @@ import { Offer } from "@/@types/Offer";
 import { isAdmin } from "@/composable/auth/authenticate";
 import useManyOffers from "@/composable/offers/useManyOffers";
 import useOffersNavigation from "@/composable/offers/useOffersNavigation";
+import formatDate from "@/utils/formatDate";
+import priceSeparators from "@/utils/priceSeparators";
+import { findLabel } from "@/composable/offers/useCategoriesList";
 // components
-import Header from "./Header.vue";
-import DateCategory from "./Footer.vue";
+import Footer from "./Footer.vue";
 import Image from "./Image.vue";
-import PriceAndFollow from "./PriceAndFollow.vue";
+import Price from "./Price.vue";
 import Management from "./Management.vue";
+import Follow from "./Follow.vue";
 //
 export default defineComponent({
     props: {
@@ -47,13 +67,13 @@ export default defineComponent({
         }
     },
     //
-    components: { Header, DateCategory, Image, PriceAndFollow, Management },
+    components: { Footer, Image, Price, Management, Follow },
     //
     setup() {
         const { isOwner } = useManyOffers;
         const { layout } = useOffersNavigation;
         //
-        return { layout, isOwner, isAdmin };
+        return { layout, isOwner, isAdmin, formatDate, priceSeparators, findLabel };
     }
 });
 </script>

@@ -15,8 +15,10 @@ const fetchFollowingOffers = async () => {
     following.value = data;
 };
 //
-const unfollow = async (id: number, index: number) => {
-    following.value.splice(index, 1);
+export const followToggle = async (id: number, index: number | false) => {
+    if (!(await deepAuthenticate())) return;
+    if (index !== false) following.value.splice(index, 1);
+    //
     await axios.post(
         `${API_ADDRESS}/api/offer/${id}/follow`,
         {},
@@ -29,4 +31,4 @@ const unfollow = async (id: number, index: number) => {
     //
 };
 //
-export default { fetchFollowingOffers, following, unfollow };
+export default { fetchFollowingOffers, following, followToggle };

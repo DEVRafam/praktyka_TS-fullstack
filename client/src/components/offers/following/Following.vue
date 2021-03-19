@@ -21,7 +21,7 @@
                     <span class="price">
                         <span>{{ priceSeparators(offer) }}</span>
                         <strong class="dark">{{ offer.currency }}</strong>
-                        <button class="unfollow" @click="() => unfollow(offer.id, index)">Unfollow</button>
+                        <button class="unfollow" @click="() => followToggle(offer.id, index)">Unfollow</button>
                     </span>
                 </header>
                 <h3>{{ offer.title }}</h3>
@@ -43,9 +43,9 @@ import { findLabel } from "@/composable/offers/useCategoriesList";
 export default defineComponent({
     components: { Image },
     async setup() {
-        const { fetchFollowingOffers, following, unfollow } = useFollowing;
+        const { fetchFollowingOffers, following, followToggle } = useFollowing;
         await fetchFollowingOffers();
-        return { following, formatDate, priceSeparators, findLabel, unfollow };
+        return { following, formatDate, priceSeparators, findLabel, followToggle };
     }
 });
 </script>
