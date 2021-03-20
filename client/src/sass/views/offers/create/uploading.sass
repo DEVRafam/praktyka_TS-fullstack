@@ -1,0 +1,46 @@
+section#uploading
+    @include flexCenter
+    width: 100%
+    height: calc( 100vh - 80px )
+   
+    div.negative
+        @include flexColumn
+        align-items: flex-start
+        padding: 20px
+        box-sizing: border-box
+        width: 60%
+        border-radius: 10px
+        background-color: #fff
+        cursor: default
+        animation: fade-center .3s both
+        header
+            display: flex
+            justify-content: space-between
+            width: 100%
+            h1.label
+                margin: 0
+                font-size: 2rem
+                span
+                    color: $red
+            button
+                @include buttonStyles
+                @include smoothHoverReversed($mainColorDark)
+                border-radius: 2px
+        h2
+            letter-spacing: 2px
+            span.color
+                color: $red
+        div.single-error
+            text-align: left
+            padding-left: 50px
+            position: relative
+            letter-spacing: 2px
+            &::after
+                content: ''
+                position: absolute
+                height: 15px
+                width: 15px
+                transform: translateY(-50%) rotate(45deg)
+                left: 10px
+                top: 50%
+                background-color: $red

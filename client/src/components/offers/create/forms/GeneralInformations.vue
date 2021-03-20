@@ -6,6 +6,7 @@
         <div class="form-group">
             <label for="title">Title: </label>
             <input type="text" id="title" v-model="data.title" />
+            <LengthNotification propname="title"></LengthNotification>
             <strong class="error"></strong>
         </div>
         <!--  -->
@@ -27,11 +28,13 @@
         <div class="form-group">
             <label for="localization">Localization: </label>
             <input type="text" id="localization" v-model="data.localization" />
+            <LengthNotification propname="localization"></LengthNotification>
         </div>
         <!--  -->
         <div class="form-group">
             <label for="country">Country: </label>
             <input type="text" id="country" v-model="data.country" />
+            <LengthNotification propname="country"></LengthNotification>
         </div>
         <!--  -->
     </section>
@@ -39,16 +42,20 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+//
 import useCreateOffer from "@/composable/offers/useCreateOffer";
 import useCategoriesList from "@/composable/offers/useCategoriesList";
-
+//
+import LengthNotification from "./LengthNotification.vue";
 //
 export default defineComponent({
+    components: { LengthNotification },
+    //
     setup() {
-        const { data, availableCurrencies } = useCreateOffer;
+        const { data, availableCurrencies, RESTRICTIONS } = useCreateOffer;
         const { categoriesList } = useCategoriesList;
         //
-        return { data, categoriesList, availableCurrencies };
+        return { data, categoriesList, availableCurrencies, RESTRICTIONS };
     }
 });
 </script>

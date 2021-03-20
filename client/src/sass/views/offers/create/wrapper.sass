@@ -1,12 +1,119 @@
 section#create-offer
+    @import ./background-shapes
+    div#main-content
+        @import ./uploading
+        div.col
+            @import ./forms
+section#create-offer.uploading
+    span.circle
+        border-radius: 50%
+//
+//
+//
+section#create-offer
     background-color: #eee
     min-height: calc( 100vh - 80px )
     padding-top: 20px
-    div#main-content
+    box-sizing: border-box
+    position: relative
+    overflow: hidden
+    header#main-header,div#main-content
         box-sizing: border-box
         max-width: 1400px
+        position: relative
+        z-index: 1
         margin: 0 auto
-        section.field
-            background-color: #fff
-            padding: 20px
+        display: flex
+        justify-content: space-between
+    header#main-header
+        width: 100%
+        background-color: #fff
+        padding: 20px
+        align-items: center
+        margin-bottom: 20px
+        h1.label
+            margin: 0
+            font-size: 2rem
+        button
+            @include buttonStyles
+            @include smoothHoverReversed($mainColor)
+            text-transform: uppercase
+            font-size: 1.2rem
+            letter-spacing: 5px
             border-radius: 5px
+    div#main-content
+        div.col
+            &:nth-of-type(1)
+                width: 40%
+            &:nth-of-type(2)
+                width: calc( 60% - 20px )
+            @include flexColumn
+            section.field
+                @include flexColumn
+                align-items: flex-start
+                background-color: #fff
+                padding: 20px
+                border-radius: 5px
+                margin-bottom: 20px
+                h1.label
+                    @include textUS
+                    margin: 0px 0 20px 0
+                    font-size: 2rem
+                header
+                    header
+                    width: 100%
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    margin-bottom: 10px
+                    h1.label
+                        margin: 0
+                    button
+                        padding: 5px 15px
+                        letter-spacing: 2px
+                        cursor: pointer
+                        border-radius: 5px
+                        @include smoothHoverReversed($mainColorDark)
+                input,textarea,select
+                    @include coloredFocus
+                    font-size: 1rem
+                    padding: 2px 10px
+                    border-radius: 5px
+                span.length-notification
+                    @include flexCenter
+                    cursor: default
+                    letter-spacing: 2px
+                    margin-left: 10px
+                    font-weight: bold
+                    min-width: 75px
+                    transition: color .3s
+                    &.limit
+                        color: $mainColor
+                input
+                    transition: all .3s
+                    &:focus
+                        background-color: $mainColorDark
+                        color: #fff
+                div.form-group
+                    @include spacingVertical(10px)
+                    display: flex
+                    width: 100%
+                    input
+                        flex-grow: 1
+                    label
+                        width: 150px
+                        text-align: left
+                        font-size: 1.1rem
+                        letter-spacing: 2px
+                        margin-right: 10px
+                        position: relative
+                        padding-left: 20px
+                        &::after
+                            content: ''
+                            height: 12px
+                            width: 12px
+                            transform: translateY(-50%) rotate(25deg)
+                            left: 0
+                            top: 50%
+                            background-color: $mainColor
+                            position: absolute

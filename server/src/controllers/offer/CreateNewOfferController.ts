@@ -77,7 +77,7 @@ class CreateNewOfferController {
             //
             await Offer.create(this.prepareData(slug, folder, photos));
             //
-            return res.sendStatus(201);
+            return res.status(201).send({ slug });
         } catch (e: any) {
             return res.sendStatus(500);
         }

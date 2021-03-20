@@ -1,9 +1,11 @@
 <template>
     <section id="description" class="field">
+        <header>
+            <h1 class="label">Description</h1>
+            <LengthNotification propname="description"></LengthNotification>
+        </header>
         <!--  -->
-        <h1 class="label">Description</h1>
         <textarea v-model="data.description" :maxlength="RESTRICTIONS.description.max" :minlength="RESTRICTIONS.description.min"></textarea>
-        <span class="length">{{ `${data.description.length}/${RESTRICTIONS.description.max}` }}</span>
         <!--  -->
     </section>
 </template>
@@ -11,12 +13,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import useCreateOffer from "@/composable/offers/useCreateOffer";
-
+//
+import LengthNotification from "./LengthNotification.vue";
 //
 export default defineComponent({
+    components: { LengthNotification },
+    //
     setup() {
         const { data, RESTRICTIONS } = useCreateOffer;
-        //
         return { data, RESTRICTIONS };
     }
 });

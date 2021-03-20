@@ -108,7 +108,7 @@ class UserController {
     }
     //
     async deleteUser(req: DeleteUserRequest, res: Response) {
-        const user = await User.findOne({ where: { email: req.body.email } });
+        const user = await User.findOne({ where: { email: req.body.email, id: req.authorizedToken.id } });
         const passwordIsInvalid = user && !(await bcrypt.compare(req.body.password, user.password));
         //
         if (!user || passwordIsInvalid) return res.status(400).send("credentials_do_not_match");

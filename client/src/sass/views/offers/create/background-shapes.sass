@@ -1,0 +1,27 @@
+@keyframes circle-size
+    0%
+        transform: translate(-50%,-50%) scale(.5) rotate(45deg)
+    100%
+        transform: translate(-50%,-50%) scale(1.5) rotate(45deg)
+span.circle
+    @include absoluteCenter
+    border-radius: 0%
+    border: 15px solid $mainColor
+    opacity: .2
+    transition: border-radius .5s 
+    &:nth-of-type(1)
+        width: 5vw
+        height: 5vw
+        animation: circle-size 1s both
+    &:nth-of-type(2)
+        width: 20vw
+        height: 20vw
+        animation: circle-size 2s both
+    &:nth-of-type(3)
+        width: 35vw
+        height: 35vw
+        animation: circle-size 3s both
+    &:nth-of-type(4)
+        width: 50vw
+        height: 50vw
+        animation: circle-size 4s both
