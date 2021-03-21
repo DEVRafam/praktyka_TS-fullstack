@@ -21,7 +21,6 @@
                 <span class="currency">{{ offer.currency }}</span>
             </div>
         </div>
-
         <!--  -->
         <!--  -->
         <!--  -->
@@ -35,7 +34,7 @@
                     Delete offer <span class="color"> {{ offer.title }}</span>
                 </h3>
                 <div class="confirmation">
-                    <button class="accept" @click="() => deleteOffer(offer.id)">Confirm</button>
+                    <button class="accept" @click="() => deleteOffer(offer.id, true)">Confirm</button>
                     <button class="discard" @click="displayModal = false">Discard</button>
                 </div>
             </template>

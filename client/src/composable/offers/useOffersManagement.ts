@@ -36,7 +36,7 @@ export const changeStatus = async (offerId: number, status: OfferStatus) => {
     //
 };
 //
-export const deleteOffer = async (offerId: number) => {
+export const deleteOffer = async (offerId: number, redirectHome = false) => {
     if (await deepAuthenticate()) {
         await axios.delete(`${API_ADDRESS}/api/offer/${offerId}`, {
             headers: {
@@ -45,6 +45,6 @@ export const deleteOffer = async (offerId: number) => {
         });
     }
     //
-    location.href = "/";
+    redirectHome ? (location.href = "/") : location.reload();
 };
 export default { fetchData, data, NOT_FOUND };

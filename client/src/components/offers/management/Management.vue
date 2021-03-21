@@ -21,7 +21,7 @@
                             <strong class="dark">{{ findLabel(offer.category) }}</strong>
                         </router-link>
                     </span>
-                    <ChangeStatus :status="offer.status" :id="offer.id"></ChangeStatus>
+                    <ChangeStatus :status="offer.status" :id="offer.id" :title="offer.title"></ChangeStatus>
                 </header>
                 <h3>{{ offer.title }}</h3>
                 <p>{{ offer.description.slice(0, 250) }}</p>
