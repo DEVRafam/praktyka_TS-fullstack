@@ -1,5 +1,6 @@
 <template>
     <div class="img" :style="imgPath(offer, imgIndex)">
+        <span class="status" :class="offer.status">{{ offer.status }}</span>
         <!--  -->
         <template v-if="offer.photos.length > 1">
             <button class="next" @click="() => changeImageIndex('next')">

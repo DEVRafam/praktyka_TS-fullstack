@@ -1,0 +1,135 @@
+section#management
+    @include flexColumn
+    align-items: center
+    width: 100vw
+    position: absolute
+    min-height: 100%
+    top: 0
+    background-color: #eee
+    padding-top: 80px
+    box-sizing: border-box
+    h1.main-header,
+    div.single-following-offer
+        width: 100vw
+        max-width: 1200px
+    h1.main-header
+        margin: 50px 0
+        letter-spacing: 2px
+        cursor: default
+        background-color: #fff
+        width: 100%
+        padding: 20px 0
+        border-radius: 5px
+        span.color
+            color: $mainColor
+    div.single-following-offer
+        display: flex
+        justify-content: space-between
+        margin-bottom: 20px
+        div.content,a
+            background-color: #fff
+            box-sizing: border-box
+            border-radius: 5px
+        a
+            padding: 10px
+        div.content
+            padding: 20px
+
+        div.content
+            @include flexColumn
+            align-items: flex-start
+            width: calc( 100% - 320px )
+            text-align: left
+            cursor: default
+            background-color: #fff
+            header
+                width: 100%
+                display: flex
+                justify-content: space-between
+                align-items: center
+                span
+                    a
+                        text-decoration: none
+                    strong
+                        color: $mainColor
+                        margin: 0px 5px
+                        &.dark
+                            background-color: $mainColorDark
+                            padding: 2px 5px
+                div.change-status-buttons
+                    button
+                        @include spacingHorizontal(5px)
+                        cursor: pointer
+                        border-redius: 2px
+                        &.common
+                            @include smoothHoverReversed($mainColorDark)
+                        &.delete
+                            @include smoothHoverReversed($red)
+                        &.sell
+                            @include smoothHoverReversed($green)
+            h3
+                margin: 20px 0 10px 0
+            p
+                margin: 0
+        div.img-wrap
+            width: 300px
+            height: 200px
+            position: relative
+            overflow: hidden
+            a.status
+                @include absoluteFull
+                @include textUS
+                z-index: 2
+                font-weight: bold
+                font-size: 1.5rem
+                padding: 2px 20px
+                letter-spacing: 2px
+                box-sizing: border-box
+                background-color: transparent
+                overflow: hidden
+                cursor: pointer
+                color: #fff
+                &::after
+                    @include absoluteFull
+                    content: ''
+                    opacity: .75
+                    transition: all .3s
+                &.DEFAULT
+                    display: none
+                &.HIDDEN
+                    &::after
+                        background-color: $mainColorDark
+                &.BANNED
+                    &::after
+                        background-color: $red
+                &.SOLD
+                    &::after
+                        background-color: $green
+                span.message
+                    @include absoluteCenter
+                    z-index: 3
+
+            a.img
+                @include absoluteFull
+                z-index: 1
+                div.img
+                    background-color: #fff
+                    position: relative
+                    cursor: pointer
+                    width: 100%
+                    height: 100%
+                    div.one,div.two
+                        @include absoluteFull
+                        background-size: contain
+                        background-position: center
+                        background-repeat: no-repeat
+                        transition: opacity .3s
+                        opacity: 1
+                    div.two
+                        opacity: 0
+                    &.hoverable
+                        &:hover
+                            div.one
+                                opacity: 0
+                            div.two
+                                opacity: 1

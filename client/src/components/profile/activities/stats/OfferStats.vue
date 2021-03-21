@@ -5,7 +5,7 @@
             <div>
                 <span class="field">
                     <span>Total: </span>
-                    <strong>{{ profile.offers.length }}</strong>
+                    <strong>{{ offersAmount }}</strong>
                 </span>
                 <span class="field">
                     <span>Top category: </span>
@@ -35,8 +35,10 @@ export default defineComponent({
         }
     },
     components: { Chart },
-    setup() {
-        return { topCategory, offersChartData };
+    setup(props) {
+        let offersAmount = 0;
+        props.profile.offers_stats.forEach(el => (offersAmount += Number(el.amount)));
+        return { topCategory, offersChartData, offersAmount };
     }
 });
 </script>

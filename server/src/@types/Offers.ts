@@ -1,8 +1,9 @@
 import { Request } from "express";
-import { Authorized } from "./authenticate";
+import { Authorized, OptionalAuthorized } from "./authenticate";
 //
 //
-type OfferCategory = "services" | "automotive" | "education" | "sport" | "fashion" | "electronic" | "real-estate" | "job" | "house-and-garden";
+export type OfferStatus = "DEFAULT" | "SOLD" | "BANNED" | "HIDDEN";
+export type OfferCategory = "services" | "automotive" | "education" | "sport" | "fashion" | "electronic" | "real-estate" | "job" | "house-and-garden";
 interface GetAll_QUERY {
     limit: number | undefined;
     page: number | undefined;
@@ -14,7 +15,7 @@ export type GetAllRequest = Request<{}, {}, {}, GetAll_QUERY>;
 //
 //
 //
-export type GetSingleRequest = Request<{ slug: string }>;
+export type GetSingleRequest = OptionalAuthorized & Request<{ slug: string }>;
 //
 //
 //
@@ -31,22 +32,12 @@ interface Create_BODY {
     advantages: string;
 }
 export type CreateRequest = Authorized & Request<{}, {}, Create_BODY>;
-//
-//
-//
 export type DeleteRequest = Authorized & Request<{ id: number }>;
-//
-//
-//
 export type FollowRequest = Authorized & Request<{ id: number }>;
-//
-//
-//
 export type RecommendationsRequest = Request<{ slug: string }>;
-//
-//
-//
 export type OwnedOffersRequest = Authorized & Request<{ id: number }>;
+export type ChangeStatusRequest = Authorized & Request<{ id: number }, {}, { status: OfferStatus }>;
+
 //
 //
 //

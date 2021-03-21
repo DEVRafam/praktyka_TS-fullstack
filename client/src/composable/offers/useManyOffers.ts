@@ -3,7 +3,7 @@ import { API_ADDRESS, OFFERS_PER_PAGE } from "@/composable/env";
 import { useRoute } from "vue-router";
 import { reactive, toRefs } from "vue";
 import { Offer } from "@/@types/Offer";
-import { currentUser, deepAuthenticate } from "@/composable/auth/authenticate";
+import { currentUser } from "@/composable/auth/authenticate";
 //
 //
 interface DataInterface {
@@ -52,18 +52,4 @@ const isOwner = (offer: Offer): boolean => {
     return false;
 };
 //
-const deleteOffer = async (offer: Offer) => {
-    if (await deepAuthenticate()) {
-        await axios.delete(`${API_ADDRESS}/api/offer/${offer.id}`, {
-            headers: {
-                Authorization: `Bearer ${currentUser.accessToken}`
-            }
-        });
-    }
-    //
-    location.reload();
-};
-//
-//
-//
-export default { ...toRefs(data), fetchOffers, imgPath, isOwner, deleteOffer };
+export default { ...toRefs(data), fetchOffers, imgPath, isOwner };

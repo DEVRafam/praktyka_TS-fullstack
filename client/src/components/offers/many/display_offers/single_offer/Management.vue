@@ -24,7 +24,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref } from "vue";
 import { Offer } from "@/@types/Offer";
-import useManyOffers from "@/composable/offers/useManyOffers";
+import { deleteOffer } from "@/composable/offers/useOffersManagement";
 //
 export default defineComponent({
     props: {
@@ -34,9 +34,8 @@ export default defineComponent({
         }
     },
     setup(props) {
-        const { deleteOffer } = useManyOffers;
         const displayModal = ref<boolean>(false);
-        const handleDelete = async () => await deleteOffer(props.data);
+        const handleDelete = async () => await deleteOffer(props.data.id);
         //
         return { displayModal, handleDelete };
     }

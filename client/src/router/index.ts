@@ -7,6 +7,7 @@ import SingleOffer from "@/views/SingleOffer.vue";
 import Profile from "@/views/Profile.vue";
 import Following from "@/views/Following.vue";
 import CreateOffer from "@/views/CreateOffer.vue";
+import Management from "@/views/Management.vue";
 //
 import auth from "./auth";
 //
@@ -35,6 +36,12 @@ const routes: Array<RouteRecordRaw> = [
         path: "/following",
         name: "Following",
         component: Following,
+        beforeEnter: authenticateGuard
+    },
+    {
+        path: "/offer/dealer/:id",
+        name: "Management",
+        component: Management,
         beforeEnter: authenticateGuard
     },
     {

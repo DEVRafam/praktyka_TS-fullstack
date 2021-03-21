@@ -15,6 +15,23 @@ section#offer-data
         background-position: center
         background-repeat: no-repeat
         background-size: contain
+        span.status
+            color: #fff
+            position: absolute
+            top: 0
+            left: 0
+            padding: 5px 10px
+            font-size: 1.5rem
+            &.DEFAULT
+                display: none
+            &.SOLD
+                background-color: $green
+            &.BANNED
+                background-color: $red
+            &.HIDDEN
+                background-color: $mainColorDark
+                
+
         label
             @include textUS
             position: absolute

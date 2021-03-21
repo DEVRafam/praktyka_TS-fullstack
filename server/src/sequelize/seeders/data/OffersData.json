@@ -58,6 +58,7 @@
         "title": "Czyszczenie kominów",
         "slug": "czyszczenie-kominow",
         "category": "services",
+        "status": "SOLD",
         "description": "Kominiarz − rzemieślnik zajmujący się czyszczeniem i sprawdzaniem stanu technicznego przewodów kominowych dymowych, spalinowych i wentylacyjnych.",
         "price": 1000,
         "valueInUSD": 260.66,
@@ -187,6 +188,7 @@
     },
     {
         "title": "Poszukiwany nauczyciel do technikum informatycznego",
+        "status": "BANNED",
         "slug": "technik-informatyk",
         "category": "job",
         "description": "Samobójstwo – celowe odebranie sobie życia. Przyczyny samobójstw są wielorakie. Często wynika ono z uczucia smutku, które w wielu przypadkach jest rezultatem zaburzeń psychicznych, takich jak depresja, zaburzenia afektywne dwubiegunowe, schizofrenia, alkoholizm lub inne uzależnienie od środków odurzających. Stresory takie jak problemy finansowe lub problemy w zakresie relacji międzyludzkich również odgrywają istotną rolę. Samobójstwo może być również popełnione przez zdrowego psychicznie człowieka z powodów ideologicznych. .",

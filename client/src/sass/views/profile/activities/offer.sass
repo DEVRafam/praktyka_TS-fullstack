@@ -2,6 +2,16 @@ section#offers
     @include flexColumn
     align-items: flex-start
     width: 100%
+    header
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: space-between
+        a
+            @include buttonStyles
+            @include smoothHoverReversed($mainColorDark)
+            @include flexCenter
+            text-decoration: none
     div.offers-wrap
         @include innerScrollbar
         width: 100%

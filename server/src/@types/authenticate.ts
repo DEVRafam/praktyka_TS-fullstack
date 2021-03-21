@@ -6,4 +6,11 @@ export interface Authorized {
         role: string;
     };
 }
+//
+export interface OptionalAuthorized {
+    authorizedToken?: {
+        id: any;
+        role: string;
+    };
+}
 export type AuthorizedRequest = Request & Authorized;

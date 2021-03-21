@@ -2,13 +2,14 @@ import { User } from "./user";
 
 export type OfferCategory = "services" | "automotive" | "education" | "sport" | "fashion" | "electronic" | "real-estate" | "job" | "house-and-garden";
 export type OfferCurrency = "PLN" | "EUR" | "USD" | "GBP";
+export type OfferStatus = "DEFAULT" | "SOLD" | "BANNED" | "HIDDEN";
 //
 export interface OfferRecommendations {
     fromCategories: {
         id?: any;
         title?: string;
         slug?: string;
-        category?: string;
+        category?: OfferCategory;
         price?: number;
         photos?: string[];
         localization?: string;
@@ -21,7 +22,7 @@ export interface OfferRecommendations {
         id?: any;
         title?: string;
         slug?: string;
-        category?: string;
+        category?: OfferCategory;
         price?: number;
         photos?: string[];
         localization?: string;
@@ -35,7 +36,7 @@ export interface OfferRecommendations {
 export interface FollowingOffer {
     title?: string;
     slug?: string;
-    category?: string;
+    category?: OfferCategory;
     description?: string;
     price?: number;
     photos?: string[];
@@ -46,11 +47,35 @@ export interface FollowingOffer {
     country?: string;
 }
 //
+export interface OffersManagement {
+    name: string;
+    surname: string;
+    offers: {
+        id: any;
+        title: string;
+        slug: string;
+        category: OfferCategory;
+        price: number;
+        photos: string[];
+        localization: string;
+        folder: string;
+        updatedAt: string;
+        currency: OfferCurrency;
+        country: string;
+        status: OfferStatus;
+        follows: {
+            user_id: any;
+            offer_id: any;
+        }[];
+    }[];
+}
+//
 export interface Offer {
     id?: any;
     title?: string;
     slug?: string;
-    category?: string;
+    category?: OfferCategory;
+    status?: OfferStatus;
     description?: string;
     price?: number;
     valueInUSD?: number;

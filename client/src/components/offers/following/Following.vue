@@ -38,7 +38,6 @@ import Image from "@/components/offers/many/display_offers/single_offer/Image.vu
 import formatDate from "@/utils/formatDate";
 import priceSeparators from "@/utils/priceSeparators";
 import { findLabel } from "@/composable/offers/useCategoriesList";
-// import { FollowingOffer } from "@/@types/Offer";
 //
 export default defineComponent({
     components: { Image },
