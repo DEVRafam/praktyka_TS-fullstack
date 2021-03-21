@@ -42,7 +42,11 @@ export type FollowRequest = Authorized & Request<{ id: number }>;
 //
 //
 //
-export type RecommendationsRequest = Request<{ id: number }>;
+export type RecommendationsRequest = Request<{ slug: string }>;
+//
+//
+//
+export type OwnedOffersRequest = Authorized & Request<{ id: number }>;
 //
 //
 //

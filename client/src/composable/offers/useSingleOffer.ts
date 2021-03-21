@@ -17,7 +17,7 @@ const fetchData = async (slug: string) => {
 };
 //
 const getRecommendations = async () => {
-    const { data }: { data: OfferRecommendations } = await axios.get(`${API_ADDRESS}/api/offer/${offer.value.id}/recommendations`);
+    const { data }: { data: OfferRecommendations } = await axios.get(`${API_ADDRESS}/api/offer/${offer.value.slug}/recommendations`);
     recommendations.value = data;
 };
 //

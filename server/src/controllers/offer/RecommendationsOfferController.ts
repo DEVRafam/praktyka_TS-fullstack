@@ -39,7 +39,7 @@ class RecommendationsOfferController {
     }
     //
     async main(req: RecommendationsRequest, res: Response) {
-        this.offer = await Offer.findOne({ where: { id: req.params.id } });
+        this.offer = await Offer.findOne({ where: { slug: req.params.slug } });
         if (!this.offer) return res.sendStatus(404);
         //
         return res.send({
