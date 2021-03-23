@@ -1,6 +1,5 @@
 <template>
     <section id="recommendations">
-        <h2 class="label">Recommendations</h2>
         <!--  -->
         <Category :offer="offer" v-if="recommendations.fromCategories.length"></Category>
         <Dealer :offer="offer" v-if="recommendations.fromDealer.length"></Dealer>

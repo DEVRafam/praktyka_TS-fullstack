@@ -1,9 +1,9 @@
 <template>
     <header class="main-offer-header">
-        <div class="level buttons">
+        <div class="level buttons" v-if="isDeepAuthenticated && (isOwner(offer) || isAdmin)">
             <button class="green" @click="markAsSold">{{ offer.status === "SOLD" ? "Mark as unsold" : "Mark as sold" }}</button>
             <button class="black" @click="hideOffer">{{ offer.status === "HIDDEN" ? "Show" : "Hide" }} offer</button>
-            <button class="black" @click="banOffer" v-if="isAdmin">{{ offer.status === "BANNDER" ? "Unban" : "Ban" }}</button>
+            <button class="black" @click="banOffer" v-if="isAdmin">{{ offer.status === "BANNED" ? "Unban" : "Ban" }}</button>
             <button class="red" @click="displayModal = true">Delete</button>
         </div>
         <div class="level">
@@ -24,7 +24,7 @@
         <!--  -->
         <!--  -->
         <!--  -->
-        <Modal v-model="displayModal" v-if="displayModal" size="small">
+        <Modal v-model="displayModal" v-if="displayModal && isDeepAuthenticated" size="small">
             <template #header>
                 <h2>Are you sure?</h2>
             </template>
@@ -48,8 +48,8 @@ import { defineComponent, ref } from "vue";
 import formatDate from "@/utils/formatDate";
 import priceSeparators from "@/utils/priceSeparators";
 import { OfferStatus } from "@/@types/Offer";
-import { isAdmin } from "@/composable/auth/authenticate";
-import { changeStatus, deleteOffer } from "@/composable/offers/useOffersManagement";
+import { isAdmin, isDeepAuthenticated } from "@/composable/auth/authenticate";
+import { changeStatus, deleteOffer, isOwner } from "@/composable/offers/useOffersManagement";
 import { offer } from "@/composable/offers/useSingleOffer";
 //
 import Follow from "./Follow.vue";
@@ -80,7 +80,7 @@ export default defineComponent({
             changeStatusLocally(newStatus);
             await changeStatus(offer.value.id, newStatus);
         };
-        return { offer, formatDate, priceSeparators, isAdmin, markAsSold, hideOffer, banOffer, deleteOffer, displayModal };
+        return { isDeepAuthenticated, isOwner, offer, formatDate, priceSeparators, isAdmin, markAsSold, hideOffer, banOffer, deleteOffer, displayModal };
     }
 });
 </script>

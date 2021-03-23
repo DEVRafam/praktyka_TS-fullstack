@@ -1,19 +1,24 @@
 <template>
-    <h4 class="label">
-        <span>Based on</span>
-        <span class="color">{{ findLabel(offer.category) }}</span>
-        <span>category</span>
-    </h4>
-    <div class="level">
-        <!-- insert blank space -->
-        <template v-for="item in 3 - recommendations.fromCategories.length" :key="item.id">
-            <div class="recommendation"></div>
-        </template>
-        <!--  -->
-        <template v-for="item in recommendations.fromCategories" :key="item.id">
-            <SingleRecommendation :item="item"></SingleRecommendation>
-        </template>
-    </div>
+    <section class="level">
+        <header>
+            <h2 class="label">Recommendations</h2>
+            <h4 class="label">
+                <span>Based on</span>
+                <span class="color">{{ findLabel(offer.category) }}</span>
+                <span>category</span>
+            </h4>
+        </header>
+        <div class="recommendations">
+            <!-- insert blank space -->
+            <template v-for="item in 3 - recommendations.fromCategories.length" :key="item.id">
+                <div class="recommendation"></div>
+            </template>
+            <!--  -->
+            <template v-for="item in recommendations.fromCategories" :key="item.id">
+                <SingleRecommendation :item="item"></SingleRecommendation>
+            </template>
+        </div>
+    </section>
 </template>
 
 <script lang="ts">

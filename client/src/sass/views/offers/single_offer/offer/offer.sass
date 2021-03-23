@@ -1,20 +1,31 @@
 section#offer-data
-    //
     @import ./header
     @import ./recommendations
-    //
+//
+//
+//
+section#offer-data
     @include flexColumn
     align-items: flex-end
     text-align: right
     cursor: default
-    div.img
+    background-color: #fff
+    div.img-wrap
         width: 100%
         height: 600px
         position: sticky
-        top: 210px
-        background-position: center
-        background-repeat: no-repeat
-        background-size: contain
+        top: 250px
+        box-sizing: border-box
+        border-radius: 5px
+        padding: 20px 0
+        border-bottom: 20px solid #eee
+        div.img
+            width: 100%
+            height: 100%
+            background-position: center
+            background-repeat: no-repeat
+            background-size: contain
+            transition: background-image .3s
         span.status
             color: #fff
             position: absolute
@@ -35,9 +46,9 @@ section#offer-data
         label
             @include textUS
             position: absolute
-            top: 20px
-            right: 0
-            padding: 5px 10px
+            top: 5px
+            right: 15px
+            padding: 5px 30px
             border: 2px solid $mainColor
             background-color: #fff
         button
@@ -50,17 +61,24 @@ section#offer-data
             padding: 5px
             &.next
                 top: 50%
-                right: 0
+                right: 15px
             &.previous
                 top: 50%
-                left: 0
+                left: 15px
         button.preview
-            bottom: 0
-            right: 0
+            bottom: 5px
+            right: 15px
             font-size: 1.8rem
             padding: 5px
     
-    div.content
+    section#content,section#recommendations
+        @include flexColumn
+        align-items: flex-end
+        text-align: right
+        position: relative
+        z-index: 5
+        background-color: #eee
+    section#content
         @include flexColumn
         align-items: flex-end
         text-align: right
@@ -69,6 +87,9 @@ section#offer-data
         background-color: #fff
         margin-top: 50px
         padding-bottom: 50px
+        padding: 20px
+        box-sizing: border-box
+        border-radius: 5px
         h1.title
             font-size: 3rem
         h4.label

@@ -1,12 +1,14 @@
 <template>
     <section id="offer-data">
         <Header :offer="offer"></Header>
-        <Images :offer="offer"></Images>
-        <!--  -->
-        <div class="content">
-            <Content :offer="offer"></Content>
-            <Recommendations :offer="offer"></Recommendations>
+        <div class="img-wrap">
+            <Images :offer="offer"></Images>
         </div>
+        <!--  -->
+        <section id="content">
+            <Content :offer="offer"></Content>
+        </section>
+        <Recommendations :offer="offer"></Recommendations>
     </section>
 </template>
 

@@ -8,7 +8,7 @@ class ChangeOfferStatusController {
             const offer = await Offer.findOne({ where: { id: req.params.id } });
             if (!offer) return res.sendStatus(404);
             const { role, id } = req.authorizedToken;
-            if (role !== "ADMIN" && id !== offer.creator_id) res.sendStatus(401);
+            if (role !== "ADMIN" && id !== offer.creator_id) return res.sendStatus(401);
             //
             offer.update({ status: req.body.status });
         } catch (e: any) {

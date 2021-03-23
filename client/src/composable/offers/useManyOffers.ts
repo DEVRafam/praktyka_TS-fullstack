@@ -3,7 +3,6 @@ import { API_ADDRESS, OFFERS_PER_PAGE } from "@/composable/env";
 import { useRoute } from "vue-router";
 import { reactive, toRefs } from "vue";
 import { Offer } from "@/@types/Offer";
-import { currentUser } from "@/composable/auth/authenticate";
 //
 //
 interface DataInterface {
@@ -47,9 +46,6 @@ export const imgPath = (offer: Offer, index = 0) => {
     } else return null;
 };
 //
-const isOwner = (offer: Offer): boolean => {
-    if (offer.creator?.id) return currentUser.id == offer.creator?.id;
-    return false;
-};
+
 //
-export default { ...toRefs(data), fetchOffers, imgPath, isOwner };
+export default { ...toRefs(data), fetchOffers, imgPath };

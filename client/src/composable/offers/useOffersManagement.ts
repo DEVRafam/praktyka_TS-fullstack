@@ -1,7 +1,7 @@
 import axios from "axios";
 import { API_ADDRESS } from "@/composable/env";
 import { ref } from "vue";
-import { OffersManagement, OfferStatus } from "@/@types/Offer";
+import { Offer, OffersManagement, OfferStatus } from "@/@types/Offer";
 import { currentUser, deepAuthenticate } from "@/composable/auth/authenticate";
 //
 export const data = ref<OffersManagement>();
@@ -47,4 +47,9 @@ export const deleteOffer = async (offerId: number, redirectHome = false) => {
     //
     redirectHome ? (location.href = "/") : location.reload();
 };
-export default { fetchData, data, NOT_FOUND };
+//
+export const isOwner = (offer: Offer): boolean => {
+    if (offer.creator?.id) return currentUser.id == offer.creator?.id;
+    return false;
+};
+export default { fetchData, data, NOT_FOUND, isOwner };

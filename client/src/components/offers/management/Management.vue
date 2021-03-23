@@ -23,6 +23,13 @@
                     </span>
                     <ChangeStatus :status="offer.status" :id="offer.id" :title="offer.title"></ChangeStatus>
                 </header>
+                <!--  -->
+                <span class="follows" v-if="offer.follows.length">
+                    <span>Followed by </span>
+                    <span class="color">{{ offer.follows.length }}</span>
+                    <span>{{ offer.follows.length == 1 ? " user" : " users" }}</span>
+                </span>
+                <!--  -->
                 <h3>{{ offer.title }}</h3>
                 <p>{{ offer.description.slice(0, 250) }}</p>
             </div>

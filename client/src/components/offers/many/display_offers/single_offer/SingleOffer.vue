@@ -48,7 +48,7 @@
 import { defineComponent, PropType } from "vue";
 import { Offer } from "@/@types/Offer";
 import { isAdmin } from "@/composable/auth/authenticate";
-import useManyOffers from "@/composable/offers/useManyOffers";
+import useOffersManagement from "@/composable/offers/useOffersManagement";
 import useOffersNavigation from "@/composable/offers/useOffersNavigation";
 import formatDate from "@/utils/formatDate";
 import priceSeparators from "@/utils/priceSeparators";
@@ -70,7 +70,7 @@ export default defineComponent({
     components: { Footer, Image, Price, Management, Follow },
     //
     setup() {
-        const { isOwner } = useManyOffers;
+        const { isOwner } = useOffersManagement;
         const { layout } = useOffersNavigation;
         //
         return { layout, isOwner, isAdmin, formatDate, priceSeparators, findLabel };

@@ -2,7 +2,7 @@
     <div class="change-status-buttons">
         <button class="common" @click="hideOffer">{{ status === "HIDDEN" ? "Show" : "Hide" }} offer</button>
         <button class="sell" @click="markAsSold">{{ status === "SOLD" ? "Mark as unsold" : "Mark as sold" }}</button>
-        <button class="common" @click="banOffer" v-if="isAdmin">{{ status === "BANNDER" ? "Unban" : "Ban" }}</button>
+        <button class="common" @click="banOffer" v-if="isAdmin">{{ status === "BANNED" ? "Unban" : "Ban" }}</button>
         <button class="delete" @click="() => (displayModal = true)">Delete</button>
         <!--  -->
         <Modal v-model="displayModal" v-if="displayModal" size="small">
