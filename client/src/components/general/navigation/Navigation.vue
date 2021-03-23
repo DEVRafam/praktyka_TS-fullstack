@@ -14,13 +14,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import AccountManagement from "./acc_management/AccountManagement.vue";
 //
 export default defineComponent({
     components: { AccountManagement },
-    setup() {
-        return { mobileDevelop: ref<boolean>(false) };
+    data() {
+        return {
+            mobileDevelop: false
+        };
+    },
+    computed: {
+        path() {
+            return this.$route.fullPath;
+        }
+    },
+    watch: {
+        path() {
+            this.mobileDevelop = false;
+        }
     }
 });
 </script>

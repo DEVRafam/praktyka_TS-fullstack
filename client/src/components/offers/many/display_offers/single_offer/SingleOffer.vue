@@ -24,16 +24,22 @@
             <div class="content">
                 <header>
                     <span class="date">
-                        <span>At </span>
-                        <strong>{{ formatDate(data.updatedAt) }}</strong>
-                        <span> in category </span>
-                        <router-link :to="`/?category=${data.category}&order=newest`">
-                            <strong class="dark">{{ findLabel(data.category) }}</strong>
-                        </router-link>
+                        <span>
+                            <span>At </span>
+                            <strong>{{ formatDate(data.updatedAt) }}</strong>
+                        </span>
+                        <span class="category">
+                            <span> in category </span>
+                            <router-link :to="`/?category=${data.category}&order=newest`">
+                                <strong class="dark">{{ findLabel(data.category) }}</strong>
+                            </router-link>
+                        </span>
                     </span>
                     <span class="price">
-                        <span>{{ priceSeparators(data) }}</span>
-                        <strong class="dark">{{ data.currency }}</strong>
+                        <span>
+                            <span>{{ priceSeparators(data) }}</span>
+                            <strong class="dark">{{ data.currency }}</strong>
+                        </span>
                         <Follow :data="data"></Follow>
                     </span>
                 </header>

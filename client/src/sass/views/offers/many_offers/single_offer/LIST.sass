@@ -8,7 +8,7 @@ div.offers-wrap.LIST
             background-color: #fff
             box-sizing: border-box
             border-radius: 5px
-        a
+        a.img
             padding: 10px
         div.content
             padding: 20px
@@ -48,7 +48,7 @@ div.offers-wrap.LIST
                         text-decoration: none
                     strong
                         color: $mainColor
-                        margin: 0px 5px
+                        margin: 0px 0px 0px 5px
                         &.dark
                             background-color: $mainColorDark
                             padding: 2px 5px
@@ -56,7 +56,7 @@ div.offers-wrap.LIST
                 margin: 20px 0 10px 0
             p
                 margin: 0
-        a
+        a.img
             width: 300px
             height: 200px
             div.img
@@ -80,3 +80,53 @@ div.offers-wrap.LIST
                             opacity: 0
                         div.two
                             opacity: 1
+    //
+    //
+    //
+    @media screen and ( max-width: 1000px )
+        justify-content: center
+        div.single-offer
+            @include flexColumn
+            width: 95%
+            max-width: 700px
+            margin-bottom: 50px
+            div.content,a.img
+                width: 100%
+            a.img
+                height: 400px
+    //
+    //
+    //
+    @media screen and ( max-width: 700px )
+        div.single-offer
+            div.content
+                padding: 0 20px 20px 20px
+            header
+                flex-direction: column-reverse
+                span.date,span.price
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    width: 100%
+                    max-width: 450px
+                    height: 40px
+                    button.follow,button.following
+                        padding: 2px 15px
+                    span.category
+                        display: flex
+                        flex-wrap: wrap
+                        justify-content: flex-end
+    //
+    //
+    //
+    @media screen and ( max-width: 600px )
+        div.single-offer
+            a.img
+                height: 350px
+    @media screen and ( max-width: 450px )
+        div.single-offer
+            span.date
+                strong
+                    margin: 0 !important
+            a.img
+                height: 300px

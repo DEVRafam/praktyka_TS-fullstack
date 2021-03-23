@@ -18,12 +18,14 @@ section#choose-category
         display: flex
         justify-content: center
         align-items: center
+        padding: 0px 50px
+        box-sizing: border-box
+        text-align: left
         &.scroll
             h2.categories
                 transform: translateY(-100%)
         div.buttons-wrap
             position: relative
-            margin-right: 50px
             height: 35px
             width: 200px
             overflow: hidden
@@ -47,7 +49,7 @@ section#choose-category
                 @include flexCenter
                 position: absolute
                 top: 0
-                left: 50px
+                left: 0px
                 display: flex
                 align-items: center
                 justify-content: flex-start
@@ -87,8 +89,32 @@ section#choose-category
                 letter-spacing: 2px
 //
 //
-// COLORS
 //
+section#choose-category
+    @media screen and ( max-width: 1150px )
+        header.info
+            padding: 0px 10px
+    @media screen and ( max-width: 800px )
+        &.develop
+            max-height: 650px
+        section#categories-wrap
+            div.category
+                margin: 10px
+    @media screen and ( max-width: 482px )
+        &.develop
+            max-height: 800px
+        div.headers-wrap
+            h2.categories.choosen
+                span
+                    display: none
+                span.color
+                    display: block
+                    margin-left: 0 !important
+        section#categories-wrap
+            justify-content: space-evenly
+
+//
+// COLORS
 //
 section#choose-category
     section#categories-wrap

@@ -9,9 +9,59 @@ section#organization
     button,input,select
         @include buttonStyles
         border-radius: 5px
+    input
+        transition: all .3s
+        &:focus
+            color: #fff
+            background-color: $mainColorDark
     button
         margin-left: 10px
         &.dark
             @include smoothHoverReversed($mainColorDark)
         &.light
             @include smoothHover($mainColorDark)
+    //
+    //
+    //
+    @media screen and ( max-width: 1150px )
+        padding: 20px 10px
+    @media screen and ( max-width: 1020px )
+        flex-direction: column
+        align-items: center
+        div.left,div.right
+            max-width: 600px
+            width: 100%
+            display: flex
+        div.right
+            margin-bottom: 10px
+            input
+                flex-grow: 1
+        div.left
+            justify-content: space-between
+            flex-wrap: wrap
+            button
+                margin-left: 0
+    @media screen and ( max-width: 650px )
+        div.left
+            align-items: center
+            justify-content: center
+            button
+                margin: 5px 0 0 5px
+                width: 130px
+            select
+                flex-grow: 1
+                margin-top: 5px
+    @media screen and ( max-width: 530px )
+        div.left
+            justify-content: space-between
+            select
+                width: 100%
+                margin-bottom: 10px
+            button
+                width: 48%
+    @media screen and ( max-width: 450px )
+        div.right
+            @include flexColumn
+            margin-bottom: 20px
+            button
+                margin: 5px 0 0 0
