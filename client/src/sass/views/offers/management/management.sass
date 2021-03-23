@@ -10,7 +10,7 @@ section#management
     box-sizing: border-box
     h1.main-header,
     div.single-following-offer
-        width: 100vw
+        width: 98vw
         max-width: 1200px
     h1.main-header
         margin: 50px 0
@@ -18,8 +18,9 @@ section#management
         cursor: default
         background-color: #fff
         width: 100%
-        padding: 20px 0
+        padding: 20px 10px
         border-radius: 5px
+        box-sizing: border-box
         span.color
             color: $mainColor
     div.single-following-offer
@@ -139,3 +140,87 @@ section#management
                                 opacity: 0
                             div.two
                                 opacity: 1
+    @media screen and ( max-width: 1150px )
+        div.single-following-offer
+            div.content
+                header
+                    align-items: flex-start
+                    flex-direction: column
+                    div.change-status-buttons
+                        margin: 10px 0
+                        button
+                            margin: 0 10px 0 0 
+    //
+    //
+    //
+    @media screen and ( max-width: 1000px )
+        justify-content: center
+        div.single-following-offer
+            @include flexColumn
+            width: 95%
+            max-width: 700px
+            margin-bottom: 50px
+            div.content,div.img-wrap
+                width: 100%
+            div.img-wrap
+                height: 400px
+            div.content
+                div.change-status-buttons
+                    button
+                        padding: 2px 5px
+                        font-size: 1rem
+    //
+    //
+    //
+    @media screen and ( max-width: 700px )
+        div.single-following-offer
+            div.content
+                padding: 0 20px 20px 20px
+            header
+                flex-direction: column-reverse
+                span.date
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    width: 100%
+                    max-width: 450px
+                    height: 45px
+                    button.follow,button.following
+                        padding: 2px 15px
+                    span.category
+                        display: flex
+                        flex-wrap: wrap
+                        justify-content: flex-end
+    //
+    //
+    //
+    @media screen and ( max-width: 600px )
+        div.single-following-offer
+            div.img-wrap
+                height: 350px
+    //
+    //
+    //
+    @media screen and ( max-width: 500px )
+        div.single-following-offer
+            header
+                span.date
+                    @include flexColumn
+                    align-items: flex-start
+                    margin-bottom: 10px
+    //
+    //
+    //
+    @media screen and ( max-width: 450px )
+        div.single-following-offer
+            span.date
+                strong
+                    margin: 0 !important
+            div.img-wrap
+                height: 300px
+            //
+            div.content
+                div.change-status-buttons
+                    button
+                        margin-bottom: 5px !important
+        

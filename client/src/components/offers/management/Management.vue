@@ -14,12 +14,16 @@
             <div class="content">
                 <header>
                     <span class="date">
-                        <span>At </span>
-                        <strong>{{ formatDate(offer.updatedAt) }}</strong>
-                        <span> in category </span>
-                        <router-link :to="`/?category=${offer.category}&order=newest`">
-                            <strong class="dark">{{ findLabel(offer.category) }}</strong>
-                        </router-link>
+                        <span>
+                            <span>At </span>
+                            <strong>{{ formatDate(offer.updatedAt) }}</strong>
+                        </span>
+                        <span>
+                            <span> in category </span>
+                            <router-link :to="`/?category=${offer.category}&order=newest`">
+                                <strong class="dark">{{ findLabel(offer.category) }}</strong>
+                            </router-link>
+                        </span>
                     </span>
                     <ChangeStatus :status="offer.status" :id="offer.id" :title="offer.title"></ChangeStatus>
                 </header>

@@ -10,7 +10,7 @@ section#following
     box-sizing: border-box
     h1.main-header,
     div.single-following-offer
-        width: 100vw
+        width: 98vw
         max-width: 1200px
     h1.main-header
         margin: 50px 0
@@ -91,3 +91,50 @@ section#following
                             opacity: 0
                         div.two
                             opacity: 1
+    @media screen and ( max-width: 1000px )
+        justify-content: center
+        div.single-following-offer
+            @include flexColumn
+            width: 95%
+            max-width: 700px
+            margin-bottom: 50px
+            div.content,a.img
+                width: 100%
+            a.img
+                height: 400px
+    //
+    //
+    //
+    @media screen and ( max-width: 700px )
+        div.single-following-offer
+            div.content
+                padding: 0 20px 20px 20px
+            header
+                flex-direction: column-reverse
+                span.date,span.price
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    width: 100%
+                    max-width: 450px
+                    height: 40px
+                    button.follow,button.following
+                        padding: 2px 15px
+                    span.category
+                        display: flex
+                        flex-wrap: wrap
+                        justify-content: flex-end
+    //
+    //
+    //
+    @media screen and ( max-width: 600px )
+        div.single-following-offer
+            a.img
+                height: 350px
+    @media screen and ( max-width: 450px )
+        div.single-following-offer
+            span.date
+                strong
+                    margin: 0 !important
+            a.img
+                height: 300px
