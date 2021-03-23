@@ -4,7 +4,8 @@
         <!--  -->
         <!--  -->
         <!--  -->
-        <div class="wrap">
+        <button class="mobile-toggler" @click="mobileDevelop = !mobileDevelop"><font-awesome-icon icon="bars"></font-awesome-icon></button>
+        <div class="wrap" :class="{ mobileDevelop }">
             <Suspense>
                 <AccountManagement></AccountManagement>
             </Suspense>
@@ -13,10 +14,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import AccountManagement from "./acc_management/AccountManagement.vue";
 //
 export default defineComponent({
-    components: { AccountManagement }
+    components: { AccountManagement },
+    setup() {
+        return { mobileDevelop: ref<boolean>(false) };
+    }
 });
 </script>

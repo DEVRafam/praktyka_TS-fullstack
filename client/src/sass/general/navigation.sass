@@ -12,6 +12,14 @@ section#main-navigation
     padding: 0 15%
     align-items: center
     box-sizing: border-box
+    a.main-logo,
+    button.mobile-toggler
+        position: relative
+        z-index: 5
+    //
+    button.mobile-toggler
+        display: none
+    //    
     a.main-logo
         font-size: 2rem
         color: $mainColor
@@ -72,3 +80,46 @@ section#main-navigation
                 @include smoothHoverReversed($mainColorDark)
             a.up
                 @include smoothHover($mainColorDark)
+    //
+    @media screen and ( max-width: 1650px )
+        padding: 0 5%
+    @media screen and ( max-width: 1300px )
+        span.signed-info
+            display: none
+    @media screen and ( max-width: 1000px )
+        button.mobile-toggler
+            @include smoothHoverReversed($mainColor)
+            @include flexCenter
+            display: block
+            width: 45px
+            height: 45px
+            svg
+                font-size: 1.5rem
+        div.wrap.mobileDevelop
+            transform: translateX(0%)
+        div.wrap
+            @include flexCenter
+            position: fixed
+            width: 100%
+            top: 0
+            left: 0
+            height: 100vh
+            background-color: $mainColorDark
+            transform: translateX(100%)
+            transition: transform .3s
+            a
+                margin-left: 0
+                margin-top: 30px
+            div.auth
+                @include flexColumn
+                margin-left: 0
+                a.in,a.up
+                    max-width: 90vw
+                    width: 350px
+                    padding: 10px 0
+            span.signed-info
+                display: block
+                margin-bottom: 50px
+                font-size: 1.2rem
+            span.signed-info,a.icon
+                order: -1
