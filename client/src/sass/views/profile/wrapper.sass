@@ -59,3 +59,21 @@ div.profile-wrap
             @import ./activities/stats
             @import ./activities/offer
             @import ./activities/deletion-confirmation
+        //
+        //
+        //
+        @media screen and ( max-width: 1200px )
+            section#activites
+                width: calc( 100% - 370px )
+                section#offers,section#reviews,section#reviewed,section#stats
+                    padding: 10px
+        //
+        //
+        //
+        @media screen and ( max-width: 1100px )
+            flex-direction: column
+            section#activites,section#summary
+                position: relative
+                width: 100%
+            section#summary
+                top: 20px
