@@ -6,7 +6,7 @@
             <button class="black" @click="banOffer" v-if="isAdmin">{{ offer.status === "BANNED" ? "Unban" : "Ban" }}</button>
             <button class="red" @click="displayModal = true">Delete</button>
         </div>
-        <div class="level">
+        <div class="level info">
             <div class="date-and-follow">
                 <Follow :data="offer"></Follow>
                 <div class="date-and-localization">

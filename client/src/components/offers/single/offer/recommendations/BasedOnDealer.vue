@@ -1,6 +1,6 @@
 <template>
     <section class="level">
-        <header>
+        <header class="label">
             <h2 class="label">Recommendations</h2>
             <h4 class="label">
                 <span>Based on</span>
@@ -9,15 +9,14 @@
             </h4>
         </header>
         <div class="recommendations">
-            <!-- insert blank space -->
-            <template v-for="item in 3 - recommendations.fromDealer.length" :key="item.id">
-                <div class="recommendation"></div>
-            </template>
             <!--  -->
             <template v-for="item in recommendations.fromDealer" :key="item.id">
                 <SingleRecommendation :item="item"></SingleRecommendation>
             </template>
-            <!--  -->
+            <!-- insert blank space -->
+            <template v-for="item in 3 - recommendations.fromDealer.length" :key="item.id">
+                <div class="recommendation BLANK"></div>
+            </template>
         </div>
     </section>
 </template>

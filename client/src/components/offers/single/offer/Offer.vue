@@ -1,6 +1,6 @@
 <template>
     <section id="offer-data">
-        <Header :offer="offer"></Header>
+        <Header></Header>
         <div class="img-wrap">
             <Images :offer="offer"></Images>
         </div>

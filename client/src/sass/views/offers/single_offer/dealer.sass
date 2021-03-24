@@ -1,99 +1,111 @@
 section#dealer
-        // top: 125px explanation
-        // $navHeight + margin top
-        // but wrapping this inside calc() 
-        // will make significant problems in build production
-        top: 95px
+    // top: 125px explanation
+    // $navHeight + margin top
+    // but wrapping this inside calc() 
+    // will make significant problems in build production
+    top: 95px
+    @include flexColumn
+    align-items: center
+    position: sticky
+    letter-spacing: 2px
+    cursor: default
+    color: $mainColorDark
+    padding: 10px 20px
+    box-sizing: border-box
+    border-radius: 5px
+    overflow: hidden
+    background-color: #fff
+    padding: 20px
+    box-sizing: border-box
+    border-radius: 5px
+    header
+        width: 100%
+        @include flexColumn
+        align-items: flex-start
+        margin-bottom: 20px
+        h1,h2.name
+            margin: 0
+        span.color
+            color: $mainColor
+            font-weight: bold
+    div.img-wrap,section#dealer-reviews,a.see-profile
+        margin-top: 20px
+    div.img-wrap
+        height: 350px
+        width: 100%
+        position: relative
+        img
+            position: relative
+            z-index: 1
+            height: 100%
+            width: 100%
+        &::after,&::before
+            content: ''
+            position: absolute
+            right: -10px
+            height: 100px
+            width: 100px
+            background-color: $mainColor
+        &::after
+            bottom: -10px
+            right: -10px
+        &::before
+            left: -10px
+            top: -10px
+    section#dealer-reviews
         @include flexColumn
         align-items: center
-        position: sticky
-        letter-spacing: 2px
-        cursor: default
-        color: $mainColorDark
-        padding: 10px 20px
-        box-sizing: border-box
-        border-radius: 5px
-        overflow: hidden
-        background-color: #fff
-        padding: 20px
-        box-sizing: border-box
-        border-radius: 5px
-        header
-            width: 100%
-            @include flexColumn
-            align-items: flex-start
-            margin-bottom: 20px
-            h1,h2.name
-                margin: 0
-            span.color
+        width: 90%
+        padding-top: 0px
+        div.stats
+            display: flex
+            align-items: center
+            justify-content: space-center
+            div.col
+                box-sizing: border-box
+                width: 40%
+                &:nth-of-type(1)
+                    margin-right: 20px
+                h4
+                    font-size: 1rem
+                    margin: 0
+            span.result
                 color: $mainColor
                 font-weight: bold
-        div.img-wrap,section#dealer-reviews,a.see-profile
-            margin-top: 20px
-        div.img-wrap
-            height: 350px
+                font-size: 2rem
+                margin-top: 10px
+        //
+        div.stars
             width: 100%
-            position: relative
-            img
-                position: relative
-                z-index: 1
-                height: 100%
-                width: 100%
-            &::after,&::before
-                content: ''
-                position: absolute
-                right: -10px
-                height: 100px
-                width: 100px
-                background-color: $mainColor
-            &::after
-                bottom: -10px
-                right: -10px
-            &::before
-                left: -10px
-                top: -10px
-        section#dealer-reviews
-            @include flexColumn
-            align-items: center
-            width: 90%
-            padding-top: 0px
-            div.stats
-                display: flex
-                align-items: center
-                justify-content: space-center
-                div.col
-                    box-sizing: border-box
-                    width: 40%
-                    &:nth-of-type(1)
-                        margin-right: 20px
-                    h4
-                        font-size: 1rem
-                        margin: 0
-                span.result
-                    color: $mainColor
-                    font-weight: bold
-                    font-size: 2rem
-                    margin-top: 10px
-            //
-            div.stars
-                width: 100%
-                display: flex
-                justify-content: center
-                margin-bottom: 20px
-                h3
-                    @include flexCenter
-                    font-size: 1.2rem
-                    margin: 0 20px 0 0
-                svg
-                    font-size: 2rem
-                    color: $mainColor
-
-
+            display: flex
+            justify-content: center
+            margin-bottom: 20px
+            h3
+                @include flexCenter
+                font-size: 1.2rem
+                margin: 0 20px 0 0
+            svg
+                font-size: 2rem
+                color: $mainColor
+    a
+        @include smoothHoverReversed
+        @include buttonStyles
+        padding: 2px 10px
+        border-radius: 2px
+        align-self: flex-end
+        font-size: 1.2rem
+        text-decoration: none
+//
+//
+//
+@media screen and ( max-width: 400px )
+    section#dealer
+        div.img-wrap
+            height: 325px
         a
-            @include smoothHoverReversed
-            @include buttonStyles
-            padding: 2px 10px
-            border-radius: 2px
-            align-self: flex-end
-            font-size: 1.2rem
-            text-decoration: none
+            align-self: start
+
+@media screen and ( max-width: 370px )
+    section#dealer
+        div.img-wrap
+            height: 300px

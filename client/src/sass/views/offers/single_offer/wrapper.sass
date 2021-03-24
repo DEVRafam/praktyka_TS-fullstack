@@ -1,15 +1,49 @@
 section#display-single-offer
+    //
+    @import ./dealer
+    @import ./offer/offer
+    //
+section#display-single-offer
     display: flex
     justify-content: space-between
     align-items: flex-start
     max-width: 1400px
-    width: 95vw
+    width: 98vw
     margin: 0px auto 0 auto
     position: relative
     section#offer-data
-        width: calc(72% - 20px)
+        width: calc(100% - 420px)
+        header.main-offer-header
+            z-index: 6
+        section#content,section#recommendations
+            z-index: 5
     section#dealer
-        width: 28%
+        width: 100%
+        header,div.img-wrap,section#delaer-reviews
+            max-width: 350px
+        a
+            margin-top: 20px
+            align-self: center
     //
-    @import ./dealer
-    @import ./offer/offer
+    @media screen and ( max-width: 1200px )
+        section#offer-data
+            width: calc(100% - 370px)
+        section#dealer
+            width: 350px
+    @media screen and ( max-width: 1000px )
+        flex-direction: column
+        align-items: center
+        section#offer-data,
+        section#dealer
+            width: 100%
+        section#dealer
+            margin-top: 20px
+        section#offer-data
+            header.main-offer-header
+                z-index: 5
+            div.img-wrap
+                z-index: 6
+            section#content,section#recommendations
+                z-index: 7
+        
+   
