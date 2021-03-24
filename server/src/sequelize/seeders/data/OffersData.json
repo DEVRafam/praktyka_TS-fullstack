@@ -3,7 +3,7 @@
         "title": "Sprzedam książki profil biolchem",
         "slug": "sprzedam-ksiazki-biolchem",
         "category": "education",
-        "description": "Jebac ten profil, oddam książki w dobre, naiwne rece za nie duże pieniądze.",
+        "description": "Oddam książki w dobre, naiwne rece za nie duże pieniądze.",
         "price": 100,
         "valueInUSD": 26.07,
         "currency": "PLN",
@@ -425,5 +425,119 @@
             "2 en suite Badezimmer + ein WC",
             "Kurzfristig bezugsfertig"
         ]
+    },
+    {
+        "title": "Konsola MICROSOFT XBOX Series X",
+        "slug": "xbox-x",
+        "category": "electronic",
+        "description": "NAJPOTĘŻNIEJSZA KONSOLA XBOX W HISTORII. Xbox Series X to obecnie najszybsza i najpotężniejsza konsola Xbox w historii. Sercem konsol z serii X jest architektura Xbox Velocity, która łączy w sobie dedykowany dysk SSD i zintegrowane oprogramowanie, aby zapewnić płynną rozgrywkę i znacznie skrócić czas ładowania. REALISTYCZNE ŚWIATY Dzięki niezrównanej mocy obliczeniowej grafiki 12 teraflopów odkrywaj nowe, bogate światy i ciesz się grą jak nigdy dotąd. Architektura AMD Zen 2 i RDNA oraz śledzenie promieni DirectX zapewniają realistyczne oświetlenie, cienie i precyzyjne odbicia, tworząc dynamiczne, żywe obrazy świata. Dzielona płyta główna zastosowana po raz pierwszy w konsoli do gier umożliwia kontrolę temperatury komponentów wewnętrznych Xbox Series X, zwiększając tym samym jej wydajność. Niezwykle cichy wiatrak stanowi element architektury równoległego chłodzenia konsoli, chłodząc komponenty bez zakłócania rozgrywki",
+        "price": 2399,
+        "valueInUSD": 612,
+        "currency": "PLN",
+        "creator_id": 3,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "xbox",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["Typ konsoli Xbox Series X", "Pojemność dysku twardego 1 TB", "Gry w zestawie Brak", "Kolor Czarny"]
+    },
+    {
+        "title": "Kajak dmuchany Riviera Sevylor",
+        "slug": "kajak-pomaranczowy",
+        "category": "sport",
+        "description": "Kajakarstwo to doskonała forma spędzania wolnego czasu, a tym bardziej jeśli uwielbiasz sporty wodne. Dlatego mamy dla Ciebie kajak dmuchany Riviera stworzony przez markę Sevylor. Wykorzystane wysokiej jakości materiały sprawdzą się podczas rekreacyjnych spływów zarówno po rzekach jak i jeziorach. Natomiast specjalna konstrukcja podłogi - I-Beam zapewni Ci odpowiednią stabilność oraz wykazuje wysokie właściwości odpornościowe. Model jest również wyjątkowo lekki oraz posiada specjalne uchwyty, które ułatwią Ci przenoszenie. Natomiast po spakowaniu jego rozmiary są bardzo małe, dlatego z łatwością zmieścisz kajak do bagażnika samochodu, gdzie nie będzie zajmować sporo miejsca.",
+        "price": 850,
+        "valueInUSD": 220,
+        "currency": "PLN",
+        "creator_id": 1,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "kajak-pomaranczowy",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Wadowice",
+        "country": "Polska",
+        "advantages": ["konstrukcja podłogi: I-Beam", "materiał: wzmacniane PVC", "wymiary po napompowaniu: 312x92cm", "liczba miejsc: 2", "wyporność: 180kg", "liczba komór: 3", "liczba zaworów spustowych: 1", "wymiary po spakowaniu: 61x43x24cm"]
+    },
+    {
+        "title": "MAKITA DUB186Z DMUCHAWA AKUMULATOROWA 18V",
+        "slug": "dmuchawa-makita",
+        "category": "electronic",
+        "description": "Dmuchawa akumulatorowa zasilana akumulatorem 18 VPrzyjazna dla środowiska: o zerowej emisji zanieczyszczeń i bardzo niskim poziomie hałasuCzyszczenie antystatyczne, odkurzanie i osuszanie maszyn, urządzeń itp.Zwiększona średnica wylotu powietrza w porównaniu z poprzednim modelem DUB183, która umożliwiła uzyskanie większego natężenia oraz szybkości przepływu powietrzaRegulacja prędkości obrotowej spustem włącznika3-stopniowa regulacja siły wydmuchu za pomocą pokrętła nastawczegoMaksymalne natężenie przepływu powietrza 3,2 m3/ min. Do 16 min pracy na 1 naładowaniu akumulatora BL1850B (na biegu 3)",
+        "price": 240,
+        "valueInUSD": 62,
+        "currency": "PLN",
+        "creator_id": 1,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "dmuchawa-makita",
+        "photos": ["1.jpg", "2.jpg", "3.jpg"],
+        "localization": "Wrocław",
+        "country": "Polska",
+        "advantages": [
+            "Silnik bezszczotkowy zapewnia większą wydajność i dłuższą żywotność oraz bardziej kompaktową budowę",
+            "Dostawa w kartonie bez akumulatora, ładowarki, bez walizki",
+            "Poręczna dmuchawa z długą dmuchawą do wygodnej pracy",
+            "Przełącznik elektroniczny do bezstopniowej regulacji prędkości obrotowej",
+            "Dodatkowe 3-stopniowe koło nastawcze do stałych prędkości obrotowej"
+        ]
+    },
+    {
+        "title": "Assassin’s Creed: Valhalla",
+        "slug": "ac-valhalla",
+        "category": "computer-and-games",
+        "description": "Assassin’s Creed Valhalla wykorzystuje technologię Smart Delivery - kup grę jeden raz i graj w nią na Xbox One albo na Xbox Series X, gdy pojawi się zarówno konsola, jak i dedykowana jej wersja Assassin’s Creed Valhalla. Grasz jako zaciekły wojownik lub wojowniczka Eivor, wiking, który wychował się wśród opowieści o chwale i bitwach. Eksploruj tajemniczy i piękny, otwarty świat ukształtowany w brutalnych czasach angielskich mrocznych wieków. Najeżdżaj na swoich wrogów, rozwijaj osadę i wzmacniaj swoje wpływy polityczne, walcząc o miejsce wśród bogów w Walhalli. Assassin’s Creed Valhalla wykorzystuje technologię Smart Delivery - kup grę jeden raz i graj w nią na Xbox One albo na Xbox Series X, gdy pojawi się zarówno konsola, jak i dedykowana jej wersja Assassin’s Creed Valhalla.",
+        "price": 238,
+        "valueInUSD": 60,
+        "currency": "PLN",
+        "creator_id": 1,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "ac-valhalla",
+        "photos": ["1.jpg"],
+        "localization": "Mucharz",
+        "country": "Polska",
+        "advantages": ["OTWARTY, ŚREDNIOWIECZNY ŚWIAT", "STWÓRZ WŁASNĄ SAGĘ", "INSTYNKTOWNY SYSTEM WALKI", "PROWADŹ NAJAZDY I ZAKŁADAJ OSADY"]
+    },
+    {
+        "title": "Nauczyciel w niepublicznym przedszkolu",
+        "slug": "przedszkolanka",
+        "category": "services",
+        "description": "Poszukujemy Nauczyciela do  Przedszkola, wymagane odpowiednie kwalifikacje. Wynagrodzenie zależne od doświadczenia.  - oferta kierowana jest do osób posiadających dyplom ukończenia studiów na kierunku pedagogika, o specjalności wychowanie przedszkolne, zintegrowana edukacja przedszkolna i wczesnoszkolna lub pedagogika przedszkolna. Przysługuje prawo dostępu do treści swoich danych osobowych oraz prawo ich sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych, prawo do wniesienia sprzeciwu, prawo do cofnięcia zgody na ich przetwarzanie w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem. Przysługuje prawo wniesienia skargi na przetwarzanie danych do Prezesa Urzędu Ochrony Danych Osobowych.Dane osobowe będą przetwarzane do momentu zakończenia prowadzenia rekrutacji, nie dłużej jednak niż przez 6 miesięcy od dnia przesłania CV. Za zgodą kandydatów w okresie 2 lat od zakończenia procesu rekrutacyjnego dane osobowe będą przetwarzane w kolejnych rekrutacjach prowadzonych przez administratora danych osobowych.",
+        "price": 4000,
+        "valueInUSD": 1020,
+        "currency": "PLN",
+        "creator_id": 2,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "przedszkolanka",
+        "photos": ["1.jpg"],
+        "localization": "Zielona Góra",
+        "country": "Polska",
+        "advantages": ["3 700 - 4 000 zł/mies. brutto", "Umowa o pracę", "Pełny etat", "Zielona Góra, Lubuskie"]
+    },
+    {
+        "title": "Telewizor LG OLED 55BX3LB",
+        "slug": "lg-tv",
+        "category": "electronic",
+        "description": "IDEALNIE WYŚWIETLANY OBRAZ Telewizor LG OLED55BX3LB jest wyjątkowy dzięki technologii samo zaświecających się pikseli. Nową jakość obrazu telewizyjnego zapewnia ponad 100 milionów samo zaświecających się subpikseli. Ciesz oko najgłębszą czernią, największym bogactwem kolorów i najbardziej realistycznym obrazem. NIEZWYKŁE WRAŻENIA WIZUALNE Wydajny i inteligentny procesor α7 Gen3 może poprawić jakość sygnału z dowolnego źródła. Dzięki optymalizacji obrazu przez procesor telewizor w efekcie zapewnia doskonały obraz i dźwięk. Ciesz się najlepszym obrazem z każdego źródła.",
+        "price": 4699,
+        "valueInUSD": 1,
+        "currency": "PLN",
+        "creator_id": 1,
+        "contact": {
+            "phone": "555 111 222"
+        },
+        "folder": "lg-tv",
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+        "localization": "Wrocław",
+        "country": "Polska",
+        "advantages": ["Ekran 55\", UHD/4K, 3840 x 2160px", "Smart TV Tak", "Android TV Nie", "Dla graczy Tak", "Częstotliwość odświeżania ekranu 100 Hz", "Technologia HDR (High Dynamic Range) Tak", "Złącza HDMI x4, USB x3"]
     }
 ]
