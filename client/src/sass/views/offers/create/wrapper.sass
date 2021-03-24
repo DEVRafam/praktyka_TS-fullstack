@@ -20,6 +20,7 @@ section#create-offer
     header#main-header,div#main-content
         box-sizing: border-box
         max-width: 1400px
+        width: 98vw
         position: relative
         z-index: 1
         margin: 0 auto
@@ -41,6 +42,12 @@ section#create-offer
             font-size: 1.2rem
             letter-spacing: 5px
             border-radius: 5px
+        //
+        @media screen and ( max-width: 400px )
+            flex-direction: column
+            button
+                margin-top: 10px
+        //
     div#main-content
         div.col
             &:nth-of-type(1)
@@ -98,8 +105,11 @@ section#create-offer
                     @include spacingVertical(10px)
                     display: flex
                     width: 100%
+                    justify-content: flex-start
                     input
-                        flex-grow: 1
+                        width: calc( 100% - 270px )
+                    input[type='number']
+                        width: 185px !important
                     label
                         width: 150px
                         text-align: left
@@ -108,6 +118,7 @@ section#create-offer
                         margin-right: 10px
                         position: relative
                         padding-left: 20px
+                        box-sizing: border-box
                         &::after
                             content: ''
                             height: 12px
@@ -117,3 +128,42 @@ section#create-offer
                             top: 50%
                             background-color: $mainColor
                             position: absolute
+//
+//
+//
+@media screen and ( max-width: 1300px )
+    section#create-offer
+        div#main-content
+            div.col
+                section.field
+                    padding: 10px
+//
+@media screen and ( max-width: 1300px ) and (min-width: 1001px), (max-width: 500px)
+    section#create-offer
+        div#main-content
+            div.col
+                section.field
+                    padding: 10px
+                    div.form-group
+                        flex-wrap: wrap
+                        justify-content: space-between
+                        label
+                            width: 100%
+                        input,select
+                            margin: 5px 0 0 20px
+                        input
+                            width: calc( 100% - 130px )
+                        &.price
+                            justify-content: start
+                        &.category
+                            select
+                                width: 300px
+//
+@media screen and ( max-width: 1000px )
+    section#create-offer
+        div#main-content
+            flex-direction: column
+            div.col
+                width: 100% !important
+                
+    

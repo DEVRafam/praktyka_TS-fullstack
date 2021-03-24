@@ -2,7 +2,7 @@
     <section id="advantages" class="field">
         <header>
             <h1 class="label">Advantages:</h1>
-            <button @click="addAdvantage">Add new advantage</button>
+            <button @click="addAdvantage">Add</button>
         </header>
         <!--  -->
         <div class="advantages-list">

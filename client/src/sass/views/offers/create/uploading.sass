@@ -1,22 +1,23 @@
 section#uploading
     @include flexCenter
     width: 100%
-    height: calc( 100vh - 80px )
-   
     div.negative
         @include flexColumn
         align-items: flex-start
         padding: 20px
         box-sizing: border-box
-        width: 60%
+        width: 98vw
+        max-width: 1000px
         border-radius: 10px
         background-color: #fff
         cursor: default
         animation: fade-center .3s both
+        overflow-y: scroll
         header
             display: flex
             justify-content: space-between
             width: 100%
+            align-items: flex-start
             h1.label
                 margin: 0
                 font-size: 2rem
@@ -44,3 +45,35 @@ section#uploading
                 left: 10px
                 top: 50%
                 background-color: $red
+    //
+    //
+    //
+    @media screen and ( min-width: 1001px )
+        height: calc( 100vh - 150px )
+        overflow: hidden
+        div.negative
+            @include innerScrollbar(12px,$red)
+            overflow-y: scroll
+            height: 85%
+    //
+    @media screen and ( max-width: 600px )
+        div.negative
+            padding: 10px
+    @media screen and ( max-width: 500px )
+        div.negative
+            header
+                display: flex
+                flex-direction: column-reverse
+                align-items: center
+                button
+                    align-self: flex-end
+                    margin-bottom: 10px
+            div.single-error
+                padding-left: 0
+                padding-top: 30px
+                text-align: center
+                width: 100%
+                &::after
+                    top: 25px
+                    left: 50%
+                    transform: translateX(-50%) rotate(45deg)

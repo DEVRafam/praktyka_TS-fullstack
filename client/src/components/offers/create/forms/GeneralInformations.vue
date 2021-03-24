@@ -5,12 +5,11 @@
         <!--  -->
         <div class="form-group">
             <label for="title">Title: </label>
-            <input type="text" id="title" v-model="data.title" />
+            <input type="text" id="title" v-model="data.title" placeholder="Enter title here..." />
             <LengthNotification propname="title"></LengthNotification>
-            <strong class="error"></strong>
         </div>
         <!--  -->
-        <div class="form-group">
+        <div class="form-group category">
             <label for="category">Category: </label>
             <select id="category" v-model="data.category">
                 <option v-for="category in categoriesList" :key="category.val" :value="category.val">{{ category.label }}</option>
@@ -19,7 +18,7 @@
         <!--  -->
         <div class="form-group price">
             <label for="price">Price: </label>
-            <input type="number" id="price" v-model="data.price" />
+            <input type="number" id="price" v-model="data.price" placeholder="Enter price here..." />
             <select v-model="data.currency" id="currency">
                 <option v-for="currency in availableCurrencies" :key="currency" :value="currency">{{ currency }}</option>
             </select>
@@ -27,13 +26,13 @@
         <!--  -->
         <div class="form-group">
             <label for="localization">Localization: </label>
-            <input type="text" id="localization" v-model="data.localization" />
+            <input type="text" id="localization" v-model="data.localization" placeholder="Enter localization here..." />
             <LengthNotification propname="localization"></LengthNotification>
         </div>
         <!--  -->
         <div class="form-group">
             <label for="country">Country: </label>
-            <input type="text" id="country" v-model="data.country" />
+            <input type="text" id="country" v-model="data.country" placeholder="Enter country here..." />
             <LengthNotification propname="country"></LengthNotification>
         </div>
         <!--  -->
