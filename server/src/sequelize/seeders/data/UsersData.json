@@ -8,11 +8,11 @@
         "avatar": "kacper_admin_avatar.jpg"
     },
     {
-        "name": "Tadeusz",
-        "surname": "Rydzyk",
-        "email": "tadziu_r@lp.pl",
+        "name": "Hubert",
+        "surname": "Urbanski",
+        "email": "milionerzy@lp.pl",
         "password": "zaq123",
-        "avatar": "ojciec_dyrektor.jpg"
+        "avatar": "hubert.jpg"
     },
     {
         "name": "Adam",
@@ -27,11 +27,11 @@
         "password": "zaq123"
     },
     {
-        "name": "Kaja",
-        "surname": "Godek",
-        "email": "kaja_godek@lp.pl",
+        "name": "Magda",
+        "surname": "Gessler",
+        "email": "kuchenne_rewolucje@lp.pl",
         "password": "zaq123",
-        "avatar": "kaja_godek.jpg"
+        "avatar": "madzia.jpg"
     },
     {
         "name": "Donald",

@@ -186,7 +186,102 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("8. Unlogged user can not delete offer", async (done) => {
+    it("8. User should be able to change status of his offer", async (done) => {
+        const where = { title: offerData.title, description: offerData.description };
+        const offer = await Offer.findOne({ where });
+        const { status } = await (global as any).request
+            .post(`/api/offer/${offer.id}/change-status`)
+            .set({
+                Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            })
+            .send({ status: "SOLD" });
+        //
+        expect(status).toEqual(200);
+        expect((await Offer.findOne({ where })).status).toEqual("SOLD");
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("9. User should not be able to change status of someone others offer", async (done) => {
+        const where = { title: offerData.title, description: offerData.description };
+        const offer = await Offer.findOne({ where });
+        const { status } = await (global as any).request
+            .post(`/api/offer/${offer.id}/change-status`)
+            .set({
+                Authorization: `Bearer ${loggedUsers.common.accessToken}`,
+            })
+            .send({ status: "HIDDEN" });
+        //
+        expect(status).toEqual(401);
+        expect((await Offer.findOne({ where })).status).toEqual(offer.status);
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("10. Admin should be able to change status of any offer", async (done) => {
+        const where = { title: offerData.title, description: offerData.description };
+        const offer = await Offer.findOne({ where });
+        //
+        await offer.update({ creator_id: loggedUsers.common.id });
+        //
+        const { status } = await (global as any).request
+            .post(`/api/offer/${offer.id}/change-status`)
+            .set({
+                Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            })
+            .send({ status: "HIDDEN" });
+        //
+        expect(status).toEqual(200);
+        expect((await Offer.findOne({ where })).status).toEqual("HIDDEN");
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("11. User should not be able to ban his own offer", async (done) => {
+        const where = { title: offerData.title, description: offerData.description };
+        const offer = await Offer.findOne({ where });
+        //
+        const { status } = await (global as any).request
+            .post(`/api/offer/${offer.id}/change-status`)
+            .set({
+                Authorization: `Bearer ${loggedUsers.common.accessToken}`,
+            })
+            .send({ status: "BANNED" });
+        //
+        expect(status).toEqual(401);
+        expect((await Offer.findOne({ where })).status).not.toEqual("BANNED");
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("12. Admin should be able to ban any offer", async (done) => {
+        const where = { title: offerData.title, description: offerData.description };
+        const offer = await Offer.findOne({ where });
+        //
+        const { status } = await (global as any).request
+            .post(`/api/offer/${offer.id}/change-status`)
+            .set({
+                Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            })
+            .send({ status: "BANNED" });
+        //
+        expect(status).toEqual(200);
+        expect((await Offer.findOne({ where })).status).toEqual("BANNED");
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("13. Unlogged user can not delete offer", async (done) => {
         const { status } = await (global as any).request.delete(`/api/offer/1`);
         expect(status).toEqual(401);
         //
@@ -195,7 +290,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("9. Unlogged user can not add offer", async (done) => {
+    it("14. Unlogged user can not add offer", async (done) => {
         const { status } = await createOffer("");
         expect(status).toEqual(401);
         //
@@ -204,7 +299,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("10. Trying to delete unexisting offer should return code 404", async (done) => {
+    it("15. Trying to delete unexisting offer should return code 404", async (done) => {
         const { status } = await (global as any).request.delete(`/api/offer/3123121`).set({
             Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
         });
@@ -215,7 +310,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("11. Validators should return 400 code while trying to create offer with invalid data", async (done) => {
+    it("16. Validators should return 400 code while trying to create offer with invalid data", async (done) => {
         const { body } = await (global as any).request
             .post("/api/offer")
             .set({
@@ -266,7 +361,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("12. Trying to fetch offer with status different than DEFAULT should retrun 404", async (done) => {
+    it("17. Trying to fetch offer with status different than DEFAULT should retrun 404", async (done) => {
         await Offer.create({
             id: 5000,
             title: "Sprzedam komputer",
@@ -299,7 +394,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("13. Admin should be allowed to fetch any kind of offer", async (done) => {
+    it("18. Admin should be allowed to fetch any kind of offer", async (done) => {
         const { status } = await (global as any).request.get("/api/offer/dadasdasdasdasdasd").set({
             Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
         });
@@ -310,7 +405,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("14. Offer's owner should be allowed to fetch his offer", async (done) => {
+    it("19. Offer's owner should be allowed to fetch his offer", async (done) => {
         const { status } = await (global as any).request.get("/api/offer/dadasdasdasdasdasd").set({
             Authorization: `Bearer ${loggedUsers.common.accessToken}`,
         });
@@ -321,7 +416,7 @@ describe("Offers creating, deleting, and fetching data", () => {
     //
     //
     //
-    it("15. Random should not be allowed to fetch offer with status different than DEFAULT", async (done) => {
+    it("20. Random should not be allowed to fetch offer with status different than DEFAULT", async (done) => {
         await Offer.update({ creator_id: loggedUsers.admin.id }, { where: { id: 5000 } });
         //
         const { status } = await (global as any).request.get("/api/offer/dadasdasdasdasdasd").set({

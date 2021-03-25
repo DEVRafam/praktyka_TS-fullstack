@@ -18,7 +18,7 @@
         "reviewer_id": 4
     },
     {
-        "explanation": "Kultralny, przystojny kawaler. Nie kazał mi wyp*erdalac.",
+        "explanation": "Kultralny, przystojny kawaler. #besos",
         "score": 5,
         "dealer_id": 1,
         "reviewer_id": 5
@@ -42,7 +42,7 @@
         "reviewer_id": 8
     },
     {
-        "explanation": "Wszystko ok, polecam! Cała kuria zachwycona, ministerstwo kultury odpali gaże, bezdomny przywiezie",
+        "explanation": "Wszystko ok, polecam! Jeden telefon do kolegi i auto sprzedane, nie potrzebna była pomoc publiczności.",
         "score": 4.9,
         "dealer_id": 1,
         "reviewer_id": 2
@@ -66,8 +66,8 @@
         "reviewer_id": 1
     },
     {
-        "explanation": "Chciala mi zabrac prawa do negocjacji ceny.",
-        "score": 3,
+        "explanation": "Piekna, wysublimowana, intrygujaca aranzacja restauracji, ale Pani Madzia jeszcze lepsza, besos!",
+        "score": 4,
         "dealer_id": 5,
         "reviewer_id": 1
     },
