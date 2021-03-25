@@ -7,5 +7,5 @@ to the moon 🚀🚀
 ###### Home Page
 
 1. **Searching bar**
-   ![Searching bar working method gif](https://i.imgur.com/GOs3Nxo.mp4)
    You are able to fillter offers by their translated
+   [1]: <https://i.imgur.com/GOs3Nxo.mp4> "Searching bar working method gif"
