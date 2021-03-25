@@ -10,7 +10,8 @@ section#register
     overflow: hidden
     div.box
         position: relative
-        width: 600px
+        width: 100vw
+        max-width: 600px
         height: 600px
         div.content
             @include absoluteFull
@@ -21,7 +22,8 @@ section#register
             display: flex
             flex-direction: column
             justify-content: flex-end
-            
+            padding: 10px
+            box-sizing: border-box
             section.form
                 display: flex
                 flex-direction: column
@@ -100,3 +102,35 @@ section#register
                     text-decoration: none
                     letter-spacing: 2px
                     font-weight: bold
+//
+//
+//
+@media screen and ( max-width: 600px )
+    section#login
+         div.box
+            div.content
+                justify-content: center
+    section#register
+         div.box
+            div.content
+                justify-content: flex-start
+    section#login,
+    section#register
+        align-items: flex-start
+        div.box
+            height: auto
+            div.content
+                min-height: calc( 100vh - 75px )
+                height: auto
+                position: relative
+                section.form
+                    div.form-group
+                        flex-wrap: wrap
+                        label
+                            width: 100%
+                            justify-content: flex-start
+                            padding-left: 50px
+                            box-sizing: border-box
+                            margin-bottom: 10px
+                        button
+                            height: 40px

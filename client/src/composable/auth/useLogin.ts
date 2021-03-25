@@ -7,12 +7,12 @@ import { LocalStorageUser, Errors, LoginResponse, LoginBody } from "@/@types/aut
 //
 //
 //
-const email = ref<string>("jebac_gorzen@gmail.com");
-const password = ref<string>("qwertyjebacgorzen");
+const email = ref<string>("kacper_ksiazek1@gmail.com");
+const password = ref<string>("qwertyszkolagorzen");
 const errors = ref<Errors>([]);
 //
 const credentialsErrorMessage = computed<string | boolean>(() => {
-    if (errors.value === "credentials_do_not_match") return "Either email or password is invalid!";
+    if (errors.value === "credentials_do_not_match") return "Either email or password doesn't match!";
     else return false;
 });
 //

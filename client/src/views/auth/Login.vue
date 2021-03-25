@@ -59,7 +59,6 @@ export default defineComponent({
         async login() {
             const { handleLogin } = useLogin;
             await handleLogin();
-            this.$router.back();
             await deepAuthenticate();
         }
     }
