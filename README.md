@@ -8,7 +8,6 @@ to the moon 🚀🚀
 
 [Open](https://i.imgur.com/GOs3Nxo.mp4) 📈 Home page gif, that presents apparence and core functions
 
-```
 1. **Searching bar**
     - You are able to filter offers by:
         - Price (automatically translated into USD)
@@ -23,7 +22,6 @@ to the moon 🚀🚀
     - Offers can be deleted by his either his owner or admin
     - Clicking offers image will redirect you to certain offer subpage
     - Clicking offers category label will redirect you to home page with category filter set to clicked category
-```
 
 ## 🚀 User profile
 
