@@ -29,7 +29,6 @@ to the moon 🚀🚀
 
 [Open](https://i.imgur.com/2M6hxs7.mp4) 📈 User profile gif, that presents apparence and core functions
 
-```
 1. **User account management section**
     - Accessable only by profile owner or any admin
     - Place from where account can be deleted or avatar can be changed
@@ -39,13 +38,11 @@ to the moon 🚀🚀
 5. **Offers list**
     - Profile owner and admins are able to inspect offers and be redirected to a offers management subpage
     - Clicking offers image will redirect you to certain offer subpage
-```
 
 ## 🎉Single Offer
 
 [Open](https://i.imgur.com/a61BnaU.mp4) 📈 Single offer gif, that presents apparence and core functions
 
-```
 1. **Offer status management bar**
     - Is visible only for user authorized as either offer owner or admin
     - Only admins have access to banning offer button
@@ -56,19 +53,16 @@ to the moon 🚀🚀
     - esc- close modal
 3. **Recommendations at bottom**
     - Recommendations based on category can not include current offer or any other offer from current offer creator
-```
 
 ## ✔ Change offer status
 
 [Open](https://i.imgur.com/GX8kwEi.mp4) 📈 Change offer status gif, that presents apparence and core functions
 
-```
 1. **Each offer has DEFAULT status by default**
 2. **Status is type ENUM("DEFAULT","BANNED","HIDDEN","SOLD")**
 3. **The only difference so far between HIDDEN and SOLD is label color**
     - There is nice place for further logic expansion, we're able to compare amount of sold, hidden, baned and active offer at different charts
 4. **BANNED status can be setted only by admin**
-```
 
 ## ⚙ Offers management
 
