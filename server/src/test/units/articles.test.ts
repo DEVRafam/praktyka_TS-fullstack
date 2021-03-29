@@ -1,10 +1,12 @@
 import path from "path";
 import fs from "fs";
 import fse from "fs-extra";
+//
 import { Article, User } from "../../services/Models";
 import { loggedUsers, usersData } from "../assets/user/data";
 import { articleData } from "../assets/article/data";
 import { LoginResponse } from "../../@types/auth";
+import { createArticle } from "../helpers/createArticle";
 //
 const articleUploadPath = path.join(__dirname, "..", "..", "..", "upload", "articles");
 //
@@ -67,19 +69,7 @@ describe("Articles creating, deleting, and fetching data", () => {
     it("1. Logged user should be able to create an article", async (done) => {
         expect(await Article.findOne({ where: { title: articleData.title } })).toBeNull();
         //
-        const headers = {
-            Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
-            Accept: "application/json",
-        };
-        const { status } = await (global as any).request
-            .post("/api/article")
-            .set(headers) //
-            .field("title", articleData.title)
-            .field("mentioned_offers", JSON.stringify(articleData.mentioned_offers))
-            .field("content", JSON.stringify(articleData.content))
-            .field("tags", JSON.stringify(articleData.tags))
-            .field("photos", JSON.stringify(articleData.photos))
-            .attach("img1.jpg", path.join(__dirname, "..", "assets", "article", "sample_1.jpg"));
+        const { status } = await createArticle(loggedUsers.common.accessToken);
         //
         expect(status).toEqual(201);
         //
@@ -91,16 +81,69 @@ describe("Articles creating, deleting, and fetching data", () => {
         done();
     });
     //
+    //
+    //
     it("2. Unlogged user should not be allowed to create an offer", async (done) => {
-        const { status } = await (global as any).request
-            .post("/api/article") //
-            .field("title", articleData.title)
-            .field("mentioned_offers", JSON.stringify(articleData.mentioned_offers))
-            .field("content", JSON.stringify(articleData.content))
-            .field("tags", JSON.stringify(articleData.tags))
-            .field("photos", JSON.stringify(articleData.photos))
-            .attach("img1.jpg", path.join(__dirname, "..", "assets", "article", "sample_1.jpg"));
+        const { status } = await createArticle("");
         expect(status).toEqual(401);
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("3. Article owner should be able to delete it", async (done) => {
+        const article = await Article.findOne({ where: { title: articleData.title } });
+        expect(article).not.toBeNull();
+        expect(fs.existsSync(path.join(articleUploadPath, article.folder))).not.toBeFalsy();
+        //
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.common.accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.delete(`/api/article/${article.id}`).set(headers);
+        //
+        expect(status).toEqual(200);
+        expect(await Article.findOne({ where: { title: articleData.title } })).toBeNull();
+        expect(fs.existsSync(path.join(articleUploadPath, article.folder))).toBeFalsy();
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("4. Admin should be able to delete any article", async (done) => {
+        await createArticle(loggedUsers.common.accessToken);
+        const article = await Article.findOne({ where: { title: articleData.title } });
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.delete(`/api/article/${article.id}`).set(headers);
+        //
+        expect(status).toEqual(200);
+        expect(await Article.findOne({ where: { title: articleData.title } })).toBeNull();
+        expect(fs.existsSync(path.join(articleUploadPath, article.folder))).toBeFalsy();
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("5. User can not delete someone others article", async (done) => {
+        await createArticle(loggedUsers.admin.accessToken);
+        const article = await Article.findOne({ where: { title: articleData.title } });
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.common.accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.delete(`/api/article/${article.id}`).set(headers);
+        //
+        expect(status).toEqual(401);
+        expect(await Article.findOne({ where: { title: articleData.title } })).not.toBeNull();
+        expect(fs.existsSync(path.join(articleUploadPath, article.folder))).not.toBeFalsy();
+
+        mocks.push({ model: "Article", id: article.id, folder: article.folder });
         //
         done();
     });
