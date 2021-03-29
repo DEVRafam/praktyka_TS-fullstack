@@ -117,3 +117,36 @@ export const SetReviewErrorMessages = {
         "string.min": "Explanation must be at least {#limit} characters long",
     },
 };
+//
+export const CreateArticleErrorMessages = {
+    title: {
+        "string.empty": "Article title is required!",
+        "string.max": "Article title can be maximum {#limit} characters long",
+        "string.min": "Article title must be at least {#limit} characters long",
+        "any.required": "Article title is required!",
+    },
+    content: {
+        "any.required": "Mentioned offers list is required!",
+        "object.unknown": "Content object contains unknown property- {#label}",
+        "string.min": "Value must be at least {#limit} characters long",
+        "string.max": "Value must be at least {#limit} characters long",
+    },
+    mentioned_offers: {
+        "any.required": "Mentioned offers list is required!",
+        "any.empty": "Mentioned offers list is required!",
+        "array.min": "At least {#limit} offer id must be passed",
+        "array.max": "List can be maximum {#limit} elements long",
+    },
+    tags: {
+        "any.required": "Tags is required!",
+        "array.min": "At least {#limit} tag must be passed",
+        "array.max": "Tags list can be maximum {#limit} elements long",
+        "string.min": "Single tag must be at least {#limit} characters long",
+        "string.max": "Single tag can be maximum {#limit} characters long",
+    },
+    photos: {
+        "string.empty": "At least one photo is required!",
+        "array.min": "At least one photo is required!",
+        "any.required": "At least one photo is required!",
+    },
+};

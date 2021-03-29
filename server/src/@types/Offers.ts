@@ -19,7 +19,7 @@ export type GetSingleRequest = OptionalAuthorized & Request<{ slug: string }>;
 //
 //
 //
-interface Create_BODY {
+interface CreateBody {
     title: string;
     category: OfferCategory;
     description: string;
@@ -31,7 +31,7 @@ interface Create_BODY {
     localization: string;
     advantages: string;
 }
-export type CreateRequest = Authorized & Request<{}, {}, Create_BODY>;
+export type CreateRequest = Authorized & Request<{}, {}, CreateBody>;
 export type DeleteRequest = Authorized & Request<{ id: number }>;
 export type FollowRequest = Authorized & Request<{ id: number }>;
 export type RecommendationsRequest = Request<{ slug: string }>;

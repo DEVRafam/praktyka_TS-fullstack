@@ -174,7 +174,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
                 Authorization: `Bearer ${accessToken}`,
                 Accept: "application/json",
             }) //
-            .attach("avatar", path.join(__dirname, "..", "assets", "avatar.jpg"));
+            .attach("avatar", path.join(__dirname, "..", "assets", "user", "avatar.jpg"));
         //
         expect(status).toEqual(200);
         // check if avatar was saved insinde avatas directory
@@ -196,7 +196,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
                 Authorization: `Bearer ${accessToken}`,
                 Accept: "application/json",
             }) //
-            .attach("avatar", path.join(__dirname, "..", "assets", "avatar.jpg"));
+            .attach("avatar", path.join(__dirname, "..", "assets", "user", "avatar.jpg"));
         //
         expect(status).toEqual(401);
         expect(await User.findOne({ where: { id: OTHER_USER_ID } }).avatar).toBeFalsy();
@@ -216,7 +216,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
                 Authorization: `Bearer ${accessToken}`,
                 Accept: "application/json",
             }) //
-            .attach("avatar", path.join(__dirname, "..", "assets", "avatar.jpg"));
+            .attach("avatar", path.join(__dirname, "..", "assets", "user", "avatar.jpg"));
         //
         expect(status).toEqual(200);
         const otherUser = await User.findOne({ where: { id: OTHER_USER_ID } });
@@ -236,7 +236,7 @@ describe("User's register/login/authenticate/avatar changing/account deleting", 
                 Authorization: `Bearer ${accessToken}`,
                 Accept: "application/json",
             }) //
-            .attach("avatar", path.join(__dirname, "..", "assets", "avatar.jpg"));
+            .attach("avatar", path.join(__dirname, "..", "assets", "user", "avatar.jpg"));
         //
         expect(status).toEqual(404);
         //

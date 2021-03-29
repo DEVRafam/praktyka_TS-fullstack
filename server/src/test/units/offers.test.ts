@@ -2,7 +2,8 @@ import path from "path";
 import fs from "fs";
 import fse from "fs-extra";
 import { User, Offer, Follow } from "../../services/Models";
-import { offerData, loggedUsers, usersData } from "../assets/offer/data";
+import { offerData } from "../assets/offer/data";
+import { loggedUsers, usersData } from "../assets/user/data";
 import { LoginResponse } from "../../@types/auth";
 import { createOffer } from "../helpers/createOffer";
 //
