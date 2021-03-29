@@ -36,7 +36,11 @@ class GetManyOffersController {
                 const where = {
                     status: "DEFAULT",
                     category: category,
-                    [Op.or]: [{ title: { [Op.iLike]: `%${search}%` } }, { description: { [Op.iLike]: `%${search}%` } }],
+                    [Op.or]: [
+                        { title: { [Op.iLike]: `%${search}%` } },
+                        { description: { [Op.iLike]: `%${search}%` } },
+                        { localization: { [Op.iLike]: `%${search}%` } }, //
+                    ],
                 };
                 //
                 if (category === undefined) delete where.category;

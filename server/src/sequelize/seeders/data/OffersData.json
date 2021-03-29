@@ -535,7 +535,7 @@
             "phone": "555 111 222"
         },
         "folder": "lg-tv",
-        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"],
+        "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
         "localization": "Wrocław",
         "country": "Polska",
         "advantages": ["Ekran 55\", UHD/4K, 3840 x 2160px", "Smart TV Tak", "Android TV Nie", "Dla graczy Tak", "Częstotliwość odświeżania ekranu 100 Hz", "Technologia HDR (High Dynamic Range) Tak", "Złącza HDMI x4, USB x3"]
