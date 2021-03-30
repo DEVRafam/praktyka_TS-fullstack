@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import fse from "fs-extra";
 //
-import { Article, User } from "../../services/Models";
+import { Article, User, HighligtedArticle } from "../../services/Models";
 import { loggedUsers, usersData } from "../assets/user/data";
 import { articleData } from "../assets/article/data";
 import { LoginResponse } from "../../@types/auth";
@@ -94,8 +94,10 @@ describe("Articles creating, deleting, and fetching data", () => {
     //
     it("3. Article owner should be able to delete it", async (done) => {
         const article = await Article.findOne({ where: { title: articleData.title } });
+        await HighligtedArticle.create({ article_id: article.id });
         expect(article).not.toBeNull();
         expect(fs.existsSync(path.join(articleUploadPath, article.folder))).not.toBeFalsy();
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).not.toBeNull();
         //
         const headers = {
             Authorization: `Bearer ${loggedUsers.common.accessToken}`,
@@ -105,7 +107,9 @@ describe("Articles creating, deleting, and fetching data", () => {
         //
         expect(status).toEqual(200);
         expect(await Article.findOne({ where: { title: articleData.title } })).toBeNull();
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).toBeNull();
         expect(fs.existsSync(path.join(articleUploadPath, article.folder))).toBeFalsy();
+
         //
         done();
     });
@@ -144,6 +148,88 @@ describe("Articles creating, deleting, and fetching data", () => {
         expect(fs.existsSync(path.join(articleUploadPath, article.folder))).not.toBeFalsy();
 
         mocks.push({ model: "Article", id: article.id, folder: article.folder });
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("6. Trying to delete unexisting article should throw 404", async (done) => {
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.delete(`/api/article/${64364}`).set(headers);
+        expect(status).toEqual(404);
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("7. Admin should be able to highlight and unhighlight an article", async (done) => {
+        const article = await Article.findOne({ where: { title: articleData.title } });
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            Accept: "application/json",
+        };
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).toBeNull();
+        //
+        // highlight
+        //
+        const { status: highlightStatus } = await (global as any).request.post(`/api/article/${article.id}/highlight`).set(headers);
+        expect(highlightStatus).toEqual(200);
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).not.toBeNull();
+        //
+        // unhighlight
+        //
+        const { status: unhighlightStatus } = await (global as any).request.post(`/api/article/${article.id}/highlight`).set(headers);
+        expect(unhighlightStatus).toEqual(200);
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).toBeNull();
+        //
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("8. User should not be allowed to highlight an offer", async (done) => {
+        const article = await Article.findOne({ where: { title: articleData.title } });
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.common.accessToken}`,
+            Accept: "application/json",
+        };
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).toBeNull();
+        //
+        const { status } = await (global as any).request.post(`/api/article/${article.id}/highlight`).set(headers);
+        expect(status).toEqual(401);
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).toBeNull();
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("9. Unlogged user should not be allowed to highlight an offer", async (done) => {
+        const article = await Article.findOne({ where: { title: articleData.title } });
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).toBeNull();
+        //
+        const { status } = await (global as any).request.post(`/api/article/${article.id}/highlight`);
+        expect(status).toEqual(401);
+        expect(await HighligtedArticle.findOne({ where: { article_id: article.id } })).toBeNull();
+        //
+        done();
+    });
+    //
+    //
+    //
+    it("10. Trying to highlight unexisting article should throw 404", async (done) => {
+        const headers = {
+            Authorization: `Bearer ${loggedUsers.admin.accessToken}`,
+            Accept: "application/json",
+        };
+        const { status } = await (global as any).request.post(`/api/article/${75756}/highlight`).set(headers);
+        expect(status).toEqual(404);
         //
         done();
     });

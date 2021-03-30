@@ -23,7 +23,7 @@ class DeleteArticleController {
         await HighligtedArticle.destroy({ where: { article_id: this.article.id } });
         await this.article.destroy();
     }
-    protected async findOffer() {
+    protected async findArticle() {
         this.article = await Article.findOne({ where: { id: this.req.params.id } });
         return this.article;
     }
@@ -33,7 +33,7 @@ class DeleteArticleController {
     async main(req: DeleteRequest, res: Response) {
         try {
             this.req = req;
-            if (!(await this.findOffer())) return res.sendStatus(404);
+            if (!(await this.findArticle())) return res.sendStatus(404);
             //
             if (this.userIsOwner() || this.userIsAdmin()) {
                 await this.handleDelete();

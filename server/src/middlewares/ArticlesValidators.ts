@@ -1,5 +1,6 @@
 import Joi from "joi";
 import { Response, NextFunction } from "express";
+import { Article } from "../services/Models";
 import BetterJoiError from "../helpers/betterJoiErorr";
 import { CreateArticleErrorMessages } from "../i18n/eng";
 import { CreateArticleRequest } from "../@types/articles";
@@ -51,4 +52,12 @@ export const CreateNewArticleValidator = (req: CreateArticleRequest, res: Respon
             errors: BetterJoiError(error),
         });
     } else next();
+};
+//
+// req is type of  HighlightArticleRequest from @types/articles/
+// but we cann not use it right there, becouse typescript compilator would go crazy
+export const HighlightArticleValidator = async (req: any, res: Response, next: NextFunction) => {
+    if (req.authorizedToken.role !== "ADMIN") return res.sendStatus(401);
+    if (!(await Article.findOne({ where: { id: req.params.id } }))) return res.sendStatus(404);
+    next();
 };
