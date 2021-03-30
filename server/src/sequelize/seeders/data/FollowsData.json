@@ -10,5 +10,9 @@
     {
         "user_id": 1,
         "offer_id": 3
+    },
+    {
+        "user_id": 1,
+        "offer_id": 20
     }
 ]

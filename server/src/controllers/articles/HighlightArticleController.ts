@@ -1,5 +1,4 @@
 import { Response } from "express";
-//
 import { HighlightArticleRequest } from "../../@types/articles";
 import { HighligtedArticle } from "../../services/Models";
 //
