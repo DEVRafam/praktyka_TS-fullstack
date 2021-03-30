@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
-import path from "path";
 import { GetSingleRequest, OfferSchema } from "../../@types/Offers";
 import { Offer, User, Review, Follow } from "../../services/Models";
 import { Response } from "express";
-const { access_secret } = require(path.join(__dirname, "..", "..", "config", "config")).tokens;
+import { tokens } from "../../config/config";
+const { access_secret } = tokens;
 //
 class GetSingleOfferController {
     protected req: GetSingleRequest;

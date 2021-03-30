@@ -32,5 +32,7 @@ module.exports = {
         access_expiration: env("ACCESS_TOKEN_EXPIRATION", "15m"),
         refresh_expiration: env("REFRESH_TOKEN_EXPIRATION", "3h"),
     },
+    ARTICLES_PER_PAGE: env("ARTICLES_PER_PAGE", 5),
+    OFFERS_PER_PAGE: env("OFFERS_PER_PAGE", 10),
     APP_PORT: env("APP_PORT", 3000),
 };

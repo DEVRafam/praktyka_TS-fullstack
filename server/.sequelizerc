@@ -1,5 +1,5 @@
 const path = require("path");
-const { database } = require(path.join(__dirname, "src", "config", "config"));
+const { database } = require(path.join(__dirname, "src", "config", "config_base"));
 //
 module.exports = {
     url: database.url,

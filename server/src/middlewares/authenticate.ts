@@ -1,10 +1,10 @@
-import path from "path";
 import jwt from "jsonwebtoken";
 import { User } from "../services/Models";
 import { Request, Response, NextFunction } from "express";
 import { VerifyErrors } from "jsonwebtoken";
 import { AuthorizedRequest } from "../@types/authenticate";
-const { access_secret } = require(path.join(__dirname, "..", "config", "config")).tokens;
+import { tokens } from "../config/config";
+const { access_secret } = tokens;
 //
 //
 //

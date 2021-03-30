@@ -1,7 +1,6 @@
-import path from "path";
 import jwt from "jsonwebtoken";
-const config = require(path.join(__dirname, "..", "config", "config"));
-const { access_secret, refresh_secret, access_expiration, refresh_expiration } = config.tokens;
+import { tokens } from "../config/config";
+const { access_secret, refresh_secret, access_expiration, refresh_expiration } = tokens;
 //
 type TokenType = "ACCESS" | "REFRESH";
 //

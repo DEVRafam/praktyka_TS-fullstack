@@ -1,7 +1,9 @@
-import { GetAllRequest } from "../../@types/Offers";
-import { Offer, User, Follow } from "../../services/Models";
 import { Response } from "express";
 import { Op } from "sequelize";
+//
+import { GetAllRequest } from "../../@types/Offers";
+import { Offer, User, Follow } from "../../services/Models";
+import { OFFERS_PER_PAGE } from "../../config/config";
 //
 class GetManyOffersController {
     protected req: GetAllRequest;
@@ -52,7 +54,7 @@ class GetManyOffersController {
         };
     }
     protected handlePagination() {
-        const limit = this.req.query.limit || 10;
+        const limit = this.req.query.limit || OFFERS_PER_PAGE;
         const page = this.req.query.page || 1;
         //
         return {

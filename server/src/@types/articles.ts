@@ -11,6 +11,8 @@ interface CreateArticleBodyRequest {
 }
 export type CreateArticleRequest = Authorized & Request<{}, {}, CreateArticleBodyRequest>;
 //
+// SINGLE ARTICLE
+//
 export type GetSingleArticleRequest = Request<{ slug: string }>;
 export type GetSingleArticleResponse = {
     id: number;
@@ -23,6 +25,14 @@ export type GetSingleArticleResponse = {
         offer?: OfferSchema;
     }[];
 };
+//
+// MANY ARTICLE
+//
+interface GetManyArticlesQueries {
+    limit: number | undefined;
+    page: number | undefined;
+}
+export type GetManyArticlesRequest = Request<{}, {}, {}, GetManyArticlesQueries>;
 //
 export type DeleteRequest = Authorized & Request<{ id: number }>;
 export type HighlightArticleRequest = Authorized & Request<{ id: number }>;

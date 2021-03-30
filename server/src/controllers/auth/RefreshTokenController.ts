@@ -12,8 +12,8 @@ import { VerifyErrors } from "jsonwebtoken";
 import generateJWT from "../../helpers/generateJWT";
 import { JWTUser } from "../../helpers/generateJWT";
 import { User } from "../../services/Models";
-import path from "path";
-const { refresh_secret } = require(path.join(__dirname, "..", "..", "config", "config")).tokens;
+import { tokens } from "../../config/config";
+const { refresh_secret } = tokens;
 //
 //
 //

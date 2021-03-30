@@ -35,6 +35,48 @@
             }
         ],
         "folder": "wielkanocTI2021",
-        "tags": ["Wielkanoc", "Easter", "Technik informatyk", "Porażka życiowa"]
+        "tags": ["Wielkanoc", "Easter", "Technik informatyk", "Porażka życiowa", "Wiosna"]
+    },
+    {
+        "title": "Wiosenna oferta nieruchomości 2021",
+        "slug": "wiosenne-nieruchomosci-2021",
+        "mentioned_offers": [],
+        "creator_id": 1,
+        "content": [
+            {
+                "type": "header",
+                "value": "Kup se nowy dom"
+            },
+            {
+                "type": "text",
+                "value": "Nieruchomościami są części powierzchni ziemskiej stanowiące odrębny przedmiot własności (grunty), jak również budynki trwale z gruntem związane lub części takich budynków, jeżeli na mocy przepisów szczególnych stanowią odrębny od gruntu przedmiot własności”[1]. Wyodrębnienie nieruchomości winno się odbyć pod względem prawnym (własnościowym) i fizycznym (w odniesieniu do gruntów – geodezyjnym)."
+            },
+            {
+                "type": "mention_offer",
+                "offer_id": 22
+            },
+            {
+                "type": "text",
+                "value": "W myśl zapisów art. 24 ust. 1 ustawy o księgach wieczystych i hipotece, „nieruchomością jest część powierzchni ziemskiej, dla której urządzono księgę wieczystą”[2]. Fakt utworzenia dla nieruchomości odrębnej księgi wieczystej jest wymogiem formalnym jej wyodrębnienia. „Księgi wieczyste prowadzi się w celu ustalenia stanu prawnego nieruchomości”[3]. Jednak, w ramach jednej księgi wieczystej mogą być ujawnione działki, które niekoniecznie muszą spełniać warunki określone w przytoczonym powyżej art. 46 § 1 k.c. Podstawą oznaczenia nieruchomości w księdze wieczystej są dane katastru nieruchomości[4]."
+            },
+            {
+                "type": "image",
+                "value": "img1.jpg"
+            },
+            {
+                "type": "text",
+                "value": "Podstawowym rodzajem nieruchomości są nieruchomości gruntowe (grunty), którymi są części powierzchni ziemskiej stanowiące odrębny przedmiot własności. Znajdujące się na nich i trwale z nimi związane budynki, inne urządzenia i rośliny, jak również prawa związane z własnością nieruchomości są częściami składowymi danej nieruchomości gruntowej. Mogą być przedmiotem odrębnej własności jako nieruchomości lokalowe. Paremia łacińska superficies solo cedit oznacza, iż w razie sporu domniemywa się, iż budynek posadowiony przez osobę niebędącą właścicielem na cudzym gruncie należy do właściciela gruntu. Od zasady tej istnieją wyjątki. Jako osobne od gruntu nieruchomości mogą zostać wyodrębnione budynki (nieruchomość budynkowa) lub części takich budynków (lokale – nieruchomość lokalowa) – w przypadkach i na zasadach określonych w odrębnych przepisach. Wtedy stanowią odrębny od gruntu przedmiot własności. Z nieruchomościami budynkowymi i lokalowymi jest związana przymusowa współwłasność nieruchomości gruntowej, na której są posadowione właściwe budynki. W Polsce występują jedynie wyżej opisane nieruchomości."
+            },
+            {
+                "type": "list",
+                "value": ["Nieruchomości gruntowe", "Nieruchomość rolna", "Nieruchomość leśna", "Nieruchomości budynkowe", "Nieruchomości lokalowe", "Zakup nieruchomości"]
+            },
+            {
+                "type": "mention_offer",
+                "offer_id": 9
+            }
+        ],
+        "folder": "wiosenne_nieruchomosci",
+        "tags": ["Nieruchomości", "Wiosna"]
     }
 ]
