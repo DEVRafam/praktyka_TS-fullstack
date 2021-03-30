@@ -1,10 +1,10 @@
 import { Response } from "express";
 import { Op } from "sequelize";
-import { GetSingleArticleRequest, GetSingleArticleResponse } from "../../@types/articles";
+import { GetSingleArticleRequest, ArticleSchema } from "../../@types/articles";
 import { Article, Follow, Offer, User } from "../../services/Models";
 //
 class GetSingleArticleController {
-    protected response: GetSingleArticleResponse;
+    protected response: ArticleSchema;
     protected excludes = {
         fromArticle: ["createdAt", "creator_id"],
         fromCreator: ["updatedAt", "createdAt", "tokens", "password"],

@@ -1,6 +1,7 @@
+import { Response } from "express";
+//
 import { GetManyArticlesRequest } from "../../@types/articles";
 import { Article, User } from "../../services/Models";
-import { Response } from "express";
 import { ARTICLES_PER_PAGE } from "../../config/config";
 //
 class GetManyArticlesController {
@@ -8,7 +9,6 @@ class GetManyArticlesController {
     protected excludes = {
         fromArticle: ["createdAt", "creator_id", "mentioned_offers"],
         fromCreator: ["createdAt", "updatedAt", "tokens", "password", "contact", "email"],
-        fromFollows: ["createdAt", "updatedAt", "offer_id"],
     };
     // helpers
     protected handlePagination() {
