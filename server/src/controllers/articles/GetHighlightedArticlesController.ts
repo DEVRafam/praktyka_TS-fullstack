@@ -4,7 +4,7 @@ import { GetHighlightedArticlesRequest, ArticleSchema } from "../../@types/artic
 import { Article, User, HighligtedArticle } from "../../services/Models";
 import { HIGHLIGHTED_ARTICLES_AMOUNT } from "../../config/config";
 //
-class GetHighlightedArticles {
+class GetHighlightedArticlesController {
     protected req: GetHighlightedArticlesRequest;
     protected excludes = {
         fromArticle: ["createdAt", "creator_id", "mentioned_offers"],
@@ -49,4 +49,4 @@ class GetHighlightedArticles {
         }
     }
 }
-export default new GetHighlightedArticles();
+export default new GetHighlightedArticlesController();
