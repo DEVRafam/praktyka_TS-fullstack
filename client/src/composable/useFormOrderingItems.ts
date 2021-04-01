@@ -1,5 +1,5 @@
 import { computed } from "vue";
-//
+// eslint-disable-next-line
 export default (index: number, collection: any) => {
     const _move = (secondItemIndex: number) => {
         const current = JSON.parse(JSON.stringify(collection[index]));
@@ -13,7 +13,6 @@ export default (index: number, collection: any) => {
     };
     const moveDown = () => {
         if (index !== collection.length - 1) _move(index + 1);
-        //
     };
     const moveUpAccess = computed<boolean>(() => index !== 0);
     const moveDownAccess = computed<boolean>(() => index !== collection.length - 1);
