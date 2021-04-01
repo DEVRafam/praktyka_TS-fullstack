@@ -1,0 +1,43 @@
+section#create-article
+    section#fields
+        div.field.mention
+            @include flexColumn(true)
+            div.single-offer
+                width: 1000px
+                display: flex
+                justify-content: space-between
+                margin-bottom: 20px
+                div.content
+                    width: calc(100% - 250px)
+                    @include flexColumn
+                    align-items: flex-start
+                    h3,p
+                        text-align: left
+                    h3
+                        margin: 0
+                    p
+                        text-align: left
+                a.img
+                    width: 230px
+                    height: 150px
+                    div.img
+                        background-color: #fff
+                        position: relative
+                        cursor: pointer
+                        width: 100%
+                        height: 100%
+                        div.one,div.two
+                            @include absoluteFull
+                            background-size: contain
+                            background-position: center
+                            background-repeat: no-repeat
+                            transition: opacity .3s
+                            opacity: 1
+                        div.two
+                            opacity: 0
+                        &.hoverable
+                            &:hover
+                                div.one
+                                    opacity: 0
+                                div.two
+                                    opacity: 1

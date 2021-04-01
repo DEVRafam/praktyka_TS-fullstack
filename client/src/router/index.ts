@@ -1,15 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { authenticateGuard } from "./_guards";
 //
 import Home from "../views/Home.vue";
 import Page404 from "@/views/404.vue";
-import SingleOffer from "@/views/SingleOffer.vue";
 import Profile from "@/views/Profile.vue";
-import Following from "@/views/Following.vue";
-import CreateOffer from "@/views/CreateOffer.vue";
-import Management from "@/views/Management.vue";
 //
 import auth from "./auth";
+import offer from "./offer";
+import article from "./article";
 //
 const routes: Array<RouteRecordRaw> = [
     {
@@ -23,34 +20,13 @@ const routes: Array<RouteRecordRaw> = [
         component: Home
     },
     {
-        path: "/offer/:slug",
-        name: "SingleOffer",
-        component: SingleOffer
-    },
-    {
         path: "/profile/:id",
         name: "UserProfile",
         component: Profile
     },
-    {
-        path: "/following",
-        name: "Following",
-        component: Following,
-        beforeEnter: authenticateGuard
-    },
-    {
-        path: "/offer/dealer/:id",
-        name: "Management",
-        component: Management,
-        beforeEnter: authenticateGuard
-    },
-    {
-        path: "/create-offer",
-        name: "CreateOffer",
-        component: CreateOffer,
-        beforeEnter: authenticateGuard
-    },
-    ...auth
+    ...auth,
+    ...offer,
+    ...article
 ];
 
 const router = createRouter({
