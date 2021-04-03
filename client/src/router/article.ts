@@ -4,7 +4,7 @@ import CreateArticle from "@/views/articles/CreateArticle.vue";
 export default [
     {
         path: "/create-article",
-        name: "CreateOffer",
+        name: "CreateArticle",
         component: CreateArticle,
         beforeEnter: authenticateGuard
     }

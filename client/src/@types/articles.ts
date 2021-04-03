@@ -11,4 +11,5 @@ export interface CreateArticleBody {
     title: string;
     mentioned_offers: number[];
     content: ArticleContentField[];
+    tags: string[];
 }

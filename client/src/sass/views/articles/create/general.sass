@@ -1,0 +1,64 @@
+section#general-information
+    position: sticky
+    top: 75px
+    border-top: 20px solid #eee
+    header#main-header
+        @include flexColumn
+        align-items: flex-start
+        h1
+            font-size: 2.5rem
+            margin: 0
+        button
+            @include spacingHorizontal
+            padding: 3px 10px
+            font-size: 1rem
+            letter-spacing: 2px
+            cursor: pointer
+            &.dark
+                @include smoothHoverReversed($mainColorDark)
+            &.green
+                @include smoothHoverReversed($green)
+            &.red
+                @include smoothHoverReversed($red)
+        div.buttons-wrap,
+        div.reset-confirmation
+            width: 100%
+            display: flex
+            align-items: center
+            justify-content: space-between
+        div.reset-confirmation
+            h3
+                letter-spacing: 2px
+                margin: 0
+                font-weight: normal
+    header#main-header,
+    section#title-form
+        background-color: #fff
+        padding: 20px
+        box-sizing: border-box
+        border-radius: 5px
+        margin-bottom: 20px
+    section#title-form
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        letter-spacing: 2px
+        label
+            display: flex
+            align-items: center
+            width: 60px
+            text-align: left
+            margin: 0
+        textarea
+            @include coloredFocus
+            @include innerScrollbar
+            width: calc( 100% - 80px )
+            padding: 3px 10px
+            box-sizing: border-box
+            letter-spacing: 2px
+            font-size: 1rem
+            resize: none
+        span.length-notification
+            width: 100%
+            margin-top: 10px
+            text-align: right

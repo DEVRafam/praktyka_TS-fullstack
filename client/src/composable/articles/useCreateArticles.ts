@@ -1,28 +1,31 @@
-import { ref, watch } from "vue";
-import { CreateArticleBody } from "@/@types/articles";
-const LOCALSTORAGE_KEY = "create_article";
+import { ref } from "vue";
+import { CreateArticleBody, ArticleContentType } from "@/@types/articles";
+// helpers
+import addNewContentFieldHelper from "./create_article_helpers/addNewContentField";
+import localStorageManagement from "./create_article_helpers/localStorageManagement";
+import resetsHelper from "./create_article_helpers/resets";
+import DataRestrictionsHelper from "./create_article_helpers/restrictions";
+import contentScrollingHelper from "./create_article_helpers/contentScrolling";
+import photosHelper from "./create_article_helpers/photos";
+//
+// PREPARE DATA
 //
 export const data = ref<CreateArticleBody>({
     title: "",
     mentioned_offers: [],
-    content: []
+    content: [],
+    tags: []
 });
 //
-export const photos = ref<{ [key: string]: File }>({});
-export const photosURLS = ref<{ [key: string]: string }>({});
+// USE HELPERS
 //
-watch(
-    data,
-    val => {
-        localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(val));
-    },
-    { deep: true }
-);
-const articleFromLocalStorage: CreateArticleBody = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY) as string);
-if (articleFromLocalStorage) {
-    data.value.title = articleFromLocalStorage.title;
-    data.value.mentioned_offers = articleFromLocalStorage.mentioned_offers;
-    data.value.content = articleFromLocalStorage.content;
-}
+localStorageManagement(data.value);
+export const { resetContent, resetData } = resetsHelper(data.value);
+export const { dataRestrictions } = DataRestrictionsHelper;
+export const { contentFieldScroll } = contentScrollingHelper;
+export const { photos, photosURLS } = photosHelper;
+export const addNewContentField = (type: ArticleContentType) => addNewContentFieldHelper(data.value)(type);
 //
-export default { data, photos, photosURLS };
+//
+//
+export default { data, photos, photosURLS, resetData, addNewContentField, contentFieldScroll, resetContent, dataRestrictions };

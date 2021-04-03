@@ -8,7 +8,8 @@
 import { defineComponent, PropType, computed, watch } from "vue";
 import useCreateOffer from "@/composable/offers/useCreateOffer";
 import { CreateOfferBody } from "@/@types/Offer";
-import { Restrictions, Restriction } from "@/composable/offers/useCreateOffer";
+import { Restrictions } from "@/composable/offers/useCreateOffer";
+import { Restriction } from "@/@types/general";
 //
 export default defineComponent({
     props: {

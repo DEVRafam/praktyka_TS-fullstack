@@ -1,10 +1,8 @@
 <template>
     <div class="single-item">
-        <span class="number">{{ inListIndex + 1 }}</span>
-        <textarea v-model="field.value[inListIndex]"></textarea>
-        <button @click="moveUp" :disabled="!moveUpAccess">Move up</button>
-        <button @click="moveDown" :disabled="!moveDownAccess">Move down</button>
-        <button @click="removeItemFromList(index)">Delete</button>
+        <textarea v-model="field.value[inListIndex]" placeholder="Enter content here..." :maxlength="dataRestrictions.content.listItem.max"></textarea>
+        <button @click="removeItemFromList(index)" v-if="inListIndex !== 0">Delete</button>
+        <LengthNotification :value="field.value[inListIndex]" :restrictions="dataRestrictions.content.listItem"></LengthNotification>
     </div>
 </template>
 
@@ -12,8 +10,12 @@
 import { defineComponent, PropType } from "vue";
 import { ArticleContentField } from "@/@types/articles";
 import useFormOrderingItems from "@/composable/useFormOrderingItems";
+import useCreateArticles from "@/composable/articles/useCreateArticles";
+//
+import LengthNotification from "../../../_LengthNotification.vue";
 //
 export default defineComponent({
+    components: { LengthNotification },
     props: {
         field: {
             type: Object as PropType<ArticleContentField>,
@@ -25,12 +27,13 @@ export default defineComponent({
         }
     },
     setup(props) {
+        const { dataRestrictions } = useCreateArticles;
         const addItemToList = () => (props.field.value as string[]).push("");
         const removeItemFromList = (index: number) => (props.field.value as string[]).splice(index, 1);
         const { moveUp, moveDown, moveUpAccess, moveDownAccess } = useFormOrderingItems(props.inListIndex, props.field.value);
 
         //
-        return { addItemToList, removeItemFromList, moveUp, moveDown, moveUpAccess, moveDownAccess };
+        return { dataRestrictions, addItemToList, removeItemFromList, moveUp, moveDown, moveUpAccess, moveDownAccess };
     }
 });
 </script>

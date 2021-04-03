@@ -1,27 +1,39 @@
 <template>
     <div class="field mention">
-        <Manager :index="index" label="Mention offer"></Manager>
+        <Manager :index="index" label="Mention offer">
+            <template v-if="offerIsSelected">
+                <router-link :to="{ path: `/offer/${field._offer_data.slug}` }" target="_blank">Open in new tab</router-link>
+                <button @click="clearSelectedOffer" class="dark">Clear</button>
+            </template>
+            <input type="text" placeholder="Search for an offer..." v-model="searchingPhrase" v-else />
+        </Manager>
         <!--  -->
-        <template v-if="!Object.keys(field._offer_data).length">
-            <input type="text" placeholder="Search for an offer..." v-model="searchingPhrase" />
-            <div class="search-result">
+        <!-- SELECTED OFFER -->
+        <!--  -->
+        <SingleOffer v-if="offerIsSelected" :offer="field._offer_data" :field="field" class="selected"></SingleOffer>
+        <!--  -->
+        <!-- SEARCHING RESULTS -->
+        <!--  -->
+        <div class="search-result" v-else-if="searchingPhrase">
+            <template v-if="searchResult.length">
                 <SingleOffer v-for="(offer, index) in searchResult" :offer="offer" :key="index" :field="field"></SingleOffer>
-            </div>
-        </template>
-        <!--  -->
-        <template v-else>
-            <header class="selected-offer">
-                <h3>Selected offer</h3>
-                <button @click="clearSelectedOffer">Clear</button>
-            </header>
-            <SingleOffer :offer="field._offer_data" :field="field"></SingleOffer>
-        </template>
+            </template>
+            <!-- NO RESULTS -->
+            <h3 class="no-results" v-else>
+                <template v-if="searchingPhrase">
+                    <font-awesome-icon icon="times-circle"></font-awesome-icon>
+                    <span>There are no results that whould contain phrase </span>
+                    <span class="color" v-text="searchingPhrase"></span>
+                </template>
+            </h3>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import axios from "axios";
-import { defineComponent, PropType, ref, watch } from "vue";
+import { computed, defineComponent, PropType, ref, watch } from "vue";
+import useCreateArticles from "@/composable/articles/useCreateArticles";
 import { ArticleContentField } from "@/@types/articles";
 import { Offer } from "@/@types/Offer";
 import { API_ADDRESS } from "@/composable/env";
@@ -42,10 +54,15 @@ export default defineComponent({
         }
     },
     setup(props) {
+        const { contentFieldScroll } = useCreateArticles;
         const searchingPhrase = ref<string>("");
         const searchResult = ref<Offer[]>([]);
+        //
+        const offerIsSelected = computed<boolean>(() => !!Object.keys(props.field._offer_data as never).length);
+        //
         watch(searchingPhrase, async val => {
             if (val) {
+                contentFieldScroll(props.index);
                 const { data } = await axios.get(`${API_ADDRESS}/api/offer?search=${val}&limit=3`);
                 searchResult.value = data.rows;
             }
@@ -55,7 +72,7 @@ export default defineComponent({
             props.field._offer_data = {};
         };
         //
-        return { searchingPhrase, searchResult, clearSelectedOffer };
+        return { searchingPhrase, searchResult, clearSelectedOffer, offerIsSelected };
     }
 });
 </script>

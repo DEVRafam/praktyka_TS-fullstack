@@ -1,12 +1,11 @@
 <template>
     <div class="field image">
         <Manager :index="index" label="Image"></Manager>
-        <!-- <img :src="photosURLS[field.value]"  /> -->
-        <img :src="photosURLS[field.value]" style="width: 300px" />
+        <img :src="photosURLS[field.value]" v-if="photosURLS[field.value]" />
         <input type="file" accept="image/x-png,image/jpeg" style="display:none" ref="inp-photos" @change="saveImage" />
         <div class="buttons-wrap">
             <button @click="$refs['inp-photos'].click()">{{ buttonMessage }}</button>
-            <button @click="() => (modalIndex = true)">Zoom</button>
+            <button @click="() => (modalIndex = true)" v-if="photosURLS[field.value]">Zoom</button>
         </div>
         <!--  -->
         <!--  -->
@@ -42,12 +41,12 @@ export default defineComponent({
         if (!photosURLS.value[this.field.value as string]) (this.$refs["inp-photos"] as HTMLInputElement).click();
     },
     setup(props) {
-        const { photos, photosURLS } = useCreateArticles;
+        const { photos, photosURLS, contentFieldScroll } = useCreateArticles;
         const modalIndex = ref<boolean>(false);
-        //
         const buttonMessage = computed<string>(() => {
             return photos.value[props.field.value as string] ? "Change image" : "Add image";
         });
+        //
         const saveImage = (e: InputFile) => {
             const imageIndex = props.field.value as string;
             const image = e.target.files[0];
@@ -58,6 +57,7 @@ export default defineComponent({
             reader.readAsDataURL(image);
             reader.onload = e => {
                 if (e.target) photosURLS.value[imageIndex] = e.target.result as string;
+                contentFieldScroll(props.index, "BOTTOM");
             };
         };
         //

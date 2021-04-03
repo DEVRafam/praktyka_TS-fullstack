@@ -1,19 +1,22 @@
 <template>
     <section id="content">
-        <h1>Content</h1>
-        <AddNewField></AddNewField>
-        <!--  -->
-        <DisplayFields></DisplayFields>
-        <!--  -->
+        <ContentFieldsManager></ContentFieldsManager>
+        <DisplayFields v-if="data.content.length"></DisplayFields>
+        <h3 id="content-is-blank" v-else>The content of article is currently empty</h3>
     </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import AddNewField from "./AddNewField.vue";
+import ContentFieldsManager from "./ContentFieldsManager.vue";
 import DisplayFields from "./DisplayFields.vue";
+import useCreateArticles from "@/composable/articles/useCreateArticles";
 //
 export default defineComponent({
-    components: { AddNewField, DisplayFields }
+    components: { ContentFieldsManager, DisplayFields },
+    setup() {
+        const { data } = useCreateArticles;
+        return { data };
+    }
 });
 </script>

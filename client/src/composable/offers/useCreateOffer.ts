@@ -1,12 +1,9 @@
 import { ref, watch } from "vue";
 import { CreateOfferBody, OfferCurrency } from "@/@types/Offer";
 import { JoiError } from "@/@types/joiError";
+import { Restriction } from "@/@types/general";
 const LOCALSTORAGE_KEY = "create_offer";
 //
-export interface Restriction {
-    min: number;
-    max: number;
-}
 export interface Restrictions {
     description: Restriction;
     title: Restriction;

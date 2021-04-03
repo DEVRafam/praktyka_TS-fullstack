@@ -4,7 +4,7 @@
         <div class="content">
             <h3>{{ offer.title }}</h3>
             <p>{{ offer.description.slice(0, 200) }}</p>
-            <button @click="setOfferAsMentioned">Choose</button>
+            <span class="select" @click="setOfferAsMentioned"></span>
         </div>
     </div>
 </template>

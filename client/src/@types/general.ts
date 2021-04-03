@@ -3,3 +3,8 @@ export interface InputFile extends InputEvent {
         files: FileList;
     };
 }
+//
+export interface Restriction {
+    min: number;
+    max: number;
+}

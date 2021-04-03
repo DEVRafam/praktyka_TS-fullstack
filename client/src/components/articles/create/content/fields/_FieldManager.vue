@@ -1,16 +1,19 @@
 <template>
     <header class="field-manager">
-        <h2 class="label" v-text="label"></h2>
+        <h2 class="label">
+            <span>Field type: </span>
+            <span class="type" v-text="label"></span>
+        </h2>
         <!--  -->
-        <div class="buttons">
-            <button @click="moveUp" :disabled="!moveUpAccess">Move up</button>
-            <button @click="moveDown" :disabled="!moveDownAccess">Move down</button>
-            <button @click="deleteConfirmation = true">Remove</button>
+        <div class="buttons" v-if="!deleteConfirmation">
+            <slot></slot>
+            <button class="delete" @click="deleteConfirmation = true">Remove</button>
         </div>
         <!--  -->
-        <div class="delete-confiriamtion" v-if="deleteConfirmation">
-            <button @click="handleFieldRemove">Confirm</button>
-            <button @click="deleteConfirmation = false">Cancel</button>
+        <div class="delete-confiriamtion buttons" v-if="deleteConfirmation">
+            <h4>Are you sure?</h4>
+            <button @click="handleFieldRemove" class="dark">Confirm</button>
+            <button @click="deleteConfirmation = false" class="delete">Cancel</button>
         </div>
     </header>
 </template>
